@@ -21,7 +21,8 @@
   pointer-events: none;
 }
 
-@media (max-width: 600px) {
+/* 📱 MOBILE ONLY (phones, not tablets) */
+@media (max-width: 480px) and (orientation: portrait) {
   #loading-screen {
     background-size: 90%;
     background-position: center 55%;
