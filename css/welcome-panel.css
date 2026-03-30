@@ -311,87 +311,19 @@
 
 @media (max-width: 768px) {
 
-  /* RESET THE WHOLE AREA */
-  #homepage,
+  /* SCALE WHOLE HOMEPAGE */
   .homepage-inner {
-    width: 100%;
+    transform: scale(0.5);
+    transform-origin: top left;
+    width: 200%;
+  }
+
+  /* prevent cutoff */
+  #homepage {
     overflow-x: hidden;
   }
 
-  /* PANELS SCALE INSTEAD OF FIXED WIDTH */
-  .welcome-bg-panel,
-  .homepage-bg-panel {
-    position: relative !important;
-    width: 92% !important;
-    height: auto !important;
-    left: auto !important;
-    top: auto !important;
-    margin: 20px auto !important;
-  }
-
-  /* MAIN PANEL */
-  #welcome-panel {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    top: auto !important;
-    left: auto !important;
-    padding: 20px !important;
-  }
-
-  /* STACK LAYOUT */
-  #welcome-left,
-  #welcome-right {
-    position: relative !important;
-    width: 100% !important;
-    left: auto !important;
-    top: auto !important;
-  }
-
-  #welcome-right {
-    margin-top: 25px;
-  }
-
-  /* FIX ALL ABSOLUTE CHILD ELEMENTS */
-  #welcome-left * ,
-  #welcome-right * {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-  }
-
-  /* IMAGE CENTER */
-  #welcome-image {
-    margin: 0 auto 15px auto;
-  }
-
-  /* TEXT CLEANUP */
-  .welcome-paragraph {
-    width: 100% !important;
-    margin-bottom: 12px;
-  }
-
-  /* TITLE FIX */
-  #homepage-title {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: scale(0.85);
-    text-align: center;
-    margin: 10px 0 20px 0;
-  }
-
-  /* LINKS */
-  #welcome-links {
-    width: 100% !important;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-
-
 }
-
 
 
 
