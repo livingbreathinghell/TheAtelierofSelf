@@ -6,7 +6,9 @@
   background-image: url("../loading.gif");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+
+  /* 🔥 THIS IS THE KEY FIX */
+  background-size: min(90vw, 500px);
 
   z-index: 9999;
 
@@ -21,10 +23,10 @@
   pointer-events: none;
 }
 
-/* 📱 MOBILE ONLY (phones, not tablets) */
-@media (max-width: 480px) and (orientation: portrait) {
+/* 📱 extra tweak for small phones */
+@media (max-width: 480px) {
   #loading-screen {
-    background-size: 90%;
+    background-size: 85vw;
     background-position: center 55%;
   }
 }
