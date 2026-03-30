@@ -38,15 +38,6 @@
   "month": "03",
   "homepage": true
 },
-{
-  "file": "AshtonsTarotSequence.html",
-  "date": "2026-03-21",
-  "time": "4:12",
-  "category": "tarot",
-  "subcategory": "readings",
-  "month": "general",
-  "homepage": true
-},
 
 {
   "file": "sailors-drawing.html",
@@ -67,15 +58,7 @@
   "month": "major",
   "homepage": true
 },
-     {
-      "file": "march/2026-3-11-Dream.html",
-      "date": "2026-03-11",
-      "time": "1:05",
-      "category": "dream",
-      "subcategory": "year-2026",
-      "month": "03",
-      "homepage": true
-    },
+    
      {
       "file": "march/2026-3-8-Journal.html",
       "date": "2026-03-05",
@@ -163,15 +146,6 @@
       "time": "04:01",
       "category": "astrology",
       "subcategory": "degrees",
-      "month": "01",
-      "homepage": true
-    },
-    {
-      "file": "natal/celebrity/katseye-natal-reading.html",
-      "date": "2026-01-15",
-      "time": "4:24",
-      "category": "astrology",
-      "subcategory": "readings",
       "month": "01",
       "homepage": true
     },
