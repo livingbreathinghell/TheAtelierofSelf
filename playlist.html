@@ -1,0 +1,40 @@
+<div class="playlist-container" id="playlist-player">
+
+  <div class="playlist-top-header">playlist</div>
+
+  <div class="playlist-main">
+
+    <div class="playlist-video-wrapper">
+      <!-- VISUAL VIDEO -->
+      <video autoplay muted loop playsinline>
+        <source src="media/audio/visualizers/tornadovid.mp4" type="video/mp4">
+      </video>
+
+      <!-- REAL AUDIO PLAYER -->
+      <audio id="playlist-audio" preload="auto"></audio>
+
+      <!-- CONTROLS -->
+      <div class="playlist-controls">
+        <button type="button" id="prev-track">⟨</button>
+        <button type="button" id="play-pause">▶</button>
+        <button type="button" id="next-track">⟩</button>
+      </div>
+
+      <!-- LED STATUS -->
+      <div class="playlist-leds">
+        <span></span>
+        <span class="active"></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="playlist-queue">
+      <div class="active">01 — TORNADO</div>
+    </div>
+
+  </div>
+
+  <!-- DECOR -->
+  <img src="media/audio/covers/audiodecor/star-outline.png" class="playlist-corner-png" alt="">
+
+</div>
