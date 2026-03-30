@@ -1,3 +1,31 @@
+
+/* ==========================================================
+   GLOBAL LAYOUT STABILITY FIX (MOBILE + VIEWPORT)
+========================================================== */
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent weird mobile zoom + positioning glitches */
+body {
+  position: relative;
+}
+
+/* Universal centering helper (optional but powerful) */
+.centered {
+  display: grid;
+  place-items: center;
+}
+
+
+
+
+
+
+
 /* ==========================================================
    GLOBAL / BODY STYLES
 ========================================================== */
