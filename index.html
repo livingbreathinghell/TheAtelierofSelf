@@ -140,8 +140,19 @@
 
 
   <script>
-    window.addEventListener("load", () => {
+window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+
+  setTimeout(() => {
+    loadingScreen.classList.add("fade-out");
+
+    setTimeout(() => {
+      loadingScreen.remove();
       document.body.classList.add("loaded");
+    }, 600); //
+
+  }, 2000); //
+});
     });
   </script>
 
