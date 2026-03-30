@@ -40,12 +40,8 @@ HOMEPAGE TITLE
 ======================= */
 
 #homepage-title {
-  position: absolute;
 
   /* 👇 POSITIONED TO SIT ON PANEL */
-  
-
-
   position: absolute;
   top: 210px;
   left: 40px;
@@ -321,7 +317,7 @@ opacity: 0.7;
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 
   #homepage {
     overflow-x: hidden;
@@ -329,11 +325,10 @@ opacity: 0.7;
 
   .homepage-inner {
     position: absolute;
-
-    top: 60px;   /* 👈 pushes everything DOWN */
+    top: 40px;   /* softer offset */
     left: 0px;
 
-    transform: scale(0.50); /* 👈 slightly smaller */
+    transform: scale(0.50);
     transform-origin: top left;
 
     width: 1000px;
