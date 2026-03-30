@@ -1,0 +1,506 @@
+/* =======================
+   HOMEPAGE TITLE
+======================= */
+
+#homepage-title {
+  position: absolute;
+
+  /* 👇 MOVE CONTROLS */
+  top: 560px;        /* move up/down */
+  left:35px;       /* move left/right */
+
+  /* 👇 SCALE CONTROL */
+  --title-scale: 0.8;  /* 0.8 / 1 / 1.2 etc */
+  transform: scale(var(--title-scale));
+  transform-origin: top left;
+
+  z-index: 10;
+  pointer-events: none;
+
+  /* ✨ typography */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 300;
+
+  color: rgba(255, 255, 255, 0.70);
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* STAR STYLING */
+#homepage-title .star {
+  margin-right: 0em;
+  opacity: 0.7;
+}
+
+
+/* ===============================
+   CATEGORY RECENT POSTS DIVIDER
+   =============================== */
+
+.recent-divider {
+  text-align: center;
+  margin: 60px 0 30px 0;
+  position: relative;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba(234, 234, 234, 0.85);
+
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  letter-spacing: 1px;
+
+  transition: all 0.3s ease;
+}
+
+.recent-divider span {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(234,234,234,0.5);
+}
+
+
+/* ==========================================================
+   HEADER / TOP BAR
+========================================================== */
+.header-container {
+  width: 100%;
+  background-color: #2a2a35; /* darker, still lighter than pure black background */
+  color: #f5f5f5; /* light text for contrast */
+  text-align: center;
+  padding: 6px 0; /* smaller vertical padding */
+  font-size: 1.3rem; /* slightly smaller text */
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); /* subtler shadow */
+  letter-spacing: 1px;
+}
+.top-bar {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  overflow: visible;
+  margin-top: 7px; /* add space below header */
+}
+
+/* ==========================
+   TOP LEFT IMAGE CONTROLS
+========================== */
+.top-left {
+  position: relative;
+}
+
+.top-left img {
+  --img-scale: 1;      /* 👈 scale control */
+  width: 130px;
+  transform: scale(var(--img-scale));
+  transform-origin: top left;
+
+  position: relative;
+  top: 5px;            /* 👈 move up/down */
+  left: 15px;           /* 👈 move left/right */
+
+  transition: transform 0.2s ease;
+}
+.top-center {
+  flex: 1 1 auto;
+  margin: 8px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  z-index: 20;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* ==========================
+   TOP CENTER WIDTH + POSITION CONTROL
+========================== */
+.top-center {
+  max-width: 640px;     /* 👈 width knob */
+
+  position: relative;  /* 👈 allows top/left movement */
+  top: 0px;            /* 👈 move up/down */
+  left: 10px;           /* 👈 move left/right */
+
+  margin: 8px auto 0 auto; /* 👈 keeps it centered unless you offset it */
+
+  transition: all 0.25s ease;
+}
+
+/* ==========================================================
+   CATEGORY ROW / BUTTONS / SCROLL
+========================================================== */
+.category-row, .category-buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.category-scroll-container { flex: 1; overflow: hidden; min-width: 0; }
+
+.category-buttons {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding: 4px 2px;
+}
+
+.category-buttons::-webkit-scrollbar { display: none; }
+.category-buttons { scrollbar-width: none; }
+
+.category-scroll-arrow {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  opacity: 0.7;
+  transition: 0.2s ease;
+  flex-shrink: 0;
+}
+
+.category-scroll-arrow:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.15);
+  color: #FFD6A7;
+}
+
+.category-btn {
+  background: #2a2a35;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 12px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: 0.2s ease;
+}
+
+.category-btn:hover { background: #3a3a4a; }
+
+.subcategory-btn, .month-btn {
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.subcategory-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+.subcategory-btn:hover,
+.subcategory-btn.active { background: rgba(255,255,255,0.18); color: #FFD6A7; }
+
+.month-btn { background: none; border: none; color: #fff; padding: 2px 6px; }
+.month-btn:hover,
+.month-btn.active { color: #FFD6A7; }
+
+#subcategory-row, #month-row { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 2px; }
+#subcategory-row:empty, #month-row:empty { display: none; }
+
+/* ==========================================================
+   PAGE CONTAINER
+========================================================== */
+.page-container {
+  max-width: 1500px;
+  margin: 25px auto 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+/* ==========================
+   COLLAPSIBLE HEADERS
+========================== */
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  margin: 6px 0;
+
+  position: relative;
+  z-index: 2;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.collapsible-header > :not(.arrow) {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.collapsible-header .arrow {
+  margin-left: auto;
+  opacity: 0.7;
+  font-size: 0.8em;
+  transition: transform 0.25s ease;
+}
+
+.collapsible-header.active .arrow {
+  transform: rotate(90deg);
+}
+
+
+/* ==========================
+   COLLAPSIBLE PANEL (CORE)
+========================== */
+.collapsible-panel {
+  overflow: hidden;
+
+  /* JS controls height */
+  height: 0;
+
+  /* KEEP padding static */
+  padding: 0 16px;
+
+  margin: 6px 0 12px 0;
+  background: #1c1c28;
+  border-radius: 8px;
+
+  line-height: 1.5;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+
+  /* ONLY animate height */
+  transition: height 0.3s ease;
+  will-change: height;
+}
+
+/* inner spacing (safe) */
+.panel-inner {
+  padding: 10px 0;
+  display: flow-root;  /* ADD THIS LINE */
+}
+
+/* Force spacing fix for perma-open panels */
+.zodiac-section.perma-open > .collapsible-panel > .panel-inner {
+  padding-top: 16px !important;
+  overflow: hidden;
+}
+
+.zodiac-section.perma-open > .collapsible-panel > .panel-inner > *:first-child {
+  margin-top: 0 !important;
+}
+
+
+/* ==========================
+   NESTED COLLAPSIBLES
+========================== */
+.collapsible-panel .collapsible-panel {
+  height: 0;
+  padding: 0 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+
+  background: #1c1c28;
+
+  font-size: 0.85rem;
+  line-height: 1.4;
+
+  transition: height 0.3s ease;
+}
+
+
+/* ==========================
+   PERMA-OPEN SECTIONS
+========================== */
+.zodiac-section.perma-open > .collapsible-panel {
+  height: auto !important;
+  overflow: visible !important;
+  transition: none !important;
+}
+
+
+.zodiac-section.perma-open > .collapsible-header {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+
+.zodiac-section.perma-open .arrow {
+  display: none;
+}
+
+
+/* ==========================
+   PANEL BANNER (UNCHANGED)
+========================== */
+.panel-banner {
+  width: calc(100% + 32px);
+  height: 84px;
+  margin: 0 -16px 18px -16px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255,255,255,0.03);
+}
+
+.panel-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+}
+
+.panel-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(28,28,40,0.15),
+    rgba(28,28,40,0.55)
+  );
+  pointer-events: none;
+}
+
+
+/* ==========================
+   ZODIAC PANEL WRAPPER
+========================== */
+.zodiac-panel {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  font-style: italic;
+  font-family: inherit;
+
+  /* IMPORTANT */
+  overflow: visible;
+  height: auto;
+
+  padding: 0 12px;
+  margin: 0;
+  border-radius: 6px;
+
+  background: #1c1c28;
+}
+
+
+/* ==========================
+   ZODIAC GRID (UNCHANGED)
+========================== */
+.zodiac-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+
+.zodiac-grid button {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  background: #1c1c28;
+  color: #fff;
+  border: 1px solid rgba(230,230,240,0.3);
+  border-radius: 6px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.zodiac-grid button:hover {
+  background: #2a2a38;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.zodiac-grid button.active {
+  background: #323248;
+  border-color: rgba(230,230,240,0.6);
+}
+
+
+/* ==========================
+   TITLES
+========================== */
+.zodiac-title {
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1rem;
+
+  margin: 16px 0 12px 0;
+  padding-bottom: 4px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.zodiac-categories {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.70rem;
+
+  margin: -4px 0 12px 0;
+  letter-spacing: 0.5px;
+}
+/* ==========================
+   POST TAGS
+========================== */
+.astrology-post .post-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-btn {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: #FFD6A7;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-btn:hover {
+  background: #FFD6A7;
+  color: #151520;
+}
+
+#mini-view-container {
+  order: 1; /* left */
+}
+
+#playlist-container {
+  order: 2; /* right */
+}
+

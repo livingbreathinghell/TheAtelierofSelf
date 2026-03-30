@@ -1,0 +1,229 @@
+/* ====== CONTAINER ====== */
+.playlist-container {
+  position: relative;
+  top: 520px;
+  left: 405px;
+  width: 340px;
+  background: rgba(42,42,53,0.96);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  font-family: 'Orbitron', monospace;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* ====== CATEGORY VIEW OVERRIDE ====== */
+#category-custom-container .playlist-container {
+  top: 0;
+  left: 0;
+  margin: 30px 0 10px 40px;
+}
+
+/* ====== HEADER ====== */
+.playlist-top-header {
+  padding: 6px 12px;
+  background: rgba(24,24,34,0.95);
+  color: #fff;
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+}
+
+/* ====== MAIN CONTENT ====== */
+.playlist-main {
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  align-items: flex-start;
+}
+
+/* ====== VIDEO WRAPPER ====== */
+.playlist-video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  height: 160px;           /* 👈 ADD THIS - locks the height */
+  position: relative;
+}
+
+.playlist-video-wrapper video {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* ====== CONTROLS ====== */
+.playlist-controls {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.playlist-controls button {
+  width: 32px;
+  height: 28px;             /* 👈 ADD THIS - locks the height */
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: rgba(24,24,34,0.95);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.playlist-controls button:hover {
+  background: rgba(60,60,80,0.95);
+  transform: scale(1.05);
+}
+
+#play-pause.playing {
+  animation: scaleBtn 0.2s ease forwards;
+}
+
+@keyframes scaleBtn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ====== LED STATUS ====== */
+.playlist-leds {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.playlist-leds span {
+  width: 6px;
+  height: 6px;
+  background: rgba(255,214,167,0.25);
+}
+
+.playlist-leds span.active {
+  background: rgba(255,214,167,0.95);
+  animation: led-flicker 1.8s infinite steps(2);
+}
+
+@keyframes led-flicker {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ====== QUEUE ====== */
+.playlist-queue {
+  width: 120px;
+  background: rgba(24,24,34,0.95);
+  padding: 8px 10px;
+  font-size: 0.7rem;
+}
+
+.playlist-queue div {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  opacity: 0.75;
+}
+
+.playlist-queue div.active {
+  color: #FFD6A7;
+  opacity: 1;
+}
+
+/* ====== DECOR ====== */
+.playlist-corner-png {
+  position: absolute;
+  bottom: -90px;
+  left: -40;
+  width: 200px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+
+
+
+
+.post-left-audio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+   width: 160px;          /* 👈 EXACT same as .post-left */
+  max-width: 160px;
+  background: #2a2a35;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-sizing: border-box;
+}
+
+.post-left-audio .play-pause-btn {
+  width: 28px;              /* 👈 ADD */
+  min-width: 28px;          /* 👈 ADD */
+  text-align: center;       /* 👈 ADD */
+  background: rgba(24,24,34,0.95);
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.post-left-audio .play-pause-btn:hover {
+  transform: scale(1.05);
+  background: rgba(60,60,80,0.95);
+}
+
+.audio-info {
+  max-width: 110px;
+  overflow: hidden;
+}
+
+.song-title {
+  font-size: 0.7rem;
+  color: #e6e6f0;
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 12s linear infinite;  /* 👈 12s = slower (was 8s) */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(50%); }       /* 👈 50% = shorter gap (was 100%) */
+  100% { transform: translateX(-100%); }
+}
+
+.post-left-audio img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+  animation: spin 8s linear infinite;      /* 👈 8s = slower (was 4s) */
+  animation-play-state: paused;
+}
+
+.post-left-audio img.spinning {
+  animation-play-state: running; /* 👈 Spins when playing! */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.post-left-audio audio {
+  display: none;
+}
+
+.post-left {
+  overflow: hidden;
+}
+

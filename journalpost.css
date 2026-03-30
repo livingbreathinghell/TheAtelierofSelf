@@ -1,0 +1,507 @@
+
+/* Hide pinned post until ready */
+#pinned-post-container.not-ready {
+  visibility: hidden !important;
+}
+
+/* ==========================================================
+   POSTS / JOURNAL LEFT COLUMN CLEAN (NO PAPER)
+========================================================== */
+
+.post {
+  position: relative;
+  margin: 0 auto 24px;
+  width: 100%;
+  max-width: 770px;
+  box-sizing: border-box;
+  color: #e6e6f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 1;
+}
+
+.post-bg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: visible;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* LEFT COLUMN */
+.post-left {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  min-height: 200px;
+}
+
+
+
+/* DATE */
+.post-left .post-date {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+/* IMAGE */
+.post-left img,
+.post-image img {
+  width: 100%;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+.post-left img:hover,
+.post-image img:hover {
+  transform: scale(1.05);
+}
+
+/* STATUS BADGE */
+.post-left .status-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #e6e6f0;
+  margin: 8px auto 0;
+  width: fit-content;
+}
+
+.post-left .status-badge .status-icon {
+  width: 20;
+  height: auto;
+}
+
+/* RIGHT COLUMN */
+.post-right {
+  flex: 1 1 auto;
+  position: relative;
+  background: #2a2a35;
+  padding: 16px;
+  color: #e6e6f0;
+  z-index: 2;
+  min-width: 200px;
+  overflow: visible; /* allow collapsibles to expand */
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: auto;
+}
+
+/* PIN (if needed) */
+.post-pin {
+  position: absolute;
+  top: 135px;
+  right: 10px;
+  width: 65px;
+  height: auto;
+  z-index: 6;
+}
+
+
+
+/* ==========================================================
+   POSTS / JOURNAL LEFT COLUMN CLEAN (NO PAPER) + DIVIDER
+========================================================== */
+
+
+
+/* entire post wrapper */
+.journal-post {
+  position: relative;
+  margin: 0 auto 24px;
+  width: 100%;
+  max-width: 770px;
+  box-sizing: border-box;
+  color: #e6e6f0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 1;
+  padding-bottom: 12px;          
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
+
+.journal-post:last-child {
+  margin-bottom: 40px;
+  border-bottom: none;
+}
+
+.journal-post .post-bg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: visible;
+}
+
+.journal-post .post-content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.journal-post .post-left {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+overflow: visible; /* make sure the video isn’t clipped */
+  z-index: 2; /* higher than parent background layers */
+  min-height: 200px;
+}
+
+.journal-post .post-left video {
+  display: block; /* ensure it renders */
+  z-index: 5; /* above parent */
+  position: relative;
+  background: black; /* in case video fails to load */
+}
+
+.video-wrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: auto;
+}
+
+.journal-post .post-left img,
+.journal-post .post-image img {
+  width: 100%;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+.journal-post .post-left .post-date {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.journal-post .post-left .status-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #e6e6f0;
+  margin: 8px auto 0;
+  width: fit-content;
+  position: relative;
+  top: 0;
+}
+
+.journal-post .post-left .status-badge .status-icon {
+  width: 16px;
+  height: auto;
+}
+
+.journal-post .post-right {
+  flex: 1 1 auto;
+  position: relative;
+  background: #2a2a35;
+  padding: 16px;
+  color: #e6e6f0;
+  z-index: 2;
+  min-width: 200px;
+  overflow-x: hidden;
+  overflow-y: visible; /* allow children to expand freely */
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: auto;
+}
+
+/* PIN */
+.journal-post .post-pin {
+  position: absolute;
+  top: -11px;
+  right: -7px;
+  width: 65px;
+  height: auto;
+  z-index: 6;
+}
+
+/* STAMP IMAGE */
+.post-left .post-stamp {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.post-left .post-stamp img {
+  max-width: 140px;   /* keeps it inside the left column */
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+
+  /* subtle “paper” feel */
+  filter: contrast(1.05);
+}
+
+/* =======================
+   PINNED POST WRAPPER
+   ======================= */
+
+.pinned-post-wrapper {
+  position: relative;        /* stays in flow but movable */
+
+  /* 👇 MAIN MOVE CONTROLS */
+  top: 850px;                /* ⬆️ negative = move UP | positive = move DOWN */
+  margin-bottom: 48px;       /* space before normal posts start */
+
+  /* 👇 WIDTH / ALIGNMENT (does NOT affect other posts) */
+  max-width: 550px;          /* slightly smaller than regular posts */
+  margin-left: 195px;        /* shifts right to clear spine */
+  margin-right: auto;
+
+  z-index: 5;                /* sits nicely above background */
+  transition: top 0.3s ease;
+}
+
+/* =======================
+   PINNED POST BOTTOM DIVIDER
+======================= */
+.pinned-post-container::after {
+  content: "";
+  display: block;
+  width: 100%;                     /* spans the full width of the post */
+  height: 1px;                     /* thin line */
+  background: rgba(255, 255, 255, 0.2); /* faint white */
+  margin-top: 16px;                /* space above the divider */
+}
+
+.post-full-image {
+  width: 95%;
+  margin: 14px auto;
+  border-radius: 8px; /* optional, rounds the block background */
+  overflow: hidden;   /* ensures child img respects the container rounding */
+}
+
+.post-full-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: none !important;
+}
+.post-full-image .image-desc {
+  font-size: 0.75rem;
+  color: rgba(230, 230, 240, 0.5); /* faint white */
+  text-align: center;
+  margin-top: 6px;
+  font-style: italic; /* optional for a subtle touch */
+}
+
+.post-slideshow {
+  position: relative;
+  width: 85%;        /* give it more breathing room */
+  max-width: 520px;  /* 👈 bigger but still controlled */
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.slide-wrapper {
+  display: block; /* 👈 remove flex */
+}
+.slide {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* 👈 THIS is the real fix */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* no crop */
+  display: block;
+}
+.image-desc {
+  font-size: 0.75rem;
+  color: rgba(230,230,240,0.5);
+  text-align: center;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* arrows */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(24,24,34,0.85);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.1s;
+  z-index: 10;
+}
+
+.slide-arrow:hover {
+  background: rgba(60,60,80,0.95);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slide-arrow.left {
+  left: 10px;
+}
+
+.slide-arrow.right {
+  right: 10px;
+}
+
+/* ================================
+   MERCURY IMPS SECTION
+================================= */
+.imp-section.imp-bg {
+  width: 100%;
+  background: rgba(12,13,18,0.52);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* HEADER & CAPTION STYLE */
+.imp-header,
+.imp-card .imp-name {
+  font-size: 10px;
+  letter-spacing: 1px;
+  opacity: 0.57;
+  font-family: ui-monospace, monospace;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* ROW - horizontal scroll */
+.imp-row {
+  display: flex;
+  flex-wrap: nowrap;  /* Back to no wrap */
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+/* Cards - slightly bigger */
+.imp-card {
+  min-width: 80px;
+  max-width: 95px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* IMAGE INSIDE CARD */
+.imp-card img.expandable {
+  width: 100%;
+  height: auto;
+  max-width: 95px;
+  display: block;
+  border-radius: 6px;
+  object-fit: contain;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+  opacity: 0.95;
+}
+
+
+/* SCROLLBAR */
+.imp-row::-webkit-scrollbar { 
+  height: 6px; 
+}
+
+.imp-row::-webkit-scrollbar-track { 
+  background: transparent; 
+}
+
+.imp-row::-webkit-scrollbar-thumb { 
+  background: rgba(255,255,255,0.18); 
+  border-radius: 4px; 
+}
+
+.imp-card img.expandable:hover {
+  transform: scale(1.05);
+}
+
+/* Expanded overlay */
+.expand-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.expand-overlay img.expanded {
+  display: block;
+  margin: auto;
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+  cursor: zoom-out;
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+  position: relative;
+  transform: none;
+}
+

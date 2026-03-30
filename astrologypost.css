@@ -1,0 +1,490 @@
+/* ==========================================================
+   ASTROLOGY POST LAYOUT
+========================================================== */
+
+/* POST RIGHT CONTAINER TRANSITION */
+/* POST RIGHT container animates smoothly */
+.astrology-post .post-right {
+  flex: 1 1 auto;
+  min-width: 300px;
+  width: auto;
+  background: #2a2a35;
+  padding: 16px;
+  border-radius: 14px;
+  box-sizing: border-box;
+  color: #e6e6f0;
+  margin-top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  /* IMPORTANT */
+  height: auto;
+  overflow: visible;     /* let children drive height */
+  min-height: 0;
+
+  /* Performance hint (safe here) */
+  contain: layout paint;
+}
+
+
+.astrology-post .post-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 22px;
+  width: 100%;
+  align-items: flex-start;
+  min-height: 0;
+}
+
+.astrology-post .post-left {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  margin-top: 0;
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
+  align-self: flex-start;
+}
+
+.astrology-post .post-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keywords-post {
+  display: inline-block;
+  background: rgba(42,42,53,0.6);
+  padding: 8px 14px;
+  border-radius: 12px;
+  margin: 6px auto 0;
+  text-align: center;
+  box-sizing: border-box;
+  font-style: italic;
+  font-family: inherit;
+}
+
+.keywords-post p {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.keywords-post p::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 6px auto 8px auto;
+  border-radius: 1px;
+}
+
+.keywords-post ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.keywords-post li {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  opacity: 0.55;
+}
+
+.keywords-divider-thin {
+  width: 80%;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 8px auto;
+  border-radius: 1px;
+}
+
+.big-three {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: rgba(42,42,53,0.4);
+  text-align: center;
+  font-style: italic;
+  font-family: inherit;
+  margin: 6px auto 0;
+}
+
+.big-three ul {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.big-three li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  opacity: 0.55;
+}
+
+/* STAR BACKGROUND + CONSTELLATION */
+.astrology-post::after,
+.tarot-post::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  border-radius: 22px;
+  background-image:
+    radial-gradient(1px 1px, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px, rgba(255,255,255,0.9) 50%, transparent 50%);
+  background-size: 60px 60px, 120px 120px, 90px 90px;
+  background-position: 0 0, 30px 60px, 60px 30px;
+  background-repeat: repeat;
+  animation: stars-drift 30s linear infinite, stars-twinkle 5s ease-in-out infinite alternate;
+}
+
+.constellation-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes stars-drift {
+  from { background-position-y: 0; }
+  to   { background-position-y: -300px; }
+}
+
+@keyframes stars-twinkle {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.5; }
+}
+
+/* ZODIAC PANEL BELOW IMAGE */
+.post-left .zodiac-panel {
+  height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  /* performance */
+  contain: layout;
+}
+
+.post-left .zodiac-panel.open {
+  opacity: 1;
+}
+
+.post-left .zodiac-panel p {
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+
+.post-left .zodiac-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+}
+
+.post-left .zodiac-panel li {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  opacity: 0.65;
+  margin-bottom: 3px;
+}
+/* ==========================
+   CAMERON DIAZ TAPE EFFECT
+========================== */
+.post-left.cameron-diaz {
+  position: relative;
+}
+
+.post-left.cameron-diaz .image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.post-left.cameron-diaz .image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: -91px;
+  width: 200px;
+  height: 65px;
+  background: url('media/clear-tape.png') no-repeat center/contain;
+  opacity: 0.3;
+  transform: rotate(-45deg);
+  z-index: 6;
+}
+
+.post-left.cameron-diaz .image-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  right: -95px;
+  width: 200px;
+  height: 65px;
+  background: url('media/clear-tape.png') no-repeat center/contain;
+  opacity: 0.3;
+  transform: rotate(-43deg);
+  z-index: 6;
+}
+
+
+/* =================================
+   TITLE + SUBTITLE SPACING FIX
+================================= */
+
+.astrology-post .post-right h2 {
+  margin-bottom: -10px;   /* tighten space below title */
+}
+
+.astrology-post .small-light-text {
+  margin-top: 0;
+  margin-bottom: 10px;  /* space before main paragraph */
+}
+
+.astrology-post .post-right h2 + .small-light-text {
+  margin-top: 24px;
+}
+
+.atelier-table-title {
+  font-size: 1.15rem;
+  font-style: italic;
+  opacity: 0.75;
+  color: #e6e6f0;
+  text-align: left;
+  letter-spacing: 0.02em;
+
+  margin: 6px 0 4px 6px;   /* 👈 6px push to the right */
+}
+/* ==================================
+   ATELIER TABLE — CONTENT-FIT BUILD
+   Columns hug text naturally
+================================== */
+
+.atelier-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2px 0 14px 0;  /* 👈 tiny top margin */
+  position: relative;
+  box-sizing: border-box;
+
+  /* OUTER WHITE BORDER */
+  border: 1px solid rgba(255,255,255,0.14);
+
+  /* STAR BACKGROUND */
+  background-image:
+    radial-gradient(1px 1px, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px, rgba(255,255,255,0.9) 50%, transparent 50%);
+  background-size: 60px 60px, 120px 120px, 90px 90px;
+  background-position: 0 0, 30px 60px, 60px 30px;
+  background-repeat: repeat;
+  animation: stars-drift 30s linear infinite;
+}
+
+/* DARK OVERLAY */
+.atelier-table-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.32);
+  z-index: 1;
+}
+
+/* ============================= */
+/* TABLE CORE */
+/* ============================= */
+
+.atelier-table {
+  width: max-content;     /* ✨ KEY CHANGE */
+  min-width: 100%;        /* keeps wrapper border full */
+  table-layout: auto;
+  border-collapse: collapse;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.atelier-table th {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.75;
+
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+
+.atelier-table td {
+  font-size: 0.7rem;
+  padding: 8px 12px;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0.65;
+}
+
+/* Keep columns from collapsing */
+.atelier-table th,
+.atelier-table td {
+  min-width: 4ch;
+}
+
+/* ============================= */
+/* DIVIDERS */
+/* ============================= */
+
+.atelier-table th + th,
+.atelier-table td + td {
+  border-left: 1px solid rgba(255,255,255,0.14);
+}
+
+.atelier-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+/* ============================= */
+/* STAR DRIFT */
+/* ============================= */
+
+@keyframes stars-drift {
+  from { background-position-y: 0; }
+  to   { background-position-y: -300px; }
+}
+
+/* Triplicity stacked layout */
+.triplicity-name {
+  display: block;
+}
+
+.triplicity-signs {
+  display: block;
+  font-size: 0.3rem;      /* smaller */
+  opacity: 0.65;          /* softer */
+  margin-top: 3px;
+  white-space: normal;    /* ✨ allows wrapping */
+  line-height: 1.3;
+}
+
+/* Stacked small text for bounds / notes */
+.bounds-sign {
+  display: block;
+  font-weight: 500;
+}
+
+.bounds-note {
+  display: block;
+  font-size: 0.45rem;   /* tiny enough for 5+ columns */
+  opacity: 0.6;         /* subtle, like your triplicity signs */
+  margin-top: 2px;
+  white-space: normal;  /* allows wrapping */
+  line-height: 1.2;     /* tighter for compact layout */
+}
+
+/* POST CONTENT DIVIDER */
+
+.post-divider {
+  width: 90%;                 /* longer than before */
+  height: 1px;
+  background: rgba(255,255,255,0.18); /* slightly lower opacity */
+  margin: 18px auto;          /* keeps it centered */
+  border-radius: 1px;
+}
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;           
+  justify-content: center;   
+  gap: 6px;                  /* slightly smaller gap for 6 cards */
+  padding: 10px;             
+  position: relative;        
+  z-index: 2;                
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  gap: 3px;                  
+  width: 65px;               /* smaller width to fit 6 cards */
+  box-sizing: border-box;    
+  height: auto;              
+}
+
+.card-item img {
+  width: 100%;               
+  height: auto;              
+  aspect-ratio: auto 65 / 98; /* maintain vertical card ratio */
+  object-fit: cover;         
+  border-radius: 5px;
+  display: block;            
+  margin: 0;                  
+}
+
+.card-item span {
+  font-size: 0.55rem;        
+  opacity: 0.65;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.cards-divider {
+  width: 90%;
+  height: 1px;
+  background: rgba(255,255,255,0.14);
+  margin: 10px auto;
+}
+
+/* Header inside the starry box with divider line */
+.atelier-table-title.inside-wrapper {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.75;
+  color: #e6e6f0;
+  text-align: left;
+  letter-spacing: 0.02em;
+  margin: 6px 0 8px 0;          /* remove left margin so line starts at edge */
+  padding-left: 10px;           /* text still indented a bit */
+  padding-bottom: 6px;          /* extra space for line */
+  border-bottom: 2px solid rgba(255,255,255,0.14); /* thicker line */
+}

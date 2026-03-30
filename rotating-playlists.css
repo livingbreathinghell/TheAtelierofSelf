@@ -1,0 +1,149 @@
+
+/* Pause animation until ready */
+#rotating-playlists.not-ready .playlist-track {
+  animation: none !important;
+}
+
+/* ===============================
+   PLAYLIST TITLE
+   =============================== */
+
+#playlist-title {
+  position: absolute;   /* 👈 freely movable */
+  top: 890px; /* 👈 adjust */
+  left: 580px;          /* 👈 adjust */
+
+  --title-scale: 0.7;     /* 👈 SCALE CONTROL (0.8 / 1 / 1.2 etc) */
+
+  transform: scale(var(--title-scale));
+  transform-origin: top left;
+
+  z-index: 9600;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 👈 centers text + line */
+}
+/* ===============================
+   ROTATING PLAYLIST OVERLAY
+   =============================== */
+
+/* OVERLAY CONTAINER (VISIBLE WINDOW) */
+#rotating-playlists {
+  position: absolute;
+  top: 920px;
+  left: 450px;
+
+  /* 🎛 MAIN CONTROLS */
+  --playlist-scale: 0.7;     /* size of whole strip */
+  --visible-width: 450px;     /* ~2.5 playlists visible */
+
+  transform: scale(var(--playlist-scale));
+  transform-origin: top left;
+
+  width: var(--visible-width);
+  max-width: var(--visible-width);
+  overflow: hidden;
+
+  z-index: 9500;
+  pointer-events: auto;
+
+  /* cinematic edge fade */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+/* MOVING STRIP */
+.playlist-track {
+  display: flex;
+  gap: 18px;
+
+  width: max-content;
+  animation: rotatePlaylists 32s linear infinite;
+  will-change: transform;
+}
+
+/* pause animation on hover */
+#rotating-playlists:hover .playlist-track {
+  animation-play-state: paused;
+}
+
+/* ===============================
+   PLAYLIST ITEM
+   =============================== */
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: #eaeaea;
+  font-size: 0.95rem;
+  white-space: nowrap;
+
+  opacity: 0.7;
+  filter: blur(0.1px);
+  transform: scale(0.96);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* CENTER FOCUS FEEL (hover or natural pass) */
+.playlist-item:hover {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(-1px) scale(1);
+}
+
+/* PLAYLIST COVER */
+.playlist-item img {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 6px;
+  object-fit: cover;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 4px 12px rgba(0,0,0,0.35);
+}
+
+/* ===============================
+   OPTIONAL: SOFT CENTER GLOW
+   =============================== */
+
+#rotating-playlists::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+}
+
+/* ===============================
+   ANIMATION
+   =============================== */
+
+@keyframes rotatePlaylists {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
