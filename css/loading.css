@@ -1,16 +1,12 @@
 
-/* ========== LOADING SCREEN ========== */
 #loading-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0; /* replaces top/left/width/height */
 
   background-color: black;
   background-image: url("../loading.gif");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: contain;
 
   z-index: 9999;
@@ -19,6 +15,10 @@
   transition: opacity 0.5s ease;
 
   overflow: hidden;
+
+  /* 🔥 ADD THIS */
+  display: grid;
+  place-items: center;
 }
 
 #loading-screen.fade-out {
@@ -35,4 +35,12 @@
 
   object-fit: contain;
   display: block;
+}
+
+
+@media (max-width: 600px) {
+  #loading-screen {
+    background-size: 90%;
+    background-position: center 55%;
+  }
 }
