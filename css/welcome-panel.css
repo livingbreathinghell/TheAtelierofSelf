@@ -8,7 +8,7 @@ top: 230px;
 left: 40px;
 width: 720px;
 height: 150px;
-z-index: 2;
+z-index: 1;
 pointer-events: auto;
 }
 
@@ -30,6 +30,11 @@ height: 420px; /* 👈 fixed shorter height */
 overflow: hidden; /* 👈 prevents stretching */
 }
 
+.homepage-inner {
+  position: relative;
+  z-index: 1;
+}
+
 /* =======================
 HOMEPAGE TITLE
 ======================= */
@@ -38,14 +43,18 @@ HOMEPAGE TITLE
   position: absolute;
 
   /* 👇 POSITIONED TO SIT ON PANEL */
-  top: 210px;   /* 👈 THIS IS THE KEY FIX */
+  
+
+
+  position: absolute;
+  top: 210px;
   left: 40px;
 
-  --title-scale: .85;
+    --title-scale: .85;
   transform: scale(var(--title-scale));
   transform-origin: top left;
 
-  z-index: 5; /* above panels, below extreme stuff */
+  z-index: 999; /* 👈 go nuclear */
 
   pointer-events: none;
 
