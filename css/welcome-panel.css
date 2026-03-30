@@ -1,94 +1,3 @@
-/* ==========================================================
-   📱 MOBILE FIX (WELCOME + HOMEPAGE)
-========================================================== */
-@media (max-width: 768px) {
-
-  /* kill absolute chaos */
-  #welcome-panel {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    height: auto;
-    padding: 20px;
-  }
-
-  .welcome-bg-panel,
-  .homepage-bg-panel {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 95%;
-    height: auto;
-    margin: 20px auto;
-  }
-
-  /* stack columns instead of side-by-side */
-  #welcome-left,
-  #welcome-right {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
-  }
-
-  #welcome-right {
-    margin-top: 20px;
-  }
-
-  /* center image */
-  #welcome-image {
-    position: relative;
-    margin: 0 auto;
-    left: auto;
-    top: auto;
-  }
-
-  /* fix text positioning */
-  .welcome-paragraph {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
-    margin-bottom: 10px;
-  }
-
-  /* title fix */
-  #homepage-title {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: scale(0.9);
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  /* links wrap nicely */
-  #welcome-links {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
-    justify-content: center;
-  }
-
-  /* hide floating wires on mobile (optional but recommended) */
-  #floating-images {
-    display: none;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
 
 /* ===============================
    WELCOME PANEL CONTAINER
@@ -399,5 +308,95 @@
   text-decoration: none !important;
   opacity: 0.8;
 }
+
+/* ==========================================================
+   📱 MOBILE FIX (WELCOME + HOMEPAGE)
+========================================================== */
+@media (max-width: 768px) {
+
+  /* kill absolute chaos */
+  #welcome-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .welcome-bg-panel,
+  .homepage-bg-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 95%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  /* stack columns instead of side-by-side */
+  #welcome-left,
+  #welcome-right {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+  }
+
+  #welcome-right {
+    margin-top: 20px;
+  }
+
+  /* center image */
+  #welcome-image {
+    position: relative;
+    margin: 0 auto;
+    left: auto;
+    top: auto;
+  }
+
+  /* fix text positioning */
+  .welcome-paragraph {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+  }
+
+  /* title fix */
+  #homepage-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: scale(0.9);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* links wrap nicely */
+  #welcome-links {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    justify-content: center;
+  }
+
+  /* hide floating wires on mobile (optional but recommended) */
+  #floating-images {
+    display: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 
