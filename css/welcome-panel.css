@@ -4,7 +4,7 @@
 =============================== */
 #welcome-panel {
   position: absolute;
-  top: 170px;
+  top: 230px;
   left: 40px;
   width: 720px;
   height: 150px;
@@ -15,7 +15,7 @@
 
 /* WELCOME / STATUS PANEL */
 .welcome-bg-panel {
-  top: 230px;
+  top: 200px;
   left: 24px;
   width: 771px;
   height: 350px;
