@@ -35,28 +35,30 @@ HOMEPAGE TITLE
 ======================= */
 
 #homepage-title {
-position: absolute;
-top: 160px;
-left: 30px;
+  position: absolute;
 
---title-scale: .85;
-transform: scale(var(--title-scale));
-transform-origin: top left;
+  /* 👇 POSITIONED TO SIT ON PANEL */
+  top: 210px;   /* 👈 THIS IS THE KEY FIX */
+  left: 40px;
 
-z-index: 100; /* 👈 BIGGER THAN PANELS */
+  --title-scale: .85;
+  transform: scale(var(--title-scale));
+  transform-origin: top left;
 
-pointer-events: none;
+  z-index: 5; /* above panels, below extreme stuff */
 
-font-family: 'Cormorant Garamond', serif;
-font-size: 2.2rem;
-font-style: italic;
-font-weight: 300;
+  pointer-events: none;
 
-color: rgba(255, 255, 255, 0.70);
-letter-spacing: 0.04em;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 300;
 
-white-space: nowrap;
-transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.70);
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .welcome-bg-panel,
