@@ -76,23 +76,6 @@ a {
   pointer-events: none;
 }
 
-/* WELCOME / STATUS PANEL */
-.welcome-bg-panel {
-  top: 170px;
-  left: 24px;
-  width: 771px;
-  height: 350px;
-}
-
-.homepage-bg-panel {
-  top: 600px;
-  left: 24px;
-  width: 771px;
-  height: auto; /* lets it grow with content */
-  min-height: 940px; /* optional: start height */
-}
-
-
 
 /* ==========================================================
    FLOATING / MOVABLE IMAGES
@@ -120,51 +103,6 @@ a {
   color: rgba(255,255,255,0.5);
   font-style: italic;
 }
-/* ==========================================================
-   CATEGORY PANELS
-========================================================== */
-.category-panel {
-  display: none;
-  margin: 40px auto;
-  max-width: 770px;
-  position: relative;
-  min-height: 100vh;
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  background: rgba(12,13,18,0.55);
-  padding: 24px 16px 40px;
-  color: #e6e6f0;
-}
-
-.category-panel .panel-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: 6px;
-}
-
-.category-panel > *:not(.panel-bg) {
-  position: relative;
-  z-index: 1;
-}
-
-.category-posts {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.category-panel h2 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-
-.category-panel .pinned-post {
-  margin-top: 12px;
-  font-size: 0.85rem;
-}
 
 /* ==========================================================
    TEXT STYLES
@@ -186,13 +124,6 @@ a {
  
 }
 
-.venus {
-  font-size: 1.6em;
-  font-weight: 700;
-  display: inline-block;
-  transform: translate(0px, -2px);
-  text-shadow: 0.015em 0 currentColor, -0.015em 0 currentColor;
-}
 
 /* ==========================================================
    TEXT STYLES
@@ -311,30 +242,6 @@ a {
   opacity: 0.85;
   filter: grayscale(1) contrast(1.05);
 }
-
-/* PINNED POSTS */
-.post.pinned {
-  position: relative;
-  margin: 0;
-  padding: 12px 0;
-  transform: translateY(-6px);
-}
-
-.post.pinned::before,
-.post.pinned::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-}
-
-.post.pinned::before { top: 0; }
-.post.pinned::after { bottom: 0; }
-
-.post.pinned:last-child { border-bottom: none; }
-
 /* ==========================================================
    RECENT POSTS DIVIDER
 ========================================================== */
@@ -424,15 +331,4 @@ a {
   max-height: 92vh;
   border-radius: 14px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-}
-
-.custom-divider {
-  position: absolute;
-  top: 1035px;
-  left: 204px;
-  width: 592px;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.15); /* 15% opacity */
-  border-radius: 1px;
-  z-index: 5;
 }
