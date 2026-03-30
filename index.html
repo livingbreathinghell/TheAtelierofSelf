@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Atelier of Self</title>
+
+
+  <style>
+    body > *:not(#loading-screen) {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.loaded > *:not(#loading-screen) {
+      opacity: 1;
+    }
+
+    #loading-screen {
+      opacity: 1 !important;
+    }
+  </style>
+
+
+
+  <script>
+    const isDev = false; 
+   
+
+    const version = isDev ? new Date().getTime() : "1.0.0";
+
+    const cssFiles = [
+      "loading.css",
+      "welcome-panel.css",
+      "global.css",
+      "header.css",
+      "journalpost.css",
+      "astrologypost.css",
+      "editposts.css",
+      "playlist.css",
+      "minigame.css",
+      "rotating-playlists.css",
+      "view.css",
+      "bucketlist.css",
+      "journal-welcome-panel.css"
+    ];
+
+    cssFiles.forEach(file => {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = `css/${file}?v=${version}`;
+      document.head.appendChild(link);
+    });
+  </script>
+
+
+
+
+  <style>
+    .collapsible-panel {
+      display: none !important;
+    }
+
+    .collapsible-panel.open {
+      display: block !important;
+    }
+
+    .perma-open .collapsible-panel {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <div id="loading-screen">
+    <img src="loading.gif" alt="Loading..." id="loading-img">
+  </div>
+
+
+
+
+  <header id="header-container"></header>
+
+ 
+
+
+
+  <div id="homepage">
+
+    <div id="dynamic-view-container" style="display: none;"></div>
+
+    <div class="homepage-inner">
+
+      <!-- BACKGROUNDS -->
+      <div class="panel-bg welcome-bg-panel"></div>
+      <div id="welcome-panel-container"></div>
+      <div class="panel-bg homepage-bg-panel"></div>
+
+      <!-- TITLE -->
+      <div id="homepage-title">
+        <span class="star"></span> homepage
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="custom-divider"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <div id="category-view">
+
+    <div id="category-custom-container"></div>
+
+    <div class="recent-divider">
+      <span>recent posts</span>
+    </div>
+
+    <section id="posts-container"></section>
+
+  </div>
+
+ 
+
+  <script src="js/posts.js"></script>
+  <script src="js/partials.js" defer></script>
+  <script src="js/calender.js" defer></script>
+  <script src="js/editable.js" defer></script>
+  <script src="js/hashtags.js" defer></script>
+  <script src="js/playlist.js" defer></script>
+  <script src="js/view-switcher.js" defer></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/mini-player.js" defer></script>
+
+
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+
+</body>
+</html>
