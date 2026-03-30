@@ -37,20 +37,17 @@
 
 #homepage-title {
   position: absolute;
+  top: 160px;
+  left: 30px;
 
-  /* 👇 MOVE CONTROLS */
-  top: 160px;        /* move up/down */
-  left:30px;       /* move left/right */
-
-  /* 👇 SCALE CONTROL */
-  --title-scale: .85;  /* 0.8 / 1 / 1.2 etc */
+  --title-scale: .85;
   transform: scale(var(--title-scale));
   transform-origin: top left;
 
-  z-index: 10;
+  z-index: 100; /* 👈 BIGGER THAN PANELS */
+
   pointer-events: none;
 
-  /* ✨ typography */
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.2rem;
   font-style: italic;
@@ -61,6 +58,12 @@
 
   white-space: nowrap;
   transition: all 0.3s ease;
+}
+
+.welcome-bg-panel,
+.homepage-bg-panel {
+  position: absolute;
+  z-index: 1;
 }
 
 /* STAR STYLING */
@@ -319,7 +322,7 @@
     position: absolute;
 
     top: 60px;   /* 👈 pushes everything DOWN */
-    left: 3;
+    left: 0px;
 
     transform: scale(0.50); /* 👈 slightly smaller */
     transform-origin: top left;
