@@ -318,10 +318,10 @@
   .homepage-inner {
     position: absolute;
 
-    top: 70px;   /* 👈 pushes everything DOWN */
-    left: 0;
+    top: 60px;   /* 👈 pushes everything DOWN */
+    left: 3;
 
-    transform: scale(0.48); /* 👈 slightly smaller */
+    transform: scale(0.50); /* 👈 slightly smaller */
     transform-origin: top left;
 
     width: 1000px;
