@@ -10,7 +10,7 @@
   background-color: black;
   background-image: url("loading.gif");
   background-repeat: no-repeat;
-  background-position: center 60%;
+  background-position: center;
   background-size: contain;
 
   z-index: 9999;
