@@ -1,15 +1,165 @@
+/* ==========================================================
+   📱 MOBILE FIX (WELCOME + HOMEPAGE)
+========================================================== */
+@media (max-width: 768px) {
+
+  /* kill absolute chaos */
+  #welcome-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .welcome-bg-panel,
+  .homepage-bg-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 95%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  /* stack columns instead of side-by-side */
+  #welcome-left,
+  #welcome-right {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+  }
+
+  #welcome-right {
+    margin-top: 20px;
+  }
+
+  /* center image */
+  #welcome-image {
+    position: relative;
+    margin: 0 auto;
+    left: auto;
+    top: auto;
+  }
+
+  /* fix text positioning */
+  .welcome-paragraph {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+  }
+
+  /* title fix */
+  #homepage-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: scale(0.9);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* links wrap nicely */
+  #welcome-links {
+    position: relative;
+    width: 100%;
+    left: auto;
+    top: auto;
+    justify-content: center;
+  }
+
+  /* hide floating wires on mobile (optional but recommended) */
+  #floating-images {
+    display: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===============================
    WELCOME PANEL CONTAINER
 =============================== */
 #welcome-panel {
   position: absolute;
-  top: 200px;
+  top: 230px;
   left: 40px;
   width: 720px;
   height: 150px;
   z-index: 2;
   pointer-events: auto;
 }
+
+
+/* WELCOME / STATUS PANEL */
+.welcome-bg-panel {
+  top: 200px;
+  left: 24px;
+  width: 771px;
+  height: 350px;
+}
+
+.homepage-bg-panel {
+  top: 600px;
+  left: 24px;
+  width: 771px;
+
+  height: 420px; /* 👈 fixed shorter height */
+
+  overflow: hidden; /* 👈 prevents stretching */
+}
+
+/* =======================
+   HOMEPAGE TITLE
+======================= */
+
+#homepage-title {
+  position: absolute;
+
+  /* 👇 MOVE CONTROLS */
+  top: 160px;        /* move up/down */
+  left:30px;       /* move left/right */
+
+  /* 👇 SCALE CONTROL */
+  --title-scale: .85;  /* 0.8 / 1 / 1.2 etc */
+  transform: scale(var(--title-scale));
+  transform-origin: top left;
+
+  z-index: 10;
+  pointer-events: none;
+
+  /* ✨ typography */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 300;
+
+  color: rgba(255, 255, 255, 0.70);
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* STAR STYLING */
+#homepage-title .star {
+  margin-right: 0em;
+  opacity: 0.7;
+}
+
 
 /* ===============================
    LEFT COLUMN WRAPPER
@@ -249,3 +399,5 @@
   text-decoration: none !important;
   opacity: 0.8;
 }
+
+
