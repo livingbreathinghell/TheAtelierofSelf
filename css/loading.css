@@ -1,7 +1,6 @@
-
 #loading-screen {
   position: fixed;
-  inset: 0; /* replaces top/left/width/height */
+  inset: 0;
 
   background-color: black;
   background-image: url("../loading.gif");
@@ -15,28 +14,12 @@
   transition: opacity 0.5s ease;
 
   overflow: hidden;
-
-  /* 🔥 ADD THIS */
-  display: grid;
-  place-items: center;
 }
 
 #loading-screen.fade-out {
   opacity: 0;
   pointer-events: none;
 }
-
-#loading-img {
-  width: 90vw;
-  max-width: 500px;
-
-  height: auto;
-  max-height: 80vh;
-
-  object-fit: contain;
-  display: block;
-}
-
 
 @media (max-width: 600px) {
   #loading-screen {
