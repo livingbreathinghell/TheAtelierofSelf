@@ -309,88 +309,88 @@
   opacity: 0.8;
 }
 
-/* ==========================================================
-   📱 MOBILE FIX (WELCOME + HOMEPAGE)
-========================================================== */
 @media (max-width: 768px) {
 
-  /* kill absolute chaos */
-  #welcome-panel {
-    position: relative;
-    top: auto;
-    left: auto;
+  /* RESET THE WHOLE AREA */
+  #homepage,
+  .homepage-inner {
     width: 100%;
-    height: auto;
-    padding: 20px;
+    overflow-x: hidden;
   }
 
+  /* PANELS SCALE INSTEAD OF FIXED WIDTH */
   .welcome-bg-panel,
   .homepage-bg-panel {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 95%;
-    height: auto;
-    margin: 20px auto;
+    position: relative !important;
+    width: 92% !important;
+    height: auto !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 20px auto !important;
   }
 
-  /* stack columns instead of side-by-side */
+  /* MAIN PANEL */
+  #welcome-panel {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    padding: 20px !important;
+  }
+
+  /* STACK LAYOUT */
   #welcome-left,
   #welcome-right {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
+    position: relative !important;
+    width: 100% !important;
+    left: auto !important;
+    top: auto !important;
   }
 
   #welcome-right {
-    margin-top: 20px;
+    margin-top: 25px;
   }
 
-  /* center image */
+  /* FIX ALL ABSOLUTE CHILD ELEMENTS */
+  #welcome-left * ,
+  #welcome-right * {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* IMAGE CENTER */
   #welcome-image {
-    position: relative;
-    margin: 0 auto;
-    left: auto;
-    top: auto;
+    margin: 0 auto 15px auto;
   }
 
-  /* fix text positioning */
+  /* TEXT CLEANUP */
   .welcome-paragraph {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
-    margin-bottom: 10px;
+    width: 100% !important;
+    margin-bottom: 12px;
   }
 
-  /* title fix */
+  /* TITLE FIX */
   #homepage-title {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: scale(0.9);
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: scale(0.85);
     text-align: center;
-    margin-bottom: 10px;
+    margin: 10px 0 20px 0;
   }
 
-  /* links wrap nicely */
+  /* LINKS */
   #welcome-links {
-    position: relative;
-    width: 100%;
-    left: auto;
-    top: auto;
+    width: 100% !important;
     justify-content: center;
+    margin-top: 10px;
   }
 
-  /* hide floating wires on mobile (optional but recommended) */
-  #floating-images {
-    display: none;
-  }
+
 
 }
-
-
 
 
 
