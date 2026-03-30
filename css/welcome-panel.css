@@ -31,9 +31,7 @@
   overflow: hidden; /* 👈 prevents stretching */
 }
 
-.homepage-inner {
-  position: relative;
-}
+
 /* =======================
    HOMEPAGE TITLE
 ======================= */
