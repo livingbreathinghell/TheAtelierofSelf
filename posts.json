@@ -1,0 +1,197 @@
+{
+  "posts": [
+
+     {
+      "file": "march/2026-3-29-Journal.html",
+      "date": "2026-03-29",
+      "time": "04:01",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+
+     {
+      "file": "march/2026-3-26-Journal.html",
+      "date": "2026-03-26",
+      "time": "11:44",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+{
+  "file": "mercuryimps-mar2026.html",
+  "date": "2026-03-26",
+  "time": "05:59",
+  "category": "art",
+  "subcategory": "concepts",
+  "month": "03",
+  "homepage": true
+},
+{
+  "file": "fishman-drawing.html",
+  "date": "2026-03-23",
+  "time": "03:41",
+  "category": "art",
+  "subcategory": "drawings",
+  "month": "03",
+  "homepage": true
+},
+{
+  "file": "AshtonsTarotSequence.html",
+  "date": "2026-03-21",
+  "time": "4:12",
+  "category": "tarot",
+  "subcategory": "readings",
+  "month": "general",
+  "homepage": true
+},
+
+{
+  "file": "sailors-drawing.html",
+  "date": "2026-03-19",
+  "time": "03:51",
+  "category": "art",
+  "subcategory": "drawings",
+  "month": "03",
+  "homepage": true
+},
+
+{
+  "file": "major/TheFool-Tarot.html",
+  "date": "2026-03-16",
+  "time": "8:56",
+  "category": "tarot",
+  "subcategory": "year-cards",
+  "month": "major",
+  "homepage": true
+},
+     {
+      "file": "march/2026-3-11-Dream.html",
+      "date": "2026-03-11",
+      "time": "1:05",
+      "category": "dream",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+     {
+      "file": "march/2026-3-8-Journal.html",
+      "date": "2026-03-05",
+      "time": "12:35",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+     {
+      "file": "march/2026-3-7-Journal.html",
+      "date": "2026-03-07",
+      "time": "1:11",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+     {
+      "file": "march/2026-3-5-Journal.html",
+      "date": "2026-03-05",
+      "time": "9:19",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+     {
+      "file": "march/2026-3-2-Journal.html",
+      "date": "2026-03-02",
+      "time": "5:49",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+    {
+      "file": "march/2026-3-1-Journal.html",
+      "date": "2026-03-01",
+      "time": "6:00",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "03",
+      "homepage": true
+    },
+    {
+      "file": "february/2026-2-22-Journal.html",
+      "date": "2026-02-22",
+      "time": "6:00",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "02",
+      "homepage": true
+    },
+    {
+      "file": "february/2026-2-20-Journal.html",
+      "date": "2026-02-20",
+      "time": "11:37",
+      "category": "journal",
+      "subcategory": "year-2026",
+      "month": "02",
+      "homepage": true
+    },
+    {
+      "file": "essential-dignities.html",
+      "date": "2026-02-16",
+      "time": "04:13",
+      "category": "astrology",
+      "subcategory": "planets",
+      "month": "02",
+      "homepage": true
+    },
+    {
+      "file": "moon-astro.html",
+      "date": "2026-02-14",
+      "time": "02:01",
+      "category": "astrology",
+      "subcategory": "planets",
+      "month": "02",
+      "homepage": true
+    },
+    {
+      "file": "18degrees-astro.html",
+      "date": "2026-01-26",
+      "time": "04:01",
+      "category": "astrology",
+      "subcategory": "degrees",
+      "month": "01",
+      "homepage": true
+    },
+    {
+      "file": "natal/celebrity/katseye-natal-reading.html",
+      "date": "2026-01-15",
+      "time": "4:24",
+      "category": "astrology",
+      "subcategory": "readings",
+      "month": "01",
+      "homepage": true
+    },
+{
+  "file": "blew-lyrics.html",
+  "date": "2026-01-11",
+  "time": "8:56",
+  "category": "music",
+  "subcategory": "songwriting",
+  "month": "01",
+  "homepage": true
+},
+    {
+        "file": "december/2025-12-23-Journal.html",
+      "date": "2025-12-16",
+      "time": "02:22",
+      "category": "journal",
+      "subcategory": "year-2025",
+      "month": "12",
+      "homepage": true
+    }
+  ]
+}
