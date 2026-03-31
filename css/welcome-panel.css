@@ -45,10 +45,10 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: 15px;
+  top: 20px;
   left: 45px;
 
-  transform: scale(0.85) translateZ(0); /* 👈 add it HERE */
+  transform: scale(0.85) translateZ(5); /* 👈 add it HERE */
   z-index: 10;
 }
 
