@@ -509,34 +509,40 @@
 /* 📱 MOBILE PHONE HEADER ADJUSTMENTS */
 @media (max-width: 480px) {
 
-  /* shrink the stamp */
+  /* adjust stamp */
   .top-left img {
-    width: 90px;           /* smaller than tablet */
-    transform: scale(0.8); /* scale down a bit */
-    top: 3px;              /* adjust vertical alignment */
-    left: 10px;            /* adjust horizontal alignment */
+    width: 100px;           /* slightly bigger */
+    transform: scale(0.9);  /* closer to tablet size */
+    top: 4px;               /* small vertical nudge */
+    left: 8px;              /* move a bit left */
   }
 
-  /* shrink header text a bit if needed */
+  /* header text */
   .header-container {
     font-size: 1.1rem;
     padding: 4px 0;
   }
 
-  /* center area tweaks */
+  /* top-center adjustments */
   .top-center {
-    max-width: 100%;      /* let it fill available space */
-    margin: 6px 8px 0 8px;
+    max-width: 100%;
+    margin: 6px 0 0 4px;   /* shift slightly left */
     gap: 4px;
   }
 
-  /* search bar shrink */
+  /* shrink search bar */
   .search-container input {
-    font-size: 0.85rem;
-    padding: 4px 6px;
+    font-size: 0.8rem;      /* slightly smaller */
+    padding: 3px 6px;       /* tighter */
+    width: 100%;             /* full width of top-center */
+    box-sizing: border-box;
   }
 
-  /* categories shrink + tighter spacing */
+  /* categories */
+  .category-buttons-wrapper {
+    margin-left: 0;          /* align with search bar */
+  }
+
   .category-buttons {
     gap: 4px;
     padding: 2px 0;
@@ -553,4 +559,3 @@
     font-size: 1rem;
   }
 }
-
