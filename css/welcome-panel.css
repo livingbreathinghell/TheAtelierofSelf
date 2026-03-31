@@ -20,6 +20,11 @@ width: 771px;
 height: 350px;
 }
 
+
+#homepage {
+  position: relative;
+}
+
 .homepage-bg-panel {
 top: 470px;
 left: 24px;
@@ -39,28 +44,13 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: 20px; /* 👈 start here */
+  top: 20px;
   left: 45px;
 
-  --title-scale: .85;
-
-transform: scale(var(--title-scale));
-  transform-origin: top left;
+  transform: scale(0.85); /* simpler */
 
   z-index: 999;
-  pointer-events: none;
-
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-style: italic;
-  font-weight: 300;
-
-  color: rgba(255, 255, 255, 0.70);
-  letter-spacing: 0.04em;
-
-  white-space: nowrap;
 }
-
 /* STAR STYLING */
 #homepage-title .star {
   margin-right: 0em;
