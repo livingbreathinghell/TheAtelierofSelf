@@ -30,8 +30,10 @@ overflow: hidden; /* 👈 prevents stretching */
 }
 
 .homepage-inner {
-position: relative;
-z-index: 1;
+  position: relative;
+  z-index: 1;
+
+  transform: translateY(-80px); /* 👈 adjust this number */
 }
 
 /* =======================
