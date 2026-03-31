@@ -310,21 +310,21 @@ display: block;
 } /* 👈 YOU WERE MISSING THIS */
 
 
+
 /* 📱 phone landscape */
 @media (orientation: landscape) and (max-width: 767px) {
 
   .homepage-inner {
     position: relative;
 
-    left: 45%;
-    transform: translateX(-38%) scale(0.55); /* 👈 was 0.6 → slightly smaller */
+    left: 50%;
+    transform: translateX(-50%) scale(0.55); /* 👈 perfectly centered again */
 
     transform-origin: top left;
     width: 770px;
   }
 
 }
-
 
 /* 📲 tablet / laptop landscape */
 @media (orientation: landscape) and (min-width: 768px) {
