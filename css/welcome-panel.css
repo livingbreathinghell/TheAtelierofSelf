@@ -50,11 +50,11 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: calc(60px - 5px); /* 👈 PANEL TOP - 5px */
+  top: 80px; /* 👈 sits nicely above actual content */
   left: 45px;
 
   transform: scale(0.85);
-  z-index: 1000;
+  z-index: 10;
 }
 
 /* STAR STYLING */
