@@ -37,9 +37,12 @@ z-index: 1;
 transform: translateY(-30px); /* 👈 adjust this number */
 }
 
+
+
+
 #homepage-title {
   position: absolute;
-  top: 130px; /* 👈 start here */
+  top: 90px; /* 👈 start here */
   left: 40px;
 
   --title-scale: .85;
