@@ -50,11 +50,13 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: 0px;   /* 👈 sits ABOVE welcome panel (60px) */
+  top: 55px;   /* 👈 EXACTLY 5px above the panel (60px) */
   left: 45px;
 
   transform: scale(0.85);
   z-index: 1000;
+  
+  pointer-events: none;
 }
 
 /* STAR STYLING */
