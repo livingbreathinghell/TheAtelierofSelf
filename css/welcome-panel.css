@@ -311,15 +311,12 @@ display: block;
 
 @media (orientation: landscape) {
 
-  #homepage {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* 👈 important */
-    overflow-x: hidden;
-  }
-
   .homepage-inner {
-    transform: scale(0.75) translateY(-120px); /* 👈 MAGIC LINE */
+    position: relative;
+
+    left: 50%; /* 👈 center anchor */
+    transform: translateX(-50%) scale(0.75); /* 👈 REAL centering */
+
     transform-origin: top left;
     width: 770px;
   }
