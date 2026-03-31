@@ -505,3 +505,51 @@ overflow: visible; /* make sure the video isn’t clipped */
   transform: none;
 }
 
+/* 📱 MOBILE PHONE POSTS TWEAK */
+@media (max-width: 480px) {
+
+  /* make posts slightly smaller and more compact */
+  .post, 
+  .journal-post {
+    max-width: 340px;       /* shrink overall width for phone */
+    margin-bottom: 18px;    /* a bit tighter */
+  }
+
+  .post-content, 
+  .journal-post .post-content {
+    flex-direction: column; /* stack left + right vertically for small screens */
+    gap: 12px;              /* tighter gap */
+  }
+
+  .post-left, 
+  .journal-post .post-left {
+    flex: 0 0 auto;         /* allow shrinking */
+    min-height: 140px;      /* slightly smaller images/space */
+    width: 100%;            /* fit container */
+  }
+
+  .post-right, 
+  .journal-post .post-right {
+    padding: 12px;          /* slightly smaller padding */
+    min-width: 100%;
+  }
+
+  /* shrink images in left column */
+  .post-left img, 
+  .journal-post .post-left img,
+  .post-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* shrink stamps */
+  .post-left .post-stamp img {
+    max-width: 110px;
+  }
+
+  /* optional: shrink status badges a bit */
+  .post-left .status-badge {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+}
