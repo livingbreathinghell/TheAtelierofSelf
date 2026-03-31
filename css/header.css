@@ -581,5 +581,24 @@
     border-radius: 5px;
   }
 
+/* 📱 SUB + SUB-SUB CATEGORIES — MOBILE SHRINK */
+
+#subcategory-row,
+#month-row {
+  gap: 4px;              /* tighter spacing */
+}
+
+.subcategory-btn {
+  padding: 3px 8px;      /* smaller button */
+  font-size: 0.7rem;     /* slightly smaller text */
+  border-radius: 6px;
+}
+
+.month-btn {
+  font-size: 0.65rem;    /* smaller text */
+  padding: 2px 5px;      /* tighter */
+}
+
+   
 }
 
