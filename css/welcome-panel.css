@@ -316,12 +316,14 @@ display: block;
 
   .homepage-inner {
     position: absolute;
-    top: 40px;
+    top: 80px; /* ⬇️ pushes everything down */
+
     left: 50%;
 
-    transform: translateX(-50%) scale(0.5);
+    transform: translateX(-60%) scale(0.45);
+    /*            👆 more left     👆 smaller */
 
-    width: 720px; /* 👈 match your actual layout width */
+    width: 720px;
   }
 
 }
