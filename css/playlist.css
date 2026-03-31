@@ -227,3 +227,47 @@
   overflow: hidden;
 }
 
+
+
+
+
+/* 📱 POST LEFT AUDIO - MOBILE SCALE DOWN */
+@media (max-width: 480px) {
+
+  .post-left-audio {
+    width: 100%;          /* 👈 match column width */
+    max-width: 72px;      /* 👈 same as your left column */
+    padding: 4px 5px;     /* tighter */
+    gap: 4px;
+    margin-top: 6px;
+    flex-direction: column;   /* 👈 stack to fit better */
+    align-items: center;
+  }
+
+  /* spinning image */
+  .post-left-audio img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* play button */
+  .post-left-audio .play-pause-btn {
+    width: 22px;
+    min-width: 22px;
+    height: 20px;
+    font-size: 0.65rem;
+    padding: 2px;
+  }
+
+  /* text container */
+  .audio-info {
+    max-width: 60px;
+    text-align: center;
+  }
+
+  /* song title */
+  .song-title {
+    font-size: 0.5rem;
+    animation: marquee 14s linear infinite; /* slower for readability */
+  }
+}
