@@ -557,4 +557,23 @@
     height: 22px;
     font-size: 0.9rem;
   }
+
+  .zodiac-grid {
+    gap: 2px;              /* 👈 tighter spacing */
+    overflow-x: hidden;    /* 👈 no scrolling */
+    flex-wrap: nowrap;     /* 👈 force single row */
+    justify-content: center;
+  }
+
+  .zodiac-grid button {
+    flex: 0 0 20px;        /* 👈 key: shrink width */
+    width: 20px;
+    height: 20px;
+
+    font-size: 0.7rem;     /* 👈 smaller symbol */
+    border-radius: 4px;
+  }
+
 }
+
+
