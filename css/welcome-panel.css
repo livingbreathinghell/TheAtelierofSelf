@@ -2,10 +2,10 @@
 /* ===============================
 WELCOME PANEL CONTAINER
 =============================== */
-#welcome-panel {
-position: absolute;
-top: 130px;
-left: 40px;
+#welcome-panel-container {
+  position: absolute;
+  top: 130px;
+  left: 40px;
 width: 720px;
 height: 150px;
 z-index: 1;
