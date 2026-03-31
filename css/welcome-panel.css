@@ -47,7 +47,7 @@ transform: translateY(-30px); /* 👈 adjust this number */
 
   --title-scale: .85;
 
-  transform: translateY(-60px) scale(var(--title-scale));
+transform: scale(var(--title-scale));
   transform-origin: top left;
 
   z-index: 999;
