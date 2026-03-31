@@ -504,3 +504,53 @@
   order: 2; /* right */
 }
 
+
+
+/* 📱 MOBILE PHONE HEADER ADJUSTMENTS */
+@media (max-width: 480px) {
+
+  /* shrink the stamp */
+  .top-left img {
+    width: 90px;           /* smaller than tablet */
+    transform: scale(0.8); /* scale down a bit */
+    top: 3px;              /* adjust vertical alignment */
+    left: 10px;            /* adjust horizontal alignment */
+  }
+
+  /* shrink header text a bit if needed */
+  .header-container {
+    font-size: 1.1rem;
+    padding: 4px 0;
+  }
+
+  /* center area tweaks */
+  .top-center {
+    max-width: 100%;      /* let it fill available space */
+    margin: 6px 8px 0 8px;
+    gap: 4px;
+  }
+
+  /* search bar shrink */
+  .search-container input {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+  }
+
+  /* categories shrink + tighter spacing */
+  .category-buttons {
+    gap: 4px;
+    padding: 2px 0;
+  }
+
+  .category-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .category-scroll-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+}
+
