@@ -34,7 +34,8 @@ overflow: hidden; /* 👈 prevents stretching */
 position: relative;
 z-index: 1;
 
-transform: translateY(-30px); /* 👈 adjust this number */
+.homepage-inner {
+  transform: none;
 }
 
 
