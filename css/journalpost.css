@@ -501,57 +501,66 @@ overflow: visible; /* make sure the video isn’t clipped */
   transform: none;
 }
 
-/* 📱 MOBILE POSTS FINAL FINAL */
+/* 📱 MOBILE POSTS ULTRA POLISH */
 @media (max-width: 480px) {
 
   /* overall post */
   .post,
   .journal-post {
-    max-width: 380px;     /* 👈 give more total width */
-    margin-left: 8px;     /* 👈 nudge a bit more right */
+    max-width: 395px;     /* 👈 slightly wider = more right space */
+    margin-left: 10px;    /* 👈 push a bit more right */
     margin-bottom: 18px;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
   }
 
   /* layout */
   .post-content,
   .journal-post .post-content {
     flex-direction: row;
-    gap: 3px; /* 👈 tighter = more room for right column */
+    gap: 2px; /* 👈 super tight = max space for right */
   }
 
-  /* LEFT COLUMN (slightly slimmer again) */
+  /* LEFT COLUMN (tightened further) */
   .post-left,
   .journal-post .post-left {
-    flex: 0 0 78px;   /* 👈 frees more space */
-    min-height: 78px;
+    flex: 0 0 72px;   /* 👈 smaller again */
+    min-height: 72px;
   }
 
   .post-left img,
   .journal-post .post-left img {
-    max-width: 78px;
+    max-width: 72px;
   }
 
-  /* STATUS BADGE (tiny tiny refinement) */
+  /* DATE (smaller + lighter) */
+  .post-left .post-date,
+  .journal-post .post-left .post-date {
+    font-size: 0.55rem;   /* 👈 smaller */
+    opacity: 0.6;         /* 👈 softer presence */
+    margin-bottom: 4px;
+  }
+
+  /* STATUS BADGE (much smaller now) */
   .post-left .status-badge,
   .journal-post .post-left .status-badge {
-    font-size: 0.45rem;  /* 👈 slightly smaller */
+    font-size: 0.4rem;    /* 👈 noticeably smaller */
     padding: 1px 2px;
     gap: 1px;
+    border-radius: 999px;
   }
 
-  /* RIGHT COLUMN (MAXIMIZE SPACE 🔥) */
+  /* RIGHT COLUMN (maximum stretch) */
   .post-right,
   .journal-post .post-right {
     flex: 1 1 auto;
     min-width: 0;
-    padding: 6px;
+    padding: 5px;
   }
 
   /* text */
   .post-right p,
   .journal-post .post-right p {
-    font-size: 0.74rem;
-    line-height: 1.25;
+    font-size: 0.72rem;
+    line-height: 1.22;
   }
 }
