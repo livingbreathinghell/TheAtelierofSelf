@@ -45,7 +45,7 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute !important;
-  top: 0px !important;
+  top: -100px !important;
   left: 45px !important;
 
   transform: scale(0.85);
