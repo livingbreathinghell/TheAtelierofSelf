@@ -23,7 +23,7 @@ height: 350px;
 
 #homepage {
   position: relative;
-  padding-top: 10px; /* 👈 THIS is the magic */
+  height: 1000px; /* 👈 temporary but IMPORTANT */
 }
 
 .homepage-bg-panel {
