@@ -525,7 +525,7 @@
 
   /* top-center adjustments: slight right shift */
   .top-center {
-    max-width: 95%;
+    max-width: 90%;
     position: relative;
     left: 2px;   /* tiny nudge right */
     gap: 3px;
@@ -535,7 +535,7 @@
   .search-container input {
     font-size: 0.7rem;  /* a bit smaller text */
     padding: 2px 4px;   /* slightly smaller padding */
-    width: 95%;          /* shrink width a tiny bit */
+    width: 90%;          /* shrink width a tiny bit */
     box-sizing: border-box;
   }
   /* categories: slightly smaller */
