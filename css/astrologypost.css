@@ -488,3 +488,119 @@
   padding-bottom: 6px;          /* extra space for line */
   border-bottom: 2px solid rgba(255,255,255,0.14); /* thicker line */
 }
+
+
+
+
+
+
+
+
+/* 📱 ASTROLOGY POSTS — MOBILE POLISH */
+@media (max-width: 480px) {
+
+  /* overall post container */
+  .astrology-post {
+    max-width: 395px;
+    margin-left: 10px;
+    margin-bottom: 18px;
+    font-size: 0.76rem;
+  }
+
+  /* layout = SAME STRUCTURE AS JOURNAL */
+  .astrology-post .post-content {
+    flex-direction: row;
+    gap: 2px;
+  }
+
+  /* LEFT COLUMN (match journal sizing) */
+  .astrology-post .post-left {
+    flex: 0 0 72px;
+    min-width: 72px;
+    max-width: 72px;
+  }
+
+  .astrology-post .post-left img {
+    max-width: 72px;
+  }
+
+  /* DATE */
+  .astrology-post .post-left .post-date {
+    font-size: 0.55rem;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  /* STATUS BADGE */
+  .astrology-post .post-left .status-badge {
+    font-size: 0.4rem;
+    padding: 1px 2px;
+    border-radius: 999px;
+  }
+
+  /* RIGHT COLUMN (stretch like journal) */
+  .astrology-post .post-right {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 6px;
+  }
+
+  /* TEXT */
+  .astrology-post .post-right p {
+    font-size: 0.68rem;
+    line-height: 1.18;
+  }
+
+  .astrology-post .post-right h1,
+  .astrology-post .post-right h2,
+  .astrology-post .post-right h3 {
+    font-size: 0.75rem;
+  }
+
+  /* KEYWORDS + BIG THREE (shrink to fit column reality) */
+  .keywords-post {
+    padding: 6px 8px;
+  }
+
+  .keywords-post p {
+    font-size: 0.6rem;
+  }
+
+  .keywords-post li {
+    font-size: 0.55rem;
+  }
+
+  .big-three li {
+    font-size: 0.55rem;
+  }
+
+  /* TABLE (important for mobile sanity) */
+  .atelier-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .atelier-table th {
+    font-size: 0.6rem;
+    padding: 6px 8px;
+  }
+
+  .atelier-table td {
+    font-size: 0.55rem;
+    padding: 5px 8px;
+  }
+
+  /* CARDS (tarot / visual sets) */
+  .card-item {
+    width: 52px;
+  }
+
+  .card-item span {
+    font-size: 0.45rem;
+  }
+
+  /* TITLE SPACING FIX */
+  .astrology-post .post-right h2 {
+    margin-bottom: -6px;
+  }
+
+}
