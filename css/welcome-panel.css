@@ -307,15 +307,33 @@ display: block;
     width: 770px;
   }
 
-}
+} /* 👈 YOU WERE MISSING THIS */
 
-@media (orientation: landscape) {
+
+/* 📱 phone landscape */
+@media (orientation: landscape) and (max-width: 767px) {
 
   .homepage-inner {
     position: relative;
 
-    left: 50%; /* 👈 center anchor */
-    transform: translateX(-50%) scale(0.75); /* 👈 REAL centering */
+    left: 50%;
+    transform: translateX(-38%) scale(0.6);
+
+    transform-origin: top left;
+    width: 770px;
+  }
+
+}
+
+
+/* 📲 tablet / laptop landscape */
+@media (orientation: landscape) and (min-width: 768px) {
+
+  .homepage-inner {
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-45%) scale(0.9);
 
     transform-origin: top left;
     width: 770px;
