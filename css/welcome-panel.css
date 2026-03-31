@@ -33,7 +33,7 @@ overflow: hidden; /* 👈 prevents stretching */
   position: relative;
   z-index: 1;
 
-  transform: translateY(-80px); /* 👈 adjust this number */
+  transform: translateY(-90px); /* 👈 adjust this number */
 }
 
 /* =======================
