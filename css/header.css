@@ -565,10 +565,10 @@
     justify-content: center;
   }
 
-  .zodiac-grid button {
-    flex: 0 0 24px;     /* 👈 slightly bigger */
-    width: 24px;
-    height: 24px;
+    .zodiac-grid button {
+    flex: 0 0 22px;   /* 👈 down from 24px */
+    width: 22px;
+    height: 22px;
 
     display: flex;      /* 👈 THIS fixes drifting */
     align-items: center;
@@ -577,7 +577,7 @@
     padding: 0;         /* 👈 remove offset */
     line-height: 1;     /* 👈 kill vertical weirdness */
 
-    font-size: 0.8rem;
+    font-size: 0.75rem;  /* 👈 tiny text shrink to match */
     border-radius: 5px;
   }
 
