@@ -44,13 +44,13 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: 20px;
+  top: 0px;   /* 👈 move it up */
   left: 45px;
 
-  transform: scale(0.85); /* simpler */
-
+  transform: scale(0.85);
   z-index: 999;
 }
+
 /* STAR STYLING */
 #homepage-title .star {
   margin-right: 0em;
