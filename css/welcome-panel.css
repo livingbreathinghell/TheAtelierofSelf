@@ -21,7 +21,7 @@ height: 350px;
 }
 
 .homepage-bg-panel {
-top: 500px;
+top: 470px;
 left: 24px;
 width: 771px;
 
@@ -43,7 +43,7 @@ z-index: 1;
 
 #homepage-title {
   position: absolute;
-  top: 35px; /* 👈 start here */
+  top: 20px; /* 👈 start here */
   left: 40px;
 
   --title-scale: .85;
