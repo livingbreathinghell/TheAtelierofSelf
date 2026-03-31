@@ -232,42 +232,46 @@
 
 
 /* 📱 POST LEFT AUDIO - MOBILE SCALE DOWN */
+/* 📱 POST LEFT AUDIO - HORIZONTAL MINI */
 @media (max-width: 480px) {
 
   .post-left-audio {
-    width: 100%;          /* 👈 match column width */
-    max-width: 72px;      /* 👈 same as your left column */
-    padding: 4px 5px;     /* tighter */
-    gap: 4px;
-    margin-top: 6px;
-    flex-direction: column;   /* 👈 stack to fit better */
+    width: 100%;
+    max-width: 72px;      /* 👈 match column */
+    padding: 3px 4px;
+    gap: 3px;
+
+    flex-direction: row;  /* 👈 BACK TO HORIZONTAL */
     align-items: center;
+    justify-content: space-between;
   }
 
-  /* spinning image */
+  /* spinning image (left) */
   .post-left-audio img {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
   }
 
-  /* play button */
-  .post-left-audio .play-pause-btn {
-    width: 22px;
-    min-width: 22px;
-    height: 20px;
-    font-size: 0.65rem;
-    padding: 2px;
-  }
-
-  /* text container */
+  /* text (middle) */
   .audio-info {
-    max-width: 60px;
-    text-align: center;
+    max-width: 30px;      /* 👈 tiny center space */
+    overflow: hidden;
   }
 
-  /* song title */
   .song-title {
-    font-size: 0.5rem;
-    animation: marquee 14s linear infinite; /* slower for readability */
+    font-size: 0.45rem;
+    white-space: nowrap;
+    animation: marquee 16s linear infinite;
+  }
+
+  /* button (right) */
+  .post-left-audio .play-pause-btn {
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.55rem;
+    padding: 0;
+    flex-shrink: 0;
   }
 }
