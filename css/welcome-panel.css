@@ -31,11 +31,12 @@ overflow: hidden; /* 👈 prevents stretching */
 }
 
 .homepage-inner {
-  position: relative;
-  z-index: 1;
+position: relative;
+z-index: 1;
+
+.homepage-inner {
+  transform: none;
 }
-
-
 
 
 #homepage-title {
