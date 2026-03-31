@@ -45,7 +45,7 @@ HOMEPAGE TITLE
 
 /* 👇 POSITIONED TO SIT ON PANEL */
 position: absolute;
-top: 210px;
+top: 100px;
 left: 40px;
 
 --title-scale: .85;
