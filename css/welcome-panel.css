@@ -319,7 +319,7 @@ display: block;
   .homepage-inner {
     position: relative;
 
-    left: 40%;
+    left: 50%;
     transform: translateX(-45%) scale(0.9); /* 👈 was 0.9 → slightly bigger */
 
     transform-origin: top left;
