@@ -50,13 +50,11 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: 55px;   /* 👈 EXACTLY 5px above the panel (60px) */
+  top: calc(60px - 5px); /* 👈 PANEL TOP - 5px */
   left: 45px;
 
   transform: scale(0.85);
   z-index: 1000;
-  
-  pointer-events: none;
 }
 
 /* STAR STYLING */
@@ -306,22 +304,3 @@ display: block;
 
 
 
-@media (max-width: 480px) {
-
-  #homepage {
-    overflow-x: hidden;
-  }
-
-  .homepage-inner {
-    position: absolute;
-    top: 80px; /* ⬇️ pushes everything down */
-
-    left: 50%;
-
-    transform: translateX(-60%) scale(0.45);
-    /*            👆 more left     👆 smaller */
-
-    width: 720px;
-  }
-
-}
