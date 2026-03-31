@@ -548,8 +548,9 @@
   }
 
   .category-btn {
-    padding: 2px 6px;
-    font-size: 0.65rem;
+    padding: 4px 10px;     /* bigger click area */
+  font-size: 0.75rem;    /* slightly larger text */
+  border-radius: 10px;
   }
 
   .category-scroll-arrow {
@@ -589,14 +590,14 @@
 }
 
 .subcategory-btn {
-  padding: 3px 8px;      /* smaller button */
-  font-size: 0.7rem;     /* slightly smaller text */
+  padding: 2px 6px;      /* smaller */
+  font-size: 0.65rem;
   border-radius: 6px;
 }
 
 .month-btn {
-  font-size: 0.65rem;    /* smaller text */
-  padding: 2px 5px;      /* tighter */
+  font-size: 0.6rem;
+  padding: 1px 4px;
 }
 
    
