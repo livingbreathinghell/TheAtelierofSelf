@@ -293,14 +293,35 @@ display: block;
   opacity: 0.8;
 }
 
+/* 📱 portrait */
 @media (max-width: 480px) {
+
+  #homepage {
+    display: flex;
+    justify-content: center;
+  }
 
   .homepage-inner {
     transform: scale(0.5);
     transform-origin: top left;
-
-    width: 770px; /* keep original layout width */
+    width: 770px;
   }
 
 }
 
+/* 🔄 landscape */
+@media (orientation: landscape) {
+
+  #homepage {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .homepage-inner {
+    transform: scale(0.75);
+    transform-origin: top center;
+    width: 770px;
+  }
+
+}
