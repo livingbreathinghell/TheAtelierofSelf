@@ -4,7 +4,7 @@ WELCOME PANEL CONTAINER
 =============================== */
 #welcome-panel {
 position: absolute;
-top: 230px;
+top: 150px;
 left: 40px;
 width: 720px;
 height: 150px;
@@ -14,7 +14,7 @@ pointer-events: auto;
 
 /* WELCOME / STATUS PANEL */
 .welcome-bg-panel {
-top: 200px;
+top: 120px;
 left: 24px;
 width: 771px;
 height: 350px;
@@ -43,7 +43,7 @@ HOMEPAGE TITLE
 
   /* 👇 POSITIONED TO SIT ON PANEL */
   position: absolute;
-  top: 210px;
+  top: 130px;
   left: 40px;
 
     --title-scale: .85;
