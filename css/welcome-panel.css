@@ -293,5 +293,14 @@ display: block;
   opacity: 0.8;
 }
 
+@media (max-width: 480px) {
 
+  .homepage-inner {
+    transform: scale(0.5);
+    transform-origin: top left;
+
+    width: 770px; /* keep original layout width */
+  }
+
+}
 
