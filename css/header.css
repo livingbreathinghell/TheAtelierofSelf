@@ -523,21 +523,18 @@
     padding: 4px 0;
   }
 
-  /* top-center adjustments: slight right shift */
-  .top-center {
-    max-width: 90%;
-    position: relative;
-    left: 2px;   /* tiny nudge right */
-    gap: 3px;
-  }
+/* top-center adjustments: slightly narrower */
+.top-center {
+  max-width: 85%;  /* a bit shorter than 90% */
+  position: relative;
+  left: 2px;   /* keep that tiny right nudge */
+  gap: 3px;
+}
 
-/* search bar: slightly smaller */
-  .search-container input {
-    font-size: 0.7rem;  /* a bit smaller text */
-    padding: 2px 4px;   /* slightly smaller padding */
-    width: 90%;          /* shrink width a tiny bit */
-    box-sizing: border-box;
-  }
+/* search bar width */
+.search-container input {
+  width: 85%;  /* match top-center so it doesn’t go too wide */
+}
   /* categories: slightly smaller */
   .category-buttons {
     gap: 2px;           /* minor gap reduction */
