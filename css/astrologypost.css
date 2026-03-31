@@ -598,6 +598,29 @@
     font-size: 0.45rem;
   }
 
+    .astrology-post .post-tags {
+    display: flex;
+    flex-wrap: wrap;          /* 👈 allows wrapping instead of scrolling */
+    gap: 4px;
+    justify-content: flex-start;
+  }
+
+  .astrology-post .post-tags .tag,
+  .astrology-post .post-tags button {
+    font-size: 0.5rem;        /* 👈 smaller text */
+    padding: 3px 6px;         /* 👈 tighter pill */
+    border-radius: 999px;
+    white-space: nowrap;
+
+    flex: 0 1 auto;           /* 👈 prevents weird stretching */
+  }
+
+  /* optional: make them feel more compact visually */
+  .astrology-post .post-tags .tag {
+    opacity: 0.85;
+  }
+
+}
   /* TITLE SPACING FIX */
   .astrology-post .post-right h2 {
     margin-bottom: -6px;
