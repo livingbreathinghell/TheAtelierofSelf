@@ -311,20 +311,7 @@ display: block;
 
 
 
-/* 📱 phone landscape */
-@media (orientation: landscape) and (max-width: 767px) {
 
-  .homepage-inner {
-    position: relative;
-
-    left: 50%;
-    transform: translateX(-50%) scale(0.55); /* 👈 perfectly centered again */
-
-    transform-origin: top left;
-    width: 770px;
-  }
-
-}
 
 /* 📲 tablet / laptop landscape */
 @media (orientation: landscape) and (min-width: 768px) {
@@ -332,8 +319,8 @@ display: block;
   .homepage-inner {
     position: relative;
 
-    left: 50%;
-    transform: translateX(-45%) scale(1); /* 👈 was 0.9 → slightly bigger */
+    left: 40%;
+    transform: translateX(-45%) scale(0.9); /* 👈 was 0.9 → slightly bigger */
 
     transform-origin: top left;
     width: 770px;
