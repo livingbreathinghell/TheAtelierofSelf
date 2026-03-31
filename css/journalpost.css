@@ -557,10 +557,19 @@ overflow: visible; /* make sure the video isn’t clipped */
     padding: 5px;
   }
 
-  /* text */
-  .post-right p,
+.post-right p,
   .journal-post .post-right p {
-    font-size: 0.72rem;
-    line-height: 1.22;
+    font-size: 0.68rem;   /* 👈 smaller than before (was ~0.72) */
+    line-height: 1.18;    /* 👈 tighter but still readable */
+  }
+
+  /* optional: if you have headings inside posts */
+  .post-right h1,
+  .post-right h2,
+  .post-right h3,
+  .journal-post .post-right h1,
+  .journal-post .post-right h2,
+  .journal-post .post-right h3 {
+    font-size: 0.75rem;   /* keeps hierarchy but scaled down */
   }
 }
