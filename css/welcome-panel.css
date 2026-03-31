@@ -44,12 +44,12 @@ overflow: hidden; /* 👈 prevents stretching */
 
 
 #homepage-title {
-  position: absolute !important;
-  top: 50px !important;
-  left: 45px !important;
+  position: absolute;
+  top: 20px;
+  left: 45px;
 
-  transform: scale(0.85);
-  z-index: 9999 !important;
+  transform: scale(0.85) translateZ(0); /* 👈 add it HERE */
+  z-index: 10;
 }
 
 /* STAR STYLING */
