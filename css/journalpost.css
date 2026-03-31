@@ -1,8 +1,4 @@
 
-/* Hide pinned post until ready */
-#pinned-post-container.not-ready {
-  visibility: hidden !important;
-}
 
 /* ==========================================================
    POSTS / JOURNAL LEFT COLUMN CLEAN (NO PAPER)
