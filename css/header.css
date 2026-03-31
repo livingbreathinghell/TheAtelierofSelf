@@ -511,9 +511,9 @@
 
   /* adjust stamp */
   .top-left img {
-    width: 100px;           /* keep slightly bigger */
+    width: 100px;           
     transform: scale(0.9);  
-    top: 9px;               /* bring down a bit */
+    top: 9px;               
     left: 8px;              
   }
 
@@ -526,37 +526,37 @@
   /* top-center adjustments */
   .top-center {
     max-width: 100%;
-   position: relative;
-  left: -5px; /* shift 5px left */
-     gap: 4px;
+    position: relative;
+    left: -5px; /* shift 5px left */
+    gap: 3px;   /* slightly tighter spacing */
   }
 
-  /* shrink search bar */
+  /* shrink search bar a bit more */
   .search-container input {
-    font-size: 0.8rem;
-    padding: 3px 6px;
+    font-size: 0.75rem;  /* smaller text */
+    padding: 2px 5px;    /* smaller padding */
     width: 100%;             
     box-sizing: border-box;
   }
 
-  /* categories */
+  /* categories adjustments */
   .category-buttons-wrapper {
     margin-left: 0;          
   }
 
   .category-buttons {
-    gap: 4px;
-    padding: 2px 0;
+    gap: 3px;              /* tighter spacing between buttons */
+    padding: 1px 0;
   }
 
   .category-btn {
-    padding: 4px 8px;
-    font-size: 0.75rem;
+    padding: 3px 6px;      /* slightly smaller buttons */
+    font-size: 0.7rem;     /* smaller text */
   }
 
   .category-scroll-arrow {
-    width: 24px;
-    height: 24px;
-    font-size: 1rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.9rem;
   }
 }
