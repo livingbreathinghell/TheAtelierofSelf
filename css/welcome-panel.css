@@ -23,7 +23,7 @@ height: 350px;
 
 #homepage {
   position: relative;
-  padding-top: 40px; /* 👈 THIS is the magic */
+  padding-top: 20px; /* 👈 THIS is the magic */
 }
 
 .homepage-bg-panel {
@@ -45,7 +45,7 @@ overflow: hidden; /* 👈 prevents stretching */
 
 #homepage-title {
   position: absolute;
-  top: -50px;   /* 👈 move it up */
+  top: 0px;   /* 👈 move it up */
   left: 45px;
 
   transform: scale(0.85);
