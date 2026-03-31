@@ -320,8 +320,7 @@ display: block;
     top: 40px;
     left: 50%;
 
-    transform: scale(0.5) translateX(-50%);
-    transform-origin: top left;
+    transform: translateX(-50%) scale(0.5);
 
     width: 720px; /* 👈 match your actual layout width */
   }
