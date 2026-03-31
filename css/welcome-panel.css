@@ -316,7 +316,7 @@ display: block;
   .homepage-inner {
     position: relative;
 
-    left: 60%;
+    left: 45%;
     transform: translateX(-38%) scale(0.55); /* 👈 was 0.6 → slightly smaller */
 
     transform-origin: top left;
