@@ -20,6 +20,11 @@ width: 771px;
 height: 350px;
 }
 
+.welcome-bg-panel,
+.homepage-bg-panel {
+  position: absolute;
+  z-index: 1;
+}
 
 #homepage {
   position: relative;
