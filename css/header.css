@@ -531,14 +531,13 @@
     gap: 3px;
   }
 
-  /* search bar: slightly smaller */
+/* search bar: slightly smaller */
   .search-container input {
-    font-size: 0.7rem;  /* just a tiny bit smaller */
+    font-size: 0.7rem;  /* a bit smaller text */
     padding: 2px 4px;   /* slightly smaller padding */
-    width: 100%;
+    width: 95%;          /* shrink width a tiny bit */
     box-sizing: border-box;
   }
-
   /* categories: slightly smaller */
   .category-buttons {
     gap: 2px;           /* minor gap reduction */
