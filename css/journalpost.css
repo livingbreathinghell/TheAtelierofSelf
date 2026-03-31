@@ -501,57 +501,57 @@ overflow: visible; /* make sure the video isn’t clipped */
   transform: none;
 }
 
-/* 📱 MOBILE POSTS REFINED */
+/* 📱 MOBILE POSTS FINAL TUNE */
 @media (max-width: 480px) {
 
-  /* shift whole post slightly left */
+  /* shift whole post slightly RIGHT now */
   .post,
   .journal-post {
-    max-width: 340px;
-    margin-left: -6px;   /* 👈 pulls everything left */
+    max-width: 350px;     /* 👈 a bit wider overall */
+    margin-left: 2px;     /* 👈 small nudge right */
     margin-bottom: 18px;
-    font-size: 0.82rem;  /* slightly smaller overall text */
+    font-size: 0.82rem;
   }
 
-  /* layout stays side-by-side */
+  /* layout */
   .post-content,
   .journal-post .post-content {
     flex-direction: row;
-    gap: 6px; /* tighter gap = more room for right column */
+    gap: 5px; /* tighter = more space for right side */
   }
 
-  /* LEFT COLUMN (slightly smaller + tighter) */
+  /* LEFT COLUMN */
   .post-left,
   .journal-post .post-left {
-    flex: 0 0 90px;   /* 👈 smaller than before (was 100px) */
-    min-height: 90px;
+    flex: 0 0 88px;   /* tiny bit smaller */
+    min-height: 88px;
   }
 
   .post-left img,
   .journal-post .post-left img {
-    max-width: 90px;
+    max-width: 88px;
   }
 
-  /* STATUS BADGE (smaller + cleaner) */
+  /* STATUS BADGE (smidge smaller) */
   .post-left .status-badge,
   .journal-post .post-left .status-badge {
-    font-size: 0.55rem;
-    padding: 2px 4px;
-    gap: 3px;
+    font-size: 0.5rem;   /* 👈 just a tiny decrease */
+    padding: 2px 3px;
+    gap: 2px;
   }
 
-  /* RIGHT COLUMN (more horizontal room, less bulky) */
+  /* RIGHT COLUMN (expand a bit more) */
   .post-right,
   .journal-post .post-right {
     flex: 1 1 auto;
-    min-width: 0;        /* 👈 IMPORTANT: allows it to shrink properly */
-    padding: 7px;        /* slightly tighter */
+    min-width: 0;
+    padding: 7px;
   }
 
-  /* shrink text inside right column slightly */
+  /* slightly tighter text */
   .post-right p,
   .journal-post .post-right p {
-    font-size: 0.78rem;
-    line-height: 1.35;
+    font-size: 0.77rem;
+    line-height: 1.3;
   }
 }
