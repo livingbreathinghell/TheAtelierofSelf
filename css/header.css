@@ -525,7 +525,7 @@
 
   /* top-center adjustments: slight right shift */
   .top-center {
-    max-width: 100%;
+    max-width: 95%;
     position: relative;
     left: 2px;   /* tiny nudge right */
     gap: 3px;
