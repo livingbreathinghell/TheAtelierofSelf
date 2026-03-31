@@ -283,42 +283,45 @@ display: block;
 }
 
 /* ===============================
-WELCOME LINK BAR (FINAL TWEAK)
-=============================== /
+   WELCOME LINK BAR (FINAL TWEAK)
+=============================== */
 #welcome-links {
-position: absolute;
-top: 255px;     / moved lower again */
-left: -20px;
-width: 480px;
+  position: absolute;
+  top: 255px;     /* moved lower again */
+  left: -20px;    
+  width: 480px;
 
-display: flex;
-justify-content: flex-start;
-gap: 6px;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  flex-wrap: wrap;
 
-font-size: 0.6rem;
-font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 500;
 }
 
-/* links /
+/* links */
 #welcome-links a {
-color: #F9E5B8;
-text-decoration: none !important;  / FORCE no underline */
-margin: 0 3px;
+  color: #F9E5B8;
+  text-decoration: none !important;  /* FORCE no underline */
+  margin: 0 3px;
 }
 
 /* separators */
 #welcome-links a:not(:last-child)::after {
-content: " |";
-margin-left: 6px;
-opacity: 0.6;
+  content: " |";
+  margin-left: 6px;
+  opacity: 0.6;
 }
 
 /* hover (still no underline, just subtle fade) */
 #welcome-links a:hover {
-text-decoration: none !important;
-opacity: 0.8;
+  text-decoration: none !important;
+  opacity: 0.8;
 }
+
+
+
 
 @media (max-width: 480px) {
 
