@@ -511,10 +511,10 @@
 
   /* adjust stamp */
   .top-left img {
-    width: 100px;           /* slightly bigger */
-    transform: scale(0.9);  /* closer to tablet size */
-    top: 4px;               /* small vertical nudge */
-    left: 8px;              /* move a bit left */
+    width: 100px;           /* keep slightly bigger */
+    transform: scale(0.9);  
+    top: 8px;               /* bring down a bit */
+    left: 8px;              
   }
 
   /* header text */
@@ -526,21 +526,21 @@
   /* top-center adjustments */
   .top-center {
     max-width: 100%;
-    margin: 6px 0 0 4px;   /* shift slightly left */
+    margin: 6px 0 0 12px;   /* move slightly right */
     gap: 4px;
   }
 
   /* shrink search bar */
   .search-container input {
-    font-size: 0.8rem;      /* slightly smaller */
-    padding: 3px 6px;       /* tighter */
-    width: 100%;             /* full width of top-center */
+    font-size: 0.8rem;
+    padding: 3px 6px;
+    width: 100%;             
     box-sizing: border-box;
   }
 
   /* categories */
   .category-buttons-wrapper {
-    margin-left: 0;          /* align with search bar */
+    margin-left: 0;          
   }
 
   .category-buttons {
