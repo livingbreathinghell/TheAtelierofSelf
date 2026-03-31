@@ -309,7 +309,6 @@ display: block;
 
 }
 
-/* 🔄 landscape */
 @media (orientation: landscape) {
 
   #homepage {
@@ -320,7 +319,7 @@ display: block;
 
   .homepage-inner {
     transform: scale(0.75);
-    transform-origin: top center;
+    transform-origin: top left; /* 👈 KEEP THIS */
     width: 770px;
   }
 
