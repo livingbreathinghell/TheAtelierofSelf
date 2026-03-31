@@ -526,7 +526,8 @@
   /* top-center adjustments */
   .top-center {
     max-width: 100%;
-   margin-left: -5px; /* moves the block 8px left */
+   position: relative;
+  left: -5px; /* shift 5px left */
      gap: 4px;
   }
 
