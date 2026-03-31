@@ -314,12 +314,13 @@ display: block;
   #homepage {
     display: flex;
     justify-content: center;
+    align-items: flex-start; /* 👈 important */
     overflow-x: hidden;
   }
 
   .homepage-inner {
-    transform: scale(0.75);
-    transform-origin: top left; /* 👈 KEEP THIS */
+    transform: scale(0.75) translateY(-120px); /* 👈 MAGIC LINE */
+    transform-origin: top left;
     width: 770px;
   }
 
