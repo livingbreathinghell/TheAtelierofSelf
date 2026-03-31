@@ -317,7 +317,7 @@ display: block;
     position: relative;
 
     left: 50%;
-    transform: translateX(-38%) scale(0.6);
+    transform: translateX(-38%) scale(0.55); /* 👈 was 0.6 → slightly smaller */
 
     transform-origin: top left;
     width: 770px;
@@ -333,7 +333,7 @@ display: block;
     position: relative;
 
     left: 50%;
-    transform: translateX(-45%) scale(0.9);
+    transform: translateX(-45%) scale(0.95); /* 👈 was 0.9 → slightly bigger */
 
     transform-origin: top left;
     width: 770px;
