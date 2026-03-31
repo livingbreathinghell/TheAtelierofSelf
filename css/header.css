@@ -526,8 +526,8 @@
   /* top-center adjustments */
   .top-center {
     max-width: 100%;
-    margin: 6px 0 0 0px;   /* move slightly right */
-    gap: 4px;
+   margin-left: 5px; /* moves the block 8px left */
+     gap: 4px;
   }
 
   /* shrink search bar */
