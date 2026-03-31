@@ -501,46 +501,46 @@ overflow: visible; /* make sure the video isn’t clipped */
   transform: none;
 }
 
-/* 📱 MOBILE POSTS POLISHED */
+/* 📱 MOBILE POSTS FINAL FINAL */
 @media (max-width: 480px) {
 
-  /* shift whole post RIGHT more */
+  /* overall post */
   .post,
   .journal-post {
-    max-width: 370px;     /* 👈 wider overall */
-    margin-left: 6px;     /* 👈 stronger nudge right */
+    max-width: 380px;     /* 👈 give more total width */
+    margin-left: 8px;     /* 👈 nudge a bit more right */
     margin-bottom: 18px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   /* layout */
   .post-content,
   .journal-post .post-content {
     flex-direction: row;
-    gap: 4px; /* tighter gap = more room for right */
+    gap: 3px; /* 👈 tighter = more room for right column */
   }
 
-  /* LEFT COLUMN (slightly slimmer) */
+  /* LEFT COLUMN (slightly slimmer again) */
   .post-left,
   .journal-post .post-left {
-    flex: 0 0 82px;   /* 👈 smaller again */
-    min-height: 82px;
+    flex: 0 0 78px;   /* 👈 frees more space */
+    min-height: 78px;
   }
 
   .post-left img,
   .journal-post .post-left img {
-    max-width: 82px;
+    max-width: 78px;
   }
 
-  /* STATUS BADGE (extra tiny refinement) */
+  /* STATUS BADGE (tiny tiny refinement) */
   .post-left .status-badge,
   .journal-post .post-left .status-badge {
-    font-size: 0.48rem;  /* 👈 subtle shrink */
-    padding: 1px 3px;
-    gap: 2px;
+    font-size: 0.45rem;  /* 👈 slightly smaller */
+    padding: 1px 2px;
+    gap: 1px;
   }
 
-  /* RIGHT COLUMN (give it more power 😤) */
+  /* RIGHT COLUMN (MAXIMIZE SPACE 🔥) */
   .post-right,
   .journal-post .post-right {
     flex: 1 1 auto;
@@ -548,10 +548,10 @@ overflow: visible; /* make sure the video isn’t clipped */
     padding: 6px;
   }
 
-  /* text slightly tighter */
+  /* text */
   .post-right p,
   .journal-post .post-right p {
-    font-size: 0.75rem;
-    line-height: 1.28;
+    font-size: 0.74rem;
+    line-height: 1.25;
   }
 }
