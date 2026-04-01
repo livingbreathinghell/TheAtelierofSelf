@@ -499,78 +499,74 @@ overflow: visible; /* make sure the video isn’t clipped */
   transform: none;
 }
 
-/* 📱 MOBILE POSTS ULTRA POLISH */
 @media (max-width: 480px) {
 
   /* overall post */
   .post,
   .journal-post {
-    max-width: 395px;     /* 👈 slightly wider = more right space */
-    margin-left: 10px;    /* 👈 push a bit more right */
+    max-width: 395px;
+    margin-left: 10px;
     margin-bottom: 18px;
     font-size: 0.76rem;
   }
 
-/* layout */
+  /* layout */
   .post-content,
   .journal-post .post-content {
     flex-direction: row;
-    gap: 2px;
+    gap: 4px; /* 👈 slightly more breathing room now that left is bigger */
   }
 
-  /* 👈 LEFT COLUMN — SHRINK MORE */
+  /* 👈 LEFT COLUMN — BIGGER */
   .post-left,
   .journal-post .post-left {
-    flex: 0 0 60px;   /* was 72px */
-    min-height: 60px;
+    flex: 0 0 95px;   /* 👈 increased from 60px */
+    min-height: 95px;
   }
 
   .post-left img,
   .journal-post .post-left img {
-    max-width: 60px;
+    max-width: 95px;
   }
 
-
-
-
-  /* DATE (smaller + lighter) */
+  /* DATE */
   .post-left .post-date,
   .journal-post .post-left .post-date {
-    font-size: 0.55rem;   /* 👈 smaller */
-    opacity: 0.6;         /* 👈 softer presence */
+    font-size: 0.6rem;   /* 👈 tiny bump so it scales with bigger column */
+    opacity: 0.65;
     margin-bottom: 4px;
   }
 
-  /* STATUS BADGE (much smaller now) */
+  /* STATUS BADGE */
   .post-left .status-badge,
   .journal-post .post-left .status-badge {
-    font-size: 0.4rem;    /* 👈 noticeably smaller */
-    padding: 1px 2px;
-    gap: 1px;
+    font-size: 0.45rem;
+    padding: 2px 4px;
+    gap: 2px;
     border-radius: 999px;
   }
 
-  /* 👈 RIGHT COLUMN — EXPAND + BREATHE */
+  /* 👈 RIGHT COLUMN — SLIGHTLY SMALLER / CONTAINED */
   .post-right,
   .journal-post .post-right {
-    flex: 1 1 0%;   /* 👈 THIS is the magic */
+    flex: 1 1 auto;
     min-width: 0;
-    padding: 6px 8px;  /* tiny bump = nicer spacing */
+    padding: 6px 8px;
   }
 
-.post-right p,
+  .post-right p,
   .journal-post .post-right p {
-    font-size: 0.68rem;   /* 👈 smaller than before (was ~0.72) */
-    line-height: 1.18;    /* 👈 tighter but still readable */
+    font-size: 0.66rem;   /* 👈 slightly tighter */
+    line-height: 1.16;
   }
 
-  /* optional: if you have headings inside posts */
+  /* headings */
   .post-right h1,
   .post-right h2,
   .post-right h3,
   .journal-post .post-right h1,
   .journal-post .post-right h2,
   .journal-post .post-right h3 {
-    font-size: 0.75rem;   /* keeps hierarchy but scaled down */
+    font-size: 0.72rem;
   }
 }
