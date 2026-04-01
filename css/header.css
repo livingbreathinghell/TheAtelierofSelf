@@ -237,7 +237,6 @@
 .collapsible-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 👈 ADD THIS */
   cursor: pointer;
   font-weight: 600;
   padding: 8px 16px;
@@ -258,9 +257,11 @@
 }
 
 .collapsible-header .arrow {
+  margin-left: auto; /* 👈 THIS IS THE KEY */
   opacity: 0.7;
   font-size: 0.9em;
   transition: transform 0.25s ease;
+  display: inline-block; /* 👈 ensures it renders properly */
 }
 
 .collapsible-header.active .arrow {
