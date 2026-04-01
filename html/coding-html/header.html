@@ -38,19 +38,19 @@
         <div class="category-buttons">
 
           <!-- MAIN CATEGORIES -->
-          <button class="category-btn" data-category="all">All</button>
-          <button class="category-btn" data-category="journal">journal</button>
-          <button class="category-btn" data-category="art">art</button>
-
+<button class="category-btn" data-category="all">all</button>
+ <button class="category-btn" data-category="art">art</button>
 <button class="category-btn" data-category="music" data-view="music">music</button>
-
 <button class="category-btn" data-category="writing">writing</button>
-
-<button class="category-btn" data-category="affiliate">affiliate marketing</button>
+<button class="category-btn" data-category="games">games</button>
 <button class="category-btn" data-category="astrology">astrology</button>
-          <button class="category-btn" data-category="tarot">tarot</button>
-          <button class="category-btn" data-category="manifesting">manifesting</button>
-          <button class="category-btn" data-category="dream">dream</button>
+<button class="category-btn" data-category="tarot">tarot</button>
+<button class="category-btn" data-category="manifesting">manifesting</button>
+<button class="category-btn" data-category="journal">journal</button>
+<button class="category-btn" data-category="recipes">recipes</button>
+<button class="category-btn" data-category="wishlist">wishlist</button>
+<button class="category-btn" data-category="dreamlog">dream-log</button>
+
 
         </div>
       </div>
@@ -69,6 +69,185 @@
 
 <!-- ==================================================
      SUBCATEGORY TEMPLATES (HIDDEN)
+     JS CLONES FROM THESE
+================================================== -->
+<div style="display:none;">
+  
+      <!-- ART SUBCATEGORIES -->
+  <div id="art-subcategories">
+
+  <button class="subcategory-btn" data-subcategory="concepts">concepts</button>
+  <button class="subcategory-btn" data-subcategory="drawings">drawings</button>
+  <button class="subcategory-btn" data-subcategory="animation">animation</button>
+<button class="subcategory-btn" data-subcategory="inspiration">inspiration</button>
+</div>
+
+
+    <!-- MUSIC SUBCATEGORIES -->
+<div id="music-subcategories">
+
+  <button class="subcategory-btn" data-subcategory="songs">songs</button>
+  <button class="subcategory-btn" data-subcategory="songwriting">songwriting</button>
+  <button class="subcategory-btn" data-subcategory="Bass">Bass</button>
+
+</div>
+
+  <!-- WRITING SUBCATEGORIES -->
+  <div id="writing-subcategories">
+    <button class="subcategory-btn" data-subcategory="stories">stories</button>
+    <button class="subcategory-btn" data-subcategory="fanfiction">fanfiction</button>
+  </div>
+  
+      <!-- GAMES SUBCATEGORIES -->
+<div id="games-subcategories">
+
+  <button class="subcategory-btn" data-subcategory="minecraft">minecraft</button>
+  <button class="subcategory-btn" data-subcategory="terraria">terraria</button>
+  <button class="subcategory-btn" data-subcategory="identity v">identity v</button>
+</div>
+
+  <!-- ASTROLOGY SUBCATEGORIES -->
+  <div id="astrology-subcategories">
+    <div class="astrology-subcategories-container">
+      <button class="subcategory-btn" data-subcategory="zodiacs">zodiacs</button>
+      <button class="subcategory-btn" data-subcategory="planets">planets</button>
+      <button class="subcategory-btn" data-subcategory="houses">houses</button>
+      <button class="subcategory-btn" data-subcategory="aspects">aspects</button>
+      <button class="subcategory-btn" data-subcategory="degrees">degrees</button>
+      <button class="subcategory-btn" data-subcategory="lots">lots</button>
+      <button class="subcategory-btn" data-subcategory="techniques">techniques</button>
+      <button class="subcategory-btn" data-subcategory="readings">readings</button>
+    </div>
+  </div>
+
+<div id="tarot-subcategories">
+  <button class="subcategory-btn" data-subcategory="readings">readings</button>
+  <button class="subcategory-btn" data-subcategory="spreads">spreads</button>
+  <button class="subcategory-btn" data-subcategory="year-cards">cards</button>
+
+  <!-- 🔮 SUB-SUBCATEGORIES -->
+  <div class="month-buttons-container" style="display:none;">
+
+    <button class="month-btn" data-month="major" data-year="cards">major arcana</button>
+    <button class="month-btn" data-month="minor" data-year="cards">minor arcana</button>
+    <button class="month-btn" data-month="general" data-year="readings">general</button>
+    <button class="month-btn" data-month="relationships" data-year="readings">relationships</button>
+    <button class="month-btn" data-month="career" data-year="readings">career</button>
+    <button class="month-btn" data-month="finances" data-year="readings">finances</button>
+    <button class="month-btn" data-month="spirituality" data-year="readings">spirituality</button>
+  </div>
+</div>
+
+  <!-- MANIFESTING SUBCATEGORIES -->
+  <div id="manifesting-subcategories">
+    <button class="subcategory-btn" data-subcategory="career">career</button>
+    <button class="subcategory-btn" data-subcategory="appearance">appearance</button>
+    <button class="subcategory-btn" data-subcategory="love">love</button>
+  </div>
+
+  <!-- JOURNAL SUBCATEGORIES -->
+  <div id="journal-subcategories">
+
+    <!-- Year buttons -->
+    <button class="subcategory-btn" data-subcategory="year-2024">2024</button>
+    <button class="subcategory-btn" data-subcategory="year-2025">2025</button>
+    <button class="subcategory-btn" data-subcategory="year-2026">2026</button>
+
+    <!-- Month buttons per year (hidden initially) -->
+    <div class="month-buttons-container" style="display:none;">
+
+      <!-- 2024 months -->
+      <button class="month-btn" data-month="01" data-year="2024">Jan</button>
+      <button class="month-btn" data-month="02" data-year="2024">Feb</button>
+      <button class="month-btn" data-month="03" data-year="2024">Mar</button>
+      <button class="month-btn" data-month="04" data-year="2024">Apr</button>
+      <button class="month-btn" data-month="05" data-year="2024">May</button>
+      <button class="month-btn" data-month="06" data-year="2024">Jun</button>
+      <button class="month-btn" data-month="07" data-year="2024">Jul</button>
+      <button class="month-btn" data-month="08" data-year="2024">Aug</button>
+      <button class="month-btn" data-month="09" data-year="2024">Sep</button>
+      <button class="month-btn" data-month="10" data-year="2024">Oct</button>
+      <button class="month-btn" data-month="11" data-year="2024">Nov</button>
+      <button class="month-btn" data-month="12" data-year="2024">Dec</button>
+
+      <!-- 2025 months -->
+      <button class="month-btn" data-month="01" data-year="2025">Jan</button>
+      <button class="month-btn" data-month="02" data-year="2025">Feb</button>
+      <button class="month-btn" data-month="03" data-year="2025">Mar</button>
+      <button class="month-btn" data-month="04" data-year="2025">Apr</button>
+      <button class="month-btn" data-month="05" data-year="2025">May</button>
+      <button class="month-btn" data-month="06" data-year="2025">Jun</button>
+      <button class="month-btn" data-month="07" data-year="2025">Jul</button>
+      <button class="month-btn" data-month="08" data-year="2025">Aug</button>
+      <button class="month-btn" data-month="09" data-year="2025">Sep</button>
+      <button class="month-btn" data-month="10" data-year="2025">Oct</button>
+      <button class="month-btn" data-month="11" data-year="2025">Nov</button>
+      <button class="month-btn" data-month="12" data-year="2025">Dec</button>
+
+      <!-- 2026 months -->
+      <button class="month-btn" data-month="01" data-year="2026">Jan</button>
+      <button class="month-btn" data-month="02" data-year="2026">Feb</button>
+      <button class="month-btn" data-month="03" data-year="2026">Mar</button>
+      <button class="month-btn" data-month="04" data-year="2026">Apr</button>
+      <button class="month-btn" data-month="05" data-year="2026">May</button>
+      <button class="month-btn" data-month="06" data-year="2026">Jun</button>
+      <button class="month-btn" data-month="07" data-year="2026">Jul</button>
+      <button class="month-btn" data-month="08" data-year="2026">Aug</button>
+      <button class="month-btn" data-month="09" data-year="2026">Sep</button>
+      <button class="month-btn" data-month="10" data-year="2026">Oct</button>
+      <button class="month-btn" data-month="11" data-year="2026">Nov</button>
+      <button class="month-btn" data-month="12" data-year="2026">Dec</button>
+    </div>
+  </div>
+  
+  <!-- MANIFESTING SUBCATEGORIES -->
+  <div id="wishlist-subcategories">
+    <button class="subcategory-btn" data-subcategory="clothes">clothes</button>
+  </div>
+  
+  
+  <!-- DREAM SUBCATEGORIES -->
+  <div id="dreamlog-subcategories">
+
+    <!-- Year buttons -->
+    <button class="subcategory-btn" data-subcategory="year-2025">2025</button>
+    <button class="subcategory-btn" data-subcategory="year-2026">2026</button>
+
+    <!-- Month buttons per year -->
+    <div class="month-buttons-container" style="display:none;">
+
+      <!-- 2025 months -->
+      <button class="month-btn" data-month="01" data-year="2025">Jan</button>
+      <button class="month-btn" data-month="02" data-year="2025">Feb</button>
+      <button class="month-btn" data-month="03" data-year="2025">Mar</button>
+      <button class="month-btn" data-month="04" data-year="2025">Apr</button>
+      <button class="month-btn" data-month="05" data-year="2025">May</button>
+      <button class="month-btn" data-month="06" data-year="2025">Jun</button>
+      <button class="month-btn" data-month="07" data-year="2025">Jul</button>
+      <button class="month-btn" data-month="08" data-year="2025">Aug</button>
+      <button class="month-btn" data-month="09" data-year="2025">Sep</button>
+      <button class="month-btn" data-month="10" data-year="2025">Oct</button>
+      <button class="month-btn" data-month="11" data-year="2025">Nov</button>
+      <button class="month-btn" data-month="12" data-year="2025">Dec</button>
+
+      <!-- 2026 months -->
+      <button class="month-btn" data-month="01" data-year="2026">Jan</button>
+      <button class="month-btn" data-month="02" data-year="2026">Feb</button>
+      <button class="month-btn" data-month="03" data-year="2026">Mar</button>
+      <button class="month-btn" data-month="04" data-year="2026">Apr</button>
+      <button class="month-btn" data-month="05" data-year="2026">May</button>
+      <button class="month-btn" data-month="06" data-year="2026">Jun</button>
+      <button class="month-btn" data-month="07" data-year="2026">Jul</button>
+      <button class="month-btn" data-month="08" data-year="2026">Aug</button>
+      <button class="month-btn" data-month="09" data-year="2026">Sep</button>
+      <button class="month-btn" data-month="10" data-year="2026">Oct</button>
+      <button class="month-btn" data-month="11" data-year="2026">Nov</button>
+      <button class="month-btn" data-month="12" data-year="2026">Dec</button>
+
+    </div>
+  </div>
+
+</div>     SUBCATEGORY TEMPLATES (HIDDEN)
      JS CLONES FROM THESE
 ================================================== -->
 <div style="display:none;">
