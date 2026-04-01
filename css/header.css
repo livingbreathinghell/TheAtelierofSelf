@@ -250,21 +250,22 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.collapsible-header > :not(.arrow) {
-  display: flex;
-  align-items: center;
-  gap: 0.35em;
-}
 
 .collapsible-header .arrow {
-  margin-left: auto; /* 👈 THIS IS THE KEY */
+  margin-left: auto;
+  opacity: 1; /* 👈 bump this up so we KNOW it's visible */
+  font-size: 1em;
+  display: inline-block;
+  min-width: 1em; /* 👈 prevents collapse */
+}
+.collapsible-header::after {
+  content: "▼";
+  margin-left: auto;
   opacity: 0.7;
-  font-size: 0.9em;
   transition: transform 0.25s ease;
-  display: inline-block; /* 👈 ensures it renders properly */
 }
 
-.collapsible-header.active .arrow {
+.collapsible-header.active::after {
   transform: rotate(90deg);
 }
 
