@@ -511,24 +511,27 @@ overflow: visible; /* make sure the video isn’t clipped */
     font-size: 0.76rem;
   }
 
-  /* layout */
+/* layout */
   .post-content,
   .journal-post .post-content {
     flex-direction: row;
-    gap: 2px; /* 👈 super tight = max space for right */
+    gap: 2px;
   }
 
-  /* LEFT COLUMN (tightened further) */
+  /* 👈 LEFT COLUMN — SHRINK MORE */
   .post-left,
   .journal-post .post-left {
-    flex: 0 0 72px;   /* 👈 smaller again */
-    min-height: 72px;
+    flex: 0 0 60px;   /* was 72px */
+    min-height: 60px;
   }
 
   .post-left img,
   .journal-post .post-left img {
-    max-width: 72px;
+    max-width: 60px;
   }
+
+
+
 
   /* DATE (smaller + lighter) */
   .post-left .post-date,
@@ -547,12 +550,12 @@ overflow: visible; /* make sure the video isn’t clipped */
     border-radius: 999px;
   }
 
-  /* RIGHT COLUMN (maximum stretch) */
+  /* 👈 RIGHT COLUMN — EXPAND + BREATHE */
   .post-right,
   .journal-post .post-right {
-    flex: 1 1 auto;
+    flex: 1 1 0%;   /* 👈 THIS is the magic */
     min-width: 0;
-    padding: 5px;
+    padding: 6px 8px;  /* tiny bump = nicer spacing */
   }
 
 .post-right p,
