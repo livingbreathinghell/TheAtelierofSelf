@@ -558,17 +558,24 @@
   }
 
   /* KEYWORDS + BIG THREE (shrink to fit column reality) */
-  .keywords-post {
-    padding: 6px 8px;
-  }
+.keywords-post {
+  max-width: 72px;   /* 👈 SAME as your image width */
+  width: 100%;
+  padding: 6px 6px;  /* tighter so text doesn’t overflow */
+}
 
   .keywords-post p {
     font-size: 0.6rem;
   }
 
-  .keywords-post li {
-    font-size: 0.55rem;
-  }
+.keywords-post ul {
+  gap: 4px;
+}
+
+.keywords-post li {
+  font-size: 0.5rem;
+  line-height: 1.2;
+}
 
   .big-three li {
     font-size: 0.55rem;
