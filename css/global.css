@@ -145,6 +145,17 @@ a {
 /* ==========================================================
    POST STYLES
 ========================================================== */
+
+.post {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+
 .post-right .post-image {
   margin: 16px auto;
   padding: 0;
