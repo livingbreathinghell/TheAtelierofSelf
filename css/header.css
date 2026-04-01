@@ -524,6 +524,15 @@
     font-size: 1.1rem;
     padding: 4px 0;
   }
+   
+.panel-banner {
+  height: 60px;   /* 👈 was 84px — shorter + closer to desktop feel */
+}
+
+.panel-banner img {
+  object-fit: cover;
+  object-position: center; /* 👈 keeps the good part visible */
+}
 
   /* top-center adjustments */
   .top-center {
