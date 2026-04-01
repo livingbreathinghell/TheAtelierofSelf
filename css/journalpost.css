@@ -560,6 +560,35 @@ overflow: visible; /* make sure the video isn’t clipped */
     line-height: 1.16;
   }
 
+/* 📱 MERCURY IMPS — MOBILE SHRINK */
+.imp-section.imp-bg {
+  padding: 8px;            /* 👈 less chunky container */
+  margin-top: 12px;
+  border-radius: 10px;
+}
+
+.imp-header,
+.imp-card .imp-name {
+  font-size: 8px;          /* 👈 smaller labels */
+  letter-spacing: 0.8px;
+}
+
+.imp-row {
+  gap: 6px;                /* 👈 tighter spacing */
+  padding-bottom: 2px;
+}
+
+.imp-card {
+  min-width: 60px;         /* 👈 was 80px */
+  max-width: 70px;         /* 👈 was 95px */
+  gap: 2px;
+}
+
+.imp-card img.expandable {
+  max-width: 70px;         /* 👈 match card */
+  border-radius: 5px;
+}
+
   /* headings */
   .post-right h1,
   .post-right h2,
