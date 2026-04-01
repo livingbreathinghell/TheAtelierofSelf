@@ -496,7 +496,7 @@
 
 
 
-/* 📱 ASTROLOGY POSTS — MOBILE POLISH */
+/* 📱 ASTROLOGY POSTS — MOBILE POLISH (MATCHED TO JOURNAL) */
 @media (max-width: 480px) {
 
   /* overall post container */
@@ -507,81 +507,82 @@
     font-size: 0.76rem;
   }
 
-  /* layout = SAME STRUCTURE AS JOURNAL */
+  /* layout */
   .astrology-post .post-content {
     flex-direction: row;
-    gap: 2px;
+    gap: 4px; /* 👈 match journal spacing */
   }
 
-  /* LEFT COLUMN (match journal sizing) */
+  /* 👈 LEFT COLUMN — NOW BIGGER (MATCH JOURNAL) */
   .astrology-post .post-left {
-    flex: 0 0 72px;
-    min-width: 72px;
-    max-width: 72px;
+    flex: 0 0 95px;
+    min-width: 95px;
+    max-width: 95px;
   }
 
   .astrology-post .post-left img {
-    max-width: 72px;
+    max-width: 95px;
   }
 
   /* DATE */
   .astrology-post .post-left .post-date {
-    font-size: 0.55rem;
-    opacity: 0.6;
+    font-size: 0.6rem;
+    opacity: 0.65;
     margin-bottom: 4px;
   }
 
   /* STATUS BADGE */
   .astrology-post .post-left .status-badge {
-    font-size: 0.4rem;
-    padding: 1px 2px;
+    font-size: 0.45rem;
+    padding: 2px 4px;
     border-radius: 999px;
   }
 
-  /* RIGHT COLUMN (stretch like journal) */
+  /* 👈 RIGHT COLUMN — SLIGHTLY TIGHTER */
   .astrology-post .post-right {
     flex: 1 1 auto;
     min-width: 0;
-    padding: 6px;
+    padding: 6px 8px;
   }
 
   /* TEXT */
   .astrology-post .post-right p {
-    font-size: 0.68rem;
-    line-height: 1.18;
+    font-size: 0.66rem;
+    line-height: 1.16;
   }
 
   .astrology-post .post-right h1,
   .astrology-post .post-right h2,
   .astrology-post .post-right h3 {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
-  /* KEYWORDS + BIG THREE (shrink to fit column reality) */
-.keywords-post {
-  max-width: 72px;   /* 👈 SAME as your image width */
-  width: 100%;
-  padding: 6px 6px;  /* tighter so text doesn’t overflow */
-}
+  /* ✨ KEYWORDS PANEL (fits new left width) */
+  .keywords-post {
+    max-width: 95px;
+    width: 100%;
+    padding: 6px;
+  }
 
   .keywords-post p {
+    font-size: 0.62rem;
+  }
+
+  .keywords-post ul {
+    gap: 4px;
+  }
+
+  .keywords-post li {
+    font-size: 0.52rem;
+    line-height: 1.2;
+  }
+
+  /* ✨ BIG THREE */
+  .big-three li {
     font-size: 0.6rem;
   }
 
-.keywords-post ul {
-  gap: 4px;
-}
-
-.keywords-post li {
-  font-size: 0.5rem;
-  line-height: 1.2;
-}
-
-  .big-three li {
-    font-size: 0.55rem;
-  }
-
-  /* TABLE (important for mobile sanity) */
+  /* 📊 TABLES (still scrollable, slightly refined) */
   .atelier-table-wrapper {
     overflow-x: auto;
   }
@@ -596,31 +597,31 @@
     padding: 5px 8px;
   }
 
-  /* CARDS (tarot / visual sets) */
+  /* 🃏 CARDS */
   .card-item {
-    width: 52px;
+    width: 56px; /* 👈 slightly bigger to match new scale */
   }
 
   .card-item span {
-    font-size: 0.45rem;
+    font-size: 0.48rem;
   }
 
+  /* 🏷 TAGS */
   .astrology-post .post-tags {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 3px !important;
+    gap: 4px !important;
     width: 100%;
   }
 
   .astrology-post .post-tags * {
-    font-size: 0.45rem !important;
-    padding: 2px 5px !important;
+    font-size: 0.48rem !important;
+    padding: 2px 6px !important;
     border-radius: 999px;
     white-space: nowrap;
 
     flex: 0 0 auto !important;
     max-width: 100%;
-
     line-height: 1.1;
   }
 
