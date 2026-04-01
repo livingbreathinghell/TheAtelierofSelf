@@ -582,6 +582,13 @@
     font-size: 0.6rem;
   }
 
+   /* ♈ ZODIAC MANIFESTATION BUTTONS — MOBILE FIX */
+.zodiac-manifestation-btn {
+  font-size: 0.62rem;   /* 👈 tiny shrink */
+  padding: 4px 6px;     /* 👈 tighter sides so Aries/Pisces fit */
+  line-height: 1.1;
+}
+
   /* 📊 TABLES (still scrollable, slightly refined) */
   .atelier-table-wrapper {
     overflow-x: auto;
