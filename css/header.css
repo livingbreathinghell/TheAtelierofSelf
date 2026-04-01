@@ -562,27 +562,27 @@
   }
 
 .zodiac-grid {
-    gap: 3px;
-    overflow-x: hidden;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
+  gap: 2px;              /* 👈 was 3px — tiny tighten */
+  overflow-x: hidden;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
 
-    .zodiac-grid button {
-    flex: 0 0 22px;   /* 👈 down from 24px */
-    width: 22px;
-    height: 22px;
+.zodiac-grid button {
+  flex: 0 0 20px;        /* 👈 was 22px */
+  width: 20px;
+  height: 20px;
 
-    display: flex;      /* 👈 THIS fixes drifting */
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 0;         /* 👈 remove offset */
-    line-height: 1;     /* 👈 kill vertical weirdness */
+  padding: 0;
+  line-height: 1;
 
-    font-size: 0.75rem;  /* 👈 tiny text shrink to match */
-    border-radius: 5px;
-  }
+  font-size: 0.7rem;     /* 👈 slight text shrink */
+  border-radius: 4px;    /* 👈 keeps proportions clean */
+}
 
 /* 📱 SUB + SUB-SUB CATEGORIES — MOBILE SHRINK */
 
