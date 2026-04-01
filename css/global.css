@@ -36,21 +36,27 @@ html {
 /* ==========================================================
    GLOBAL / BODY STYLES FIX FOR FULL GRADIENT
 ========================================================== */
+
 body {
   margin: 0;
   font-family: Georgia, serif;
-  background: radial-gradient(circle at top, #1c1d2a, #0c0d12);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-
+  background: #0c0d12; /* Fallback solid color - no white flash */
   color: #e6e6f0;
   max-width: 100%;
   overflow-x: hidden;
   transition: background 0.3s ease;
-
   position: relative;
   min-height: 100vh;
+}
+
+/* Use a fixed pseudo-element for the gradient instead */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at top, #1c1d2a, #0c0d12);
+  pointer-events: none;
 }
 
 #dynamic-view-container {
@@ -69,6 +75,298 @@ a {
 ========================================================== */
 .panel-bg {
   position: absolute;
+  background-color: rgba(12, 13, 18, 0.55);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   FLOATING / MOVABLE IMAGES
+========================================================== */
+.float-img {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.float-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+/* ==========================
+   POST CREDITS (TINY FAINT)
+========================== */
+
+.post-credits {
+  margin-top: 0px;
+  font-size: 0.6rem;
+  opacity: 0.35;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+}
+
+/* ==========================================================
+   TEXT STYLES
+========================================================== */
+.small-light-text {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-style: italic;
+  color: #e6e6f0;
+  text-align: center;
+  line-height: 1.4;
+  margin: 8px 0;
+  transition: opacity 0.25s ease;
+}
+
+.highlight-line {
+  color: #FFE2BD;
+ 
+}
+
+
+/* ==========================================================
+   TEXT STYLES
+========================================================== */
+.small-light-text {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-style: italic;
+  color: #e6e6f0;
+  text-align: left;
+  line-height: 1.4;
+
+  margin: 30px 0 8px 0;  /* 👈 increase this number */
+
+  transition: opacity 0.25s ease;
+}
+
+/* ==========================================================
+   POST STYLES
+========================================================== */
+
+.post {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+
+.post-right .post-image {
+  margin: 16px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0;
+}
+
+.post-right .post-image img {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+}
+
+.post-right .post-image figcaption,
+.post-right .post-image .post-credit {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  font-style: italic;
+  opacity: 0.55;
+  text-align: center;
+}
+
+/* INLINE IMAGE OVERRIDES */
+.post-right .post-image.inline {
+  display: block !important;
+  margin: 4px 0 8px 14px !important;
+  max-width: 160px !important;
+  float: right;
+  line-height: 0;
+  align-items: unset !important;
+}
+
+.post-right .post-image.inline-left {
+  float: left;
+  margin: 4px 14px 8px 0 !important;
+}
+
+.post-right .post-image.inline img {
+  width: 100% !important;
+  max-width: 200px !important;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.post-right .post-image.inline figcaption {
+  margin-top: 4px;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  opacity: 0.5;
+  text-align: left;
+}
+
+.post-right .text-wrap {
+  display: block;
+  overflow: hidden;
+}
+
+
+.post-image.expandable {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.post-image.expandable.expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.75);
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  float: none !important;
+  margin: 0 !important;
+  max-width: none !important;
+  object-fit: contain; /* ensures it scales proportionally */
+  cursor: zoom-out; /* show user they can click to close */
+}
+
+/* POST AUDIO */
+.post-audio {
+  margin-top: 12px;
+  padding: 6px 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+}
+
+.post-audio audio {
+  width: 100%;
+  height: 28px;
+  opacity: 0.85;
+  filter: grayscale(1) contrast(1.05);
+}
+/* ==========================================================
+   RECENT POSTS DIVIDER
+========================================================== */
+#recent-divider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  font-family: "Merriweather", "Cambria", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 1.25rem;
+  color: rgba(230,230,240,0.5);
+  position: relative;
+  text-align: center;
+}
+
+#recent-divider-container::after {
+  content: '';
+  display: block;
+  width: 65%;
+  max-width: 250px;
+  height: 2px;
+  background: #fff;
+  margin-top: 8px;
+  opacity: 0.15;
+  border-radius: 1px;
+}
+
+/* ==========================================================
+   SEARCH INPUT
+========================================================== */
+.search-container { width: 100%; min-width: 0; }
+
+#search-input {
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #FFD6A7;
+}
+
+/* ==========================================================
+   ZODIAC / COLLAPSIBLE PANELS
+========================================================== */
+.zodiac-section.perma-open > .collapsible-panel.main-panel {
+  display: block !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.zodiac-section.perma-open > .collapsible-header {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.zodiac-section.perma-open > .collapsible-header .arrow {
+  display: none;
+}
+
+/* ==========================================================
+   IMAGE LIGHTBOX
+========================================================== */
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.image-lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+}
+
+
+/* ==========================================================
+   📱 MOBILE ADJUSTMENTS
+========================================================== */
+@media (max-width: 768px) {
+
+  /* INLINE IMAGES — FIX SIZE */
+  .post-right .post-image.inline {
+    max-width: 90px !important;
+  }
+
+  .post-right .post-image.inline img {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+}  position: absolute;
   background-color: rgba(12, 13, 18, 0.55);
   border-radius: 6px;
   border: 2px solid rgba(255, 255, 255, 0.20);
