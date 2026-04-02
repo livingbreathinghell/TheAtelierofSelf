@@ -203,8 +203,8 @@ RIGHT COLUMN
 =============================== */
 #welcome-right {
 position: absolute;
-top: 24px;
-left: 330px;
+top: 22px;
+left: 335px;
 width: 380px;
 }
 
@@ -212,7 +212,7 @@ width: 380px;
 position: absolute;
 top: -23px;
 left: -70px;
-font-size: 22px;
+font-size: 26px;
 opacity: 0.8;
 }
 
@@ -227,16 +227,24 @@ line-height: var(--lh, 1.5);
 
 #welcome-text-1 {
 top: 30px;
-left: -60px;
+left: -80px;
 --fs: 13px;
 --lh: 1.40;
 }
 
 #welcome-text-2 {
-top: 120px;
-left: -60px;
+top: 100px;
+left: -80px;
 width: 480px;
 --fs: 13px;
+--lh: 1.40;
+}
+
+#welcome-text-3 {
+top: 190px;
+left: 0px;
+width: 490px;
+--fs: 15px;
 --lh: 1.40;
 }
 
