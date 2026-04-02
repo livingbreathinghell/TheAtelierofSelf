@@ -660,9 +660,9 @@ a {
 
 .post-credits,
 .post-credits p {
-  font-size: 0.5rem !important;
-  opacity: 0.3;
-  line-height: 1.2;
+  font-size: 0.3rem !important;
+  opacity: 0.35;
+  line-height: 1.0;
 }
 
 }
