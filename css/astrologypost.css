@@ -539,10 +539,11 @@
   }
 
   /* 👈 RIGHT COLUMN — SLIGHTLY TIGHTER */
-  .astrology-post .post-right {
-    flex: 1 1 auto;
+.astrology-post .post-right {
+    flex: 1 1 0%;
     min-width: 0;
-    padding: 6px 8px;
+
+    padding: 5px 6px;   /* 👈 slightly tighter = feels smaller */
   }
 
   /* TEXT */
