@@ -658,4 +658,11 @@ a {
     width: 100% !important;
   }
 
+/* POST CREDITS — EXTRA TINY ON MOBILE */
+  .post-credits {
+    font-size: 0.5rem;
+    opacity: 0.25;
+    line-height: 1.2;
+  }
+
 }
