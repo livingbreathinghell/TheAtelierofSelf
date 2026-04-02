@@ -658,11 +658,13 @@ a {
     width: 100% !important;
   }
 
-/* POST CREDITS — EXTRA TINY ON MOBILE */
-  .post-credits {
-    font-size: 0.3rem;
-    opacity: 0.25;
-    line-height: 1.0;
-  }
-
+/* POST CREDITS — FORCE SMALL ON MOBILE */
+.post-credits,
+.post-credit,
+.post-right .post-image .post-credit,
+.post-right .post-image figcaption {
+  font-size: 0.5rem !important;
+  opacity: 0.3;
+  line-height: 1.1;
+}
 }
