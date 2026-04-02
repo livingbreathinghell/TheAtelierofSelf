@@ -658,14 +658,9 @@ a {
     width: 100% !important;
   }
 
-  /* POST CREDITS — FORCE SMALL ON MOBILE */
-  .post-credits,
-  .post-credit,
-  .post-right .post-image .post-credit,
-  .post-right .post-image figcaption {
-    font-size: 0.3rem !important;
-    opacity: 0.3;
-    line-height: 0.9
-  }
+.post-credits {
+  font-size: 0.4rem !important;
+  color: red !important;
+}
 
 }
