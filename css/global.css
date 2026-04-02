@@ -646,9 +646,9 @@ a {
 /* ==========================================================
    📱 MOBILE ADJUSTMENTS
 ========================================================== */
+
 @media (max-width: 768px) {
 
-  /* INLINE IMAGES — FIX SIZE */
   .post-right .post-image.inline {
     max-width: 90px !important;
   }
@@ -658,13 +658,14 @@ a {
     width: 100% !important;
   }
 
-/* POST CREDITS — FORCE SMALL ON MOBILE */
-.post-credits,
-.post-credit,
-.post-right .post-image .post-credit,
-.post-right .post-image figcaption {
-  font-size: 0.5rem !important;
-  opacity: 0.3;
-  line-height: 1.1;
-}
+  /* POST CREDITS — FORCE SMALL ON MOBILE */
+  .post-credits,
+  .post-credit,
+  .post-right .post-image .post-credit,
+  .post-right .post-image figcaption {
+    font-size: 0.5rem !important;
+    opacity: 0.3;
+    line-height: 1.1;
+  }
+
 }
