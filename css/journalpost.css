@@ -21,7 +21,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100%;8
   overflow: visible;
 }
 
@@ -547,12 +547,13 @@ overflow: visible; /* make sure the video isn’t clipped */
   }
 
   /* 👈 RIGHT COLUMN — SLIGHTLY SMALLER / CONTAINED */
-  .post-right,
-  .journal-post .post-right {
-    flex: 1 1 auto;
-    min-width: 0;
-    padding: 6px 8px;
-  }
+.post-right,
+.journal-post .post-right {
+  flex: 1 1 0%;   /* ✨ SAME MAGIC AS ASTRO POSTS */
+  min-width: 0;
+
+  padding: 5px 6px; /* 👈 slightly tighter = visually smaller */
+}
 
   .post-right p,
   .journal-post .post-right p {
