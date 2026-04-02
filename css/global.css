@@ -663,9 +663,9 @@ a {
   .post-credit,
   .post-right .post-image .post-credit,
   .post-right .post-image figcaption {
-    font-size: 0.5rem !important;
+    font-size: 0.3rem !important;
     opacity: 0.3;
-    line-height: 1.1;
+    line-height: 0.9
   }
 
 }
