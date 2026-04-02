@@ -611,6 +611,10 @@
   padding: 1px 4px;
 }
 
+    .collapsible-header {
+    font-size: 0.85rem;
+    font-weight: 500; /* optional: slightly less bold */
+    }
    
 }
 
