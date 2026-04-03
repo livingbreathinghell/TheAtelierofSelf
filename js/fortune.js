@@ -1,10 +1,8 @@
-
 // ===============================
-// FORTUNE TELLING VIDEO SYSTEM
-// Save as: js/fortune.js
+// FORTUNE TELLING VIDEO SYSTEM (STABLE)
 // ===============================
 
-// 🎬 YOUR FORTUNE VIDEOS - update these paths!
+// 🎬 YOUR FORTUNE VIDEOS
 const FORTUNE_VIDEOS = [
   'media/fortune-videos/fortune1.mp4',
   'media/fortune-videos/fortune2.mp4',
@@ -18,31 +16,33 @@ let fortuneBtn = null;
 let fortuneWrapper = null;
 let hasVideoError = false;
 
+// 🛡️ Prevent double init
+let fortuneInitialized = false;
+
 /**
- * Pick a random video (different from current if possible)
+ * Pick a random video (not same as last)
  */
 function getRandomFortuneVideo() {
   if (FORTUNE_VIDEOS.length === 0) return null;
   if (FORTUNE_VIDEOS.length === 1) return FORTUNE_VIDEOS[0];
-  
+
   let newIndex;
   do {
     newIndex = Math.floor(Math.random() * FORTUNE_VIDEOS.length);
   } while (newIndex === currentFortuneIndex);
-  
+
   currentFortuneIndex = newIndex;
   return FORTUNE_VIDEOS[newIndex];
 }
 
 /**
- * Show placeholder when videos not yet added
+ * Show placeholder if videos fail
  */
 function showFortunePlaceholder() {
   if (!fortuneWrapper) return;
-  
-  // Check if placeholder already exists
+
   if (fortuneWrapper.querySelector('.fortune-placeholder')) return;
-  
+
   const placeholder = document.createElement('div');
   placeholder.className = 'fortune-placeholder';
   placeholder.innerHTML = `
@@ -51,54 +51,59 @@ function showFortunePlaceholder() {
     <span>videos here!</span>
     <span style="opacity: 0.5; margin-top: 8px; font-size: 10px;">media/fortune-videos/</span>
   `;
-  
+
   if (fortuneVideo) {
     fortuneVideo.style.display = 'none';
   }
+
   fortuneWrapper.appendChild(placeholder);
   hasVideoError = true;
 }
 
 /**
- * Load a random video and pause on first frame
+ * Load a random video (clean reset)
  */
 function loadRandomFortune() {
   if (!fortuneVideo) return;
-  
+
   const videoSrc = getRandomFortuneVideo();
+
   if (!videoSrc) {
     console.warn('No fortune videos available');
     showFortunePlaceholder();
     return;
   }
-  
-  // Reset error state
+
   hasVideoError = false;
-  fortuneVideo.style.display = 'block';
-  
+
+  // 🔥 HARD RESET (prevents disappearing bug)
+  fortuneVideo.pause();
+  fortuneVideo.removeAttribute('src');
+  fortuneVideo.load();
+
   // Remove placeholder if exists
   const placeholder = fortuneWrapper?.querySelector('.fortune-placeholder');
   if (placeholder) placeholder.remove();
-  
+
+  fortuneVideo.style.display = 'block';
+
+  // Set new video
   fortuneVideo.src = videoSrc;
   fortuneVideo.load();
-  
-  // Pause on first frame when metadata loads
-  fortuneVideo.addEventListener('loadeddata', function onLoad() {
+
+  // Use direct assignment (NOT addEventListener)
+  fortuneVideo.onloadeddata = () => {
     fortuneVideo.currentTime = 0;
     fortuneVideo.pause();
-    fortuneVideo.removeEventListener('loadeddata', onLoad);
     console.log(`✨ Loaded fortune: ${videoSrc}`);
-  }, { once: true });
-  
-  // Handle video load error
-  fortuneVideo.addEventListener('error', function onError() {
+  };
+
+  fortuneVideo.onerror = () => {
     console.warn(`Could not load: ${videoSrc}`);
     showFortunePlaceholder();
-    fortuneVideo.removeEventListener('error', onError);
-  }, { once: true });
-  
-  // Update button state
+  };
+
+  // Reset button
   if (fortuneBtn) {
     fortuneBtn.classList.remove('playing');
     fortuneBtn.textContent = 'reveal your fortune';
@@ -106,72 +111,81 @@ function loadRandomFortune() {
 }
 
 /**
- * Play the current fortune video
+ * Play video
  */
 function playFortune() {
-  if (!fortuneVideo || hasVideoError) {
-    console.log('No video to play - add your videos to media/fortune-videos/');
-    return;
-  }
-  
-  fortuneVideo.play().then(() => {
-    if (fortuneBtn) {
-      fortuneBtn.classList.add('playing');
-      fortuneBtn.textContent = 'revealing...';
-    }
-  }).catch(err => {
-    console.error('Fortune playback failed:', err);
-  });
+  if (!fortuneVideo || hasVideoError) return;
+
+  fortuneVideo.play()
+    .then(() => {
+      if (fortuneBtn) {
+        fortuneBtn.classList.add('playing');
+        fortuneBtn.textContent = 'revealing...';
+      }
+    })
+    .catch(err => {
+      console.error('Playback failed:', err);
+    });
 }
 
 /**
- * Handle video end - load new random video
+ * When video ends → load new one
  */
 function onFortuneEnd() {
-  console.log('✨ Fortune revealed! Loading new one...');
-  
-  // Small delay before loading next fortune
+  console.log('✨ Fortune revealed!');
+
   setTimeout(() => {
     loadRandomFortune();
-  }, 500);
+  }, 700); // tiny theatrical pause 🎭
 }
 
 /**
- * Initialize fortune telling system
+ * INIT
  */
 function initFortune(container) {
+  if (fortuneInitialized) {
+    console.log('⚠️ Fortune already initialized');
+    return;
+  }
+  fortuneInitialized = true;
+
   const root = container || document;
-  
+
   fortuneVideo = root.querySelector('#fortune-video');
   fortuneBtn = root.querySelector('#fortune-btn');
   fortuneWrapper = root.querySelector('.fortune-video-wrapper');
-  
+
   if (!fortuneVideo || !fortuneBtn) {
     console.warn('Fortune elements not found');
     return;
   }
-  
-  // Video end handler - loads new random video
+
+  // 🧼 Clean old listener just in case
+  fortuneVideo.removeEventListener('ended', onFortuneEnd);
   fortuneVideo.addEventListener('ended', onFortuneEnd);
-  
-  // Button click handler
+
+  // Button click
   fortuneBtn.addEventListener('click', () => {
-    if (hasVideoError) {
-      console.log('Add your fortune videos to media/fortune-videos/');
+    if (hasVideoError) return;
+
+    // Prevent spam / not-ready state
+    if (fortuneVideo.readyState < 2) {
+      console.log('⏳ video not ready');
       return;
     }
+
     if (fortuneVideo.paused) {
       playFortune();
     }
   });
-  
-  // Load initial random fortune
+
+  // Load first fortune
   loadRandomFortune();
-  
+
   console.log('✅ Fortune system initialized');
 }
 
-// Expose globally
+// 🌍 expose globally
 if (typeof window !== 'undefined') {
   window.initFortune = initFortune;
   window.loadRandomFortune = loadRandomFortune;
