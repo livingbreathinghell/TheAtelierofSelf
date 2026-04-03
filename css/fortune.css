@@ -1,0 +1,178 @@
+
+/* ===============================
+   FORTUNE TELLING SECTION
+   Add to your CSS or save as: css/fortune.css
+   Position: top-left of homepage-panel
+=============================== */
+
+#fortune-panel-container {
+  position: absolute;
+  top: 490px;  /* Below welcome panel - adjust if needed */
+  left: 50px;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+#fortune-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 180px;
+}
+
+/* Fortune Label */
+.fortune-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  font-family: monospace;
+  text-transform: lowercase;
+}
+
+/* Video Container */
+.fortune-video-wrapper {
+  position: relative;
+  width: 180px;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1c1c28;
+  border: 1px solid rgba(230, 230, 240, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.fortune-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Decorative corner accents */
+.fortune-video-wrapper::before,
+.fortune-video-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(249, 229, 184, 0.4);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fortune-video-wrapper::before {
+  top: 6px;
+  left: 6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.fortune-video-wrapper::after {
+  bottom: 6px;
+  right: 6px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Placeholder (shows when no videos) */
+.fortune-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+}
+
+/* ===============================
+   FORTUNE BUTTON
+   (styled like your collapsible headers)
+=============================== */
+
+.fortune-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;              /* instead of full width */
+  padding: 6px 10px;        /* smaller padding */
+  font-size: 0.7rem;        /* smaller text */
+  border-radius: 5px;       /* slightly tighter */
+  background: #1c1c28;
+  color: #fff;
+  border: 1px solid rgba(230, 230, 240, 0.3);
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fortune-btn:hover {
+  background: #2a2a38;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.fortune-btn:active {
+  transform: translateY(0);
+  background: #323248;
+}
+
+.fortune-btn:focus {
+  background: #323248;
+  border-color: rgba(230, 230, 240, 0.6);
+  outline: none;
+}
+
+/* Star icon before button text */
+.fortune-btn::before {
+  content: '✮';
+  margin-right: 8px;
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+/* Playing state */
+.fortune-btn.playing {
+  background: #323248;
+  border-color: rgba(249, 229, 184, 0.5);
+}
+
+.fortune-btn.playing::before {
+  content: '⟡';
+  animation: pulse-star 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-star {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+/* Portrait mobile */
+@media (max-width: 480px) {
+  #fortune-panel-container {
+    top: 440px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.5);
+    transform-origin: top center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
