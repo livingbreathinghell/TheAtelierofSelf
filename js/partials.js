@@ -153,6 +153,9 @@ async function loadAllPartials() {
   await loadHTML("welcome-panel-container", "html/coding-html/homepage/welcome-panel.html");
 
   const miniView = await loadHTML("mini-view-container", "html/coding-html/homepage/mini-view-feature.html");
+  
+  // Load fortune panel (after welcome panel)
+const fortunePanel = await loadHTML("fortune-panel-container", "html/coding-html/homepage/fortune-panel.html");
 
   // ❌ REMOVED PLAYLIST FROM HOMEPAGE
 
@@ -180,6 +183,7 @@ async function loadAllPartials() {
   await safeInit("ZodiacPanels", window.initZodiacPanels, document);
   await safeInit("Lightbox", window.initLightbox, document);
   await safeInit("ViewSwitcher", window.initViewSwitcher, document);
+  await safeInit("Fortune", window.initFortune, fortunePanel);
 
   // Post-JS repaint
   forceRepaint();
