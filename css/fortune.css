@@ -159,16 +159,27 @@
 /* Portrait mobile */
 @media (max-width: 480px) {
   #fortune-panel-container {
-    top: 440px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.5);
-    transform-origin: top center;
+    top: 520px;        /* adjust based on your layout */
+    left: 16px;        /* small margin from edge */
+    transform: none;   /* REMOVE centering + scaling */
   }
+  
+  #fortune-panel {
+  width: 240px;   /* bigger than desktop */
+  gap: 16px;
 }
 
+.fortune-btn {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
 
+.fortune-label {
+  font-size: 12px;
+  opacity: 0.7;
+}
 
-
+}
 
 
 
