@@ -1,5 +1,5 @@
 // ===============================
-// FORTUNE TELLING VIDEO SYSTEM (STABLE)
+// FORTUNE TELLING VIDEO SYSTEM (STABLE v2)
 // ===============================
 
 // 🎬 YOUR FORTUNE VIDEOS
@@ -61,7 +61,7 @@ function showFortunePlaceholder() {
 }
 
 /**
- * Load a random video (clean reset)
+ * Load a random video (clean + delayed reset)
  */
 function loadRandomFortune() {
   if (!fortuneVideo) return;
@@ -76,7 +76,7 @@ function loadRandomFortune() {
 
   hasVideoError = false;
 
-  // 🔥 HARD RESET (prevents disappearing bug)
+  // 🔥 HARD RESET (safe version)
   fortuneVideo.pause();
   fortuneVideo.removeAttribute('src');
   fortuneVideo.load();
@@ -87,20 +87,35 @@ function loadRandomFortune() {
 
   fortuneVideo.style.display = 'block';
 
-  // Set new video
-  fortuneVideo.src = videoSrc;
-  fortuneVideo.load();
+  // ⏳ SMALL DELAY (prevents browser choking)
+  setTimeout(() => {
+    fortuneVideo.src = videoSrc;
+    fortuneVideo.load();
+  }, 100);
 
-  // Use direct assignment (NOT addEventListener)
+  // Loaded
   fortuneVideo.onloadeddata = () => {
     fortuneVideo.currentTime = 0;
     fortuneVideo.pause();
     console.log(`✨ Loaded fortune: ${videoSrc}`);
   };
 
+  // 🔁 RETRY SYSTEM (instead of instant failure)
   fortuneVideo.onerror = () => {
-    console.warn(`Could not load: ${videoSrc}`);
-    showFortunePlaceholder();
+    console.warn(`⚠️ Retry loading: ${videoSrc}`);
+
+    setTimeout(() => {
+      fortuneVideo.src = videoSrc;
+      fortuneVideo.load();
+    }, 300);
+
+    // If STILL not loaded → fallback
+    setTimeout(() => {
+      if (fortuneVideo.readyState === 0) {
+        console.warn('❌ Video failed after retry');
+        showFortunePlaceholder();
+      }
+    }, 1000);
   };
 
   // Reset button
@@ -129,25 +144,34 @@ function playFortune() {
 }
 
 /**
- * When video ends → load new one
+ * When video ends → load new one (STABILIZED)
  */
 function onFortuneEnd() {
   console.log('✨ Fortune revealed!');
 
   setTimeout(() => {
-    loadRandomFortune();
-  }, 700); // tiny theatrical pause 🎭
+    if (fortuneVideo) {
+      fortuneVideo.pause();
+      fortuneVideo.removeAttribute('src');
+      fortuneVideo.load();
+    }
+
+    // ⏳ Give browser breathing room
+    setTimeout(() => {
+      loadRandomFortune();
+    }, 150);
+
+  }, 700);
 }
 
 /**
- * INIT
+ * INIT (with retry if DOM not ready)
  */
 function initFortune(container) {
   if (fortuneInitialized) {
     console.log('⚠️ Fortune already initialized');
     return;
   }
-  fortuneInitialized = true;
 
   const root = container || document;
 
@@ -155,12 +179,16 @@ function initFortune(container) {
   fortuneBtn = root.querySelector('#fortune-btn');
   fortuneWrapper = root.querySelector('.fortune-video-wrapper');
 
-  if (!fortuneVideo || !fortuneBtn) {
-    console.warn('Fortune elements not found');
+  // 🔁 RETRY INIT if elements not ready yet
+  if (!fortuneVideo || !fortuneBtn || !fortuneWrapper) {
+    console.warn('⏳ Fortune not ready, retrying...');
+    setTimeout(() => initFortune(container), 100);
     return;
   }
 
-  // 🧼 Clean old listener just in case
+  fortuneInitialized = true;
+
+  // Clean old listener
   fortuneVideo.removeEventListener('ended', onFortuneEnd);
   fortuneVideo.addEventListener('ended', onFortuneEnd);
 
@@ -168,7 +196,6 @@ function initFortune(container) {
   fortuneBtn.addEventListener('click', () => {
     if (hasVideoError) return;
 
-    // Prevent spam / not-ready state
     if (fortuneVideo.readyState < 2) {
       console.log('⏳ video not ready');
       return;
