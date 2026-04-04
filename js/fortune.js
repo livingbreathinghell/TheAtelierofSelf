@@ -76,49 +76,45 @@ function loadRandomFortune() {
 
   hasVideoError = false;
 
-  // 🔥 HARD RESET (safe version)
-  fortuneVideo.pause();
-  fortuneVideo.removeAttribute('src');
-  fortuneVideo.load();
-
-  // Remove placeholder if exists
+  // Remove placeholder
   const placeholder = fortuneWrapper?.querySelector('.fortune-placeholder');
   if (placeholder) placeholder.remove();
 
   fortuneVideo.style.display = 'block';
 
-  // ⏳ SMALL DELAY (prevents browser choking)
-  setTimeout(() => {
-    fortuneVideo.src = videoSrc;
-    fortuneVideo.load();
-  }, 100);
-
-  // Loaded
+  // 🧠 IMPORTANT: set handlers BEFORE src
   fortuneVideo.onloadeddata = () => {
     fortuneVideo.currentTime = 0;
     fortuneVideo.pause();
     console.log(`✨ Loaded fortune: ${videoSrc}`);
   };
 
-  // 🔁 RETRY SYSTEM (instead of instant failure)
   fortuneVideo.onerror = () => {
     console.warn(`⚠️ Retry loading: ${videoSrc}`);
 
     setTimeout(() => {
       fortuneVideo.src = videoSrc;
-      fortuneVideo.load();
     }, 300);
 
-    // If STILL not loaded → fallback
     setTimeout(() => {
-      if (fortuneVideo.readyState === 0) {
+      if (fortuneVideo.readyState < 2) {
         console.warn('❌ Video failed after retry');
         showFortunePlaceholder();
       }
-    }, 1000);
+    }, 1200);
   };
 
-  // Reset button
+  // 🔥 CLEAN RESET (simpler + more reliable)
+  fortuneVideo.pause();
+  fortuneVideo.src = "";   // instead of removeAttribute
+  fortuneVideo.load();
+
+  // ⏳ tiny delay (still good)
+  setTimeout(() => {
+    fortuneVideo.src = videoSrc;
+  }, 80);
+
+  // Button reset
   if (fortuneBtn) {
     fortuneBtn.classList.remove('playing');
     fortuneBtn.textContent = 'reveal your fortune';
