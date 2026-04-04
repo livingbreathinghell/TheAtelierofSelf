@@ -76,17 +76,20 @@ function loadRandomFortune() {
 
   hasVideoError = false;
 
-  // Remove placeholder
   const placeholder = fortuneWrapper?.querySelector('.fortune-placeholder');
   if (placeholder) placeholder.remove();
 
   fortuneVideo.style.display = 'block';
 
-  // 🧠 IMPORTANT: set handlers BEFORE src
+  // Clear old handlers (VERY important)
+  fortuneVideo.onloadeddata = null;
+  fortuneVideo.onerror = null;
+
+  // ✅ Set new handlers BEFORE src
   fortuneVideo.onloadeddata = () => {
+    console.log(`✨ Loaded fortune: ${videoSrc}`);
     fortuneVideo.currentTime = 0;
     fortuneVideo.pause();
-    console.log(`✨ Loaded fortune: ${videoSrc}`);
   };
 
   fortuneVideo.onerror = () => {
@@ -104,17 +107,12 @@ function loadRandomFortune() {
     }, 1200);
   };
 
-  // 🔥 CLEAN RESET (simpler + more reliable)
+  // ✅ KEY CHANGE: NO HARD RESET
   fortuneVideo.pause();
-  fortuneVideo.src = "";   // instead of removeAttribute
+  fortuneVideo.src = videoSrc;
   fortuneVideo.load();
 
-  // ⏳ tiny delay (still good)
-  setTimeout(() => {
-    fortuneVideo.src = videoSrc;
-  }, 80);
-
-  // Button reset
+  // Reset button
   if (fortuneBtn) {
     fortuneBtn.classList.remove('playing');
     fortuneBtn.textContent = 'reveal your fortune';
@@ -145,19 +143,12 @@ function playFortune() {
 function onFortuneEnd() {
   console.log('✨ Fortune revealed!');
 
+  if (!fortuneVideo) return;
+
+  // ✅ NO src removal, NO double timeout chaos
   setTimeout(() => {
-    if (fortuneVideo) {
-      fortuneVideo.pause();
-      fortuneVideo.removeAttribute('src');
-      fortuneVideo.load();
-    }
-
-    // ⏳ Give browser breathing room
-    setTimeout(() => {
-      loadRandomFortune();
-    }, 150);
-
-  }, 700);
+    loadRandomFortune();
+  }, 100);
 }
 
 /**
