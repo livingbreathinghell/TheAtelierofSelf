@@ -1,5 +1,5 @@
 // ===============================
-// FORTUNE TELLING VIDEO SYSTEM (STABLE v2)
+// FORTUNE TELLING VIDEO SYSTEM (STABLE v3)
 // ===============================
 
 // 🎬 YOUR FORTUNE VIDEOS
@@ -19,9 +19,21 @@ let hasVideoError = false;
 // 🛡️ Prevent double init
 let fortuneInitialized = false;
 
-/**
- * Pick a random video (not same as last)
- */
+// ===============================
+// 🌍 GLOBAL READY PROMISE (FIXED)
+// ===============================
+let fortuneReadyResolver;
+
+const fortuneReadyPromise = new Promise(resolve => {
+  fortuneReadyResolver = resolve;
+});
+
+// expose globally ONCE
+window.fortuneReadyPromise = fortuneReadyPromise;
+
+// ===============================
+// 🎲 Pick random video
+// ===============================
 function getRandomFortuneVideo() {
   if (FORTUNE_VIDEOS.length === 0) return null;
   if (FORTUNE_VIDEOS.length === 1) return FORTUNE_VIDEOS[0];
@@ -35,9 +47,9 @@ function getRandomFortuneVideo() {
   return FORTUNE_VIDEOS[newIndex];
 }
 
-/**
- * Show placeholder if videos fail
- */
+// ===============================
+// ⚠️ Placeholder fallback
+// ===============================
 function showFortunePlaceholder() {
   if (!fortuneWrapper) return;
 
@@ -58,11 +70,14 @@ function showFortunePlaceholder() {
 
   fortuneWrapper.appendChild(placeholder);
   hasVideoError = true;
+
+  // 🔓 Don't block page forever
+  if (fortuneReadyResolver) fortuneReadyResolver();
 }
 
-/**
- * Load a random video (clean + delayed reset)
- */
+// ===============================
+// 🎥 Load video
+// ===============================
 function loadRandomFortune() {
   if (!fortuneVideo) return;
 
@@ -81,28 +96,35 @@ function loadRandomFortune() {
 
   fortuneVideo.style.display = 'block';
 
-  // Clear old handlers (VERY important)
+  // reset handlers
   fortuneVideo.onloadeddata = null;
+  fortuneVideo.oncanplaythrough = null;
   fortuneVideo.onerror = null;
 
-  // ✅ Set new handlers BEFORE src
-let readyFired = false;
+  let readyFired = false;
 
-function markReady() {
-  if (readyFired) return;
-  readyFired = true;
+  function markReady() {
+    if (readyFired) return;
+    readyFired = true;
 
-  console.log(`✨ Ready fortune: ${videoSrc}`);
-  fortuneVideo.currentTime = 0;
-  fortuneVideo.pause();
-}
+    console.log(`✨ Ready fortune: ${videoSrc}`);
+    fortuneVideo.currentTime = 0;
+    fortuneVideo.pause();
 
-// Fires early (fast + reliable)
-fortuneVideo.onloadeddata = markReady;
+    // ✅ resolve global promise ONCE
+    if (fortuneReadyResolver) {
+      fortuneReadyResolver();
+      fortuneReadyResolver = null; // prevent double resolve
+    }
+  }
 
-// Fires later (extra safety if it DOES load fully)
-fortuneVideo.oncanplaythrough = markReady;
+  // fast + reliable
+  fortuneVideo.onloadeddata = markReady;
 
+  // backup safety
+  fortuneVideo.oncanplaythrough = markReady;
+
+  // error handling
   fortuneVideo.onerror = () => {
     console.warn(`⚠️ Retry loading: ${videoSrc}`);
 
@@ -118,21 +140,22 @@ fortuneVideo.oncanplaythrough = markReady;
     }, 1200);
   };
 
-  // ✅ KEY CHANGE: NO HARD RESET
+  // start loading
+  fortuneVideo.preload = "auto";
   fortuneVideo.pause();
   fortuneVideo.src = videoSrc;
   fortuneVideo.load();
 
-  // Reset button
+  // reset button
   if (fortuneBtn) {
     fortuneBtn.classList.remove('playing');
     fortuneBtn.textContent = 'reveal your fortune';
   }
 }
 
-/**
- * Play video
- */
+// ===============================
+// ▶️ Play video
+// ===============================
 function playFortune() {
   if (!fortuneVideo || hasVideoError) return;
 
@@ -148,23 +171,22 @@ function playFortune() {
     });
 }
 
-/**
- * When video ends → load new one (STABILIZED)
- */
+// ===============================
+// 🔁 When video ends
+// ===============================
 function onFortuneEnd() {
   console.log('✨ Fortune revealed!');
 
   if (!fortuneVideo) return;
 
-  // ✅ NO src removal, NO double timeout chaos
   setTimeout(() => {
     loadRandomFortune();
   }, 100);
 }
 
-/**
- * INIT (with retry if DOM not ready)
- */
+// ===============================
+// 🚀 INIT
+// ===============================
 function initFortune(container) {
   if (fortuneInitialized) {
     console.log('⚠️ Fortune already initialized');
@@ -177,7 +199,6 @@ function initFortune(container) {
   fortuneBtn = root.querySelector('#fortune-btn');
   fortuneWrapper = root.querySelector('.fortune-video-wrapper');
 
-  // 🔁 RETRY INIT if elements not ready yet
   if (!fortuneVideo || !fortuneBtn || !fortuneWrapper) {
     console.warn('⏳ Fortune not ready, retrying...');
     setTimeout(() => initFortune(container), 100);
@@ -186,37 +207,30 @@ function initFortune(container) {
 
   fortuneInitialized = true;
 
-  // Clean old listener
   fortuneVideo.removeEventListener('ended', onFortuneEnd);
   fortuneVideo.addEventListener('ended', onFortuneEnd);
 
-  // Button click
-fortuneBtn.addEventListener('click', () => {
-  if (hasVideoError) return;
+  fortuneBtn.addEventListener('click', () => {
+    if (hasVideoError) return;
 
-  // ALWAYS try to play
-  fortuneVideo.play()
-    .then(() => {
-      fortuneBtn.classList.add('playing');
-      fortuneBtn.textContent = 'revealing...';
-    })
-    .catch(() => {
-      console.warn('⚠️ not ready yet, retrying...');
+    fortuneVideo.play()
+      .then(() => {
+        fortuneBtn.classList.add('playing');
+        fortuneBtn.textContent = 'revealing...';
+      })
+      .catch(() => {
+        console.warn('⚠️ not ready yet, retrying...');
+        setTimeout(playFortune, 200);
+      });
+  });
 
-      // retry after tiny delay
-      setTimeout(() => {
-        playFortune();
-      }, 200);
-    });
-});
-  // Load first fortune
   loadRandomFortune();
 
   console.log('✅ Fortune system initialized');
 }
 
+// ===============================
 // 🌍 expose globally
-if (typeof window !== 'undefined') {
-  window.initFortune = initFortune;
-  window.loadRandomFortune = loadRandomFortune;
-}
+// ===============================
+window.initFortune = initFortune;
+window.loadRandomFortune = loadRandomFortune;
