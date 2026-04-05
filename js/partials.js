@@ -163,11 +163,12 @@ const fortunePanel = await loadHTML("fortune-panel-container", "html/coding-html
   
   await loadHTML("footer-container", "html/coding-html/footer.html");
 
-  // Load posts
-  if (typeof window.loadPostsFromJSON === "function") {
-    await window.loadPostsFromJSON();
-    await waitForPaint(200);
-  }
+// Load posts
+if (typeof window.loadPostsFromJSON === "function") {
+  await window.loadPostsFromJSON();
+  await waitForPaint(200);
+
+}
 
   // Pre-JS repaint
   forceRepaint();
@@ -183,6 +184,9 @@ const fortunePanel = await loadHTML("fortune-panel-container", "html/coding-html
   await safeInit("ZodiacPanels", window.initZodiacPanels, document);
   await safeInit("Lightbox", window.initLightbox, document);
   await safeInit("ViewSwitcher", window.initViewSwitcher, document);
+    // ✅ Mark posts as ready AFTER load + processing
+  document.body.classList.add("posts-ready");
+  
   await safeInit("Fortune", window.initFortune, fortunePanel);
 
   // Post-JS repaint
