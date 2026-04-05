@@ -23,7 +23,20 @@
     }
   </style>
 
+<style>
+#posts-container,
+.recent-divider {
+  opacity: 0;
+  visibility: hidden;
+}
 
+body.posts-ready #posts-container,
+body.posts-ready .recent-divider {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease;
+}
+</style>
 
   <script>
 const isDev = true;   
