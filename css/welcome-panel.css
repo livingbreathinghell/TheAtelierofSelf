@@ -34,9 +34,9 @@ height: 350px;
 .homepage-bg-panel {
 top: 470px;
 left: 24px;
-width: 771px;
+width: 230px;
 
-height: 420px; /* 👈 fixed shorter height */
+height: 600px; /* 👈 fixed shorter height */
 
 overflow: hidden; /* 👈 prevents stretching */
 }
