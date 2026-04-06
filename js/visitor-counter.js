@@ -6,22 +6,16 @@
 (function() {
 
   const GOATCOUNTER_SITE = "theatelierofself";
-  const PAGE_PATH = "TheAtelierofSelf"; // 👈 matches your GoatCounter path!
+  const PAGE_PATH = "TheAtelierofSelf";
 
   async function fetchStats() {
     try {
       const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/${PAGE_PATH}.json`);
-      
       if (!res.ok) throw new Error("API not available");
-      
       const data = await res.json();
-      
-      return {
-        total: data.count || "~",
-        unique: data.count_unique || "~"
-      };
+      return data.count || "~";
     } catch (err) {
-      return { total: "~", unique: "~" };
+      return "~";
     }
   }
 
@@ -31,7 +25,7 @@
 
     container.style.cssText = `
       position: absolute;
-      top: 1050px;
+      top: 490px;
       left: 40px;
       z-index: 5;
     `;
@@ -41,27 +35,23 @@
         font-family: monospace;
         font-size: 0.75rem;
         color: #ffffff;
-        opacity: 0.8;
+        opacity: 0.9;
       ">
         <span>✦ loading...</span>
       </div>
     `;
 
-    const stats = await fetchStats();
+    const views = await fetchStats();
 
-    container.innerHTML = `
-      <div style="
-        font-family: monospace;
-        font-size: 0.75rem;
-        color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      ">
-        <span style="opacity: 0.9;">✦ ${stats.total} total views</span>
-        <span style="opacity: 0.7;">✦ ${stats.unique} unique visitors</span>
-      </div>
-    `;
+container.innerHTML = `
+  <div class="visitor-box">
+    <div class="visitor-overlay"></div>
+    <div class="visitor-text">
+      [ ${views} ] <span class="visitor-label">total visitors</span>
+    </div>
+    <div class="scanlines"></div>
+  </div>
+`;
   }
 
   if (document.readyState === "loading") {
