@@ -46,9 +46,9 @@
 
     container.style.cssText = `
       position: absolute;
-      top: 838px;
-      left: 40px;
-      width: 200px;
+      top: 880px;
+      left: 25px;
+      width: 230px;
       z-index: 5;
     `;
 
