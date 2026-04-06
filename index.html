@@ -60,6 +60,7 @@ const isDev = true;
       "view.css",
       "bucketlist.css",
       "calendar.css",
+      "visitor-counter.css",
       "journal-welcome-panel.css"
       
     ];
@@ -109,18 +110,24 @@ const isDev = true;
   <div id="dynamic-view-container" style="display: none;"></div>
 
 <div class="homepage-inner">
-    <!-- BACKGROUNDS -->
-    <div class="panel-bg welcome-bg-panel"></div>
-    <div id="welcome-panel-container"></div>
-    <div class="panel-bg homepage-bg-panel"></div>
-    
-    <div id="fortune-panel-container"></div>
-    
-    <!-- 🌙 CALENDAR (add this line!) -->
-    <div id="calendar-container"></div>
-    
-        <!-- 🌙 VISITOR COUNTER -->
-    <div id="visitor-counter-container"></div>
+  <!-- BACKGROUNDS -->
+  <div class="panel-bg welcome-bg-panel"></div>
+  <div id="welcome-panel-container"></div>
+  <div class="panel-bg homepage-bg-panel"></div>
+  
+  <div id="fortune-panel-container"></div>
+  
+  <!-- ✨ DIVIDER AFTER FORTUNE -->
+  <div class="homepage-divider divider-fortune"></div>
+
+  <!-- 🌙 CALENDAR -->
+  <div id="calendar-container"></div>
+  
+  <!-- 🌙 VISITOR COUNTER -->
+  <div id="visitor-counter-container"></div>
+
+  <!-- ✨ DIVIDER AFTER VISITOR -->
+  <div class="homepage-divider divider-visitor"></div>
 </div>
   </div>
 
