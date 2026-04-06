@@ -8,16 +8,29 @@
 
   async function fetchStats() {
     try {
-      // Fetch total pageviews from GoatCounter
-      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/.json`);
-      if (!res.ok) throw new Error("Failed to fetch");
+      // Try fetching the homepage count (path = /)
+      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/%2F.json`);
+      
+      console.log("📊 Counter response status:", res.status);
+      
+      if (!res.ok) {
+        // If homepage doesn't work, try without path
+        const res2 = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/.json`);
+        if (!res2.ok) throw new Error("API not available");
+        const data2 = await res2.json();
+        console.log("📊 Counter data:", data2);
+        return { total: data2.count || "~", unique: data2.count_unique || "~" };
+      }
+      
       const data = await res.json();
+      console.log("📊 Counter data:", data);
+      
       return {
         total: data.count || "~",
         unique: data.count_unique || "~"
       };
     } catch (err) {
-      console.warn("Counter fetch failed:", err);
+      console.warn("❌ Counter fetch failed:", err);
       return { total: "~", unique: "~" };
     }
   }
@@ -26,7 +39,6 @@
     const container = document.getElementById("visitor-counter-container");
     if (!container) return;
 
-    // Position the counter
     container.style.cssText = `
       position: absolute;
       top: 1050px;
@@ -34,25 +46,19 @@
       z-index: 5;
     `;
 
-    // Show loading state
     container.innerHTML = `
       <div style="
         font-family: monospace;
         font-size: 0.75rem;
         color: #ffffff;
         opacity: 0.8;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
       ">
         <span>✦ loading...</span>
       </div>
     `;
 
-    // Fetch real stats
     const stats = await fetchStats();
 
-    // Render the counter
     container.innerHTML = `
       <div style="
         font-family: monospace;
@@ -67,10 +73,9 @@
       </div>
     `;
 
-    console.log("✅ Visitor counter loaded");
+    console.log("✅ Visitor counter rendered");
   }
 
-  // Init when DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", renderCounter);
   } else {
