@@ -1,0 +1,172 @@
+
+/* ==========================================================
+   HAND-DRAWN CALENDAR
+========================================================== */
+
+#calendar-container {
+  position: absolute;
+  top: 520px;
+  left: 40px;
+  width: 320px;
+  z-index: 5;
+}
+
+.calendar-wrapper {
+  background: rgba(12, 13, 18, 0.65);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* MONTH IMAGE (your hand-drawn backgrounds) */
+.calendar-month-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.calendar-month-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Placeholder text (will hide when you add images) */
+.calendar-month-image .placeholder-text {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+
+/* NAVIGATION */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  width: 40px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.calendar-nav-btn:hover {
+  opacity: 0.8;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.calendar-nav-btn img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Placeholder arrow (will hide when you add images) */
+.calendar-nav-btn .placeholder-arrow {
+  font-size: 1rem;
+  opacity: 0.5;
+  color: #e6e6f0;
+}
+
+.calendar-month-title {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: #F9E5B8;
+  opacity: 0.9;
+  text-align: center;
+}
+
+/* WEEKDAY HEADERS */
+.calendar-weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 2px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.65rem;
+  opacity: 0.5;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* DAY GRID - 7 COLUMNS! */
+.calendar-days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 3px;
+  width: 100%;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.calendar-day a {
+  color: #e6e6f0;
+  text-decoration: none;
+  border: none !important;
+  border-bottom: none !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.calendar-day a:hover {
+  background: rgba(249, 229, 184, 0.15);
+  color: #F9E5B8;
+  transform: scale(1.1);
+}
+
+/* Today highlight */
+.calendar-day.today a {
+  background: rgba(249, 229, 184, 0.2);
+  color: #F9E5B8;
+  font-weight: bold;
+}
+
+/* Empty day slots */
+.calendar-day.empty {
+  opacity: 0;
+  pointer-events: none;
+}
