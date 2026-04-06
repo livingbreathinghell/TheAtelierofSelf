@@ -38,6 +38,8 @@ body.posts-ready .recent-divider {
 }
 </style>
 
+
+
   <script>
 const isDev = true;   
 
@@ -57,6 +59,7 @@ const isDev = true;
       "rotating-playlists.css",
       "view.css",
       "bucketlist.css",
+      "calendar.css",
       "journal-welcome-panel.css"
       
     ];
@@ -86,7 +89,6 @@ const isDev = true;
     }
   </style>
 </head>
-
 <body>
 
 
@@ -106,18 +108,22 @@ const isDev = true;
 
   <div id="dynamic-view-container" style="display: none;"></div>
 
-  <div class="homepage-inner">
-
+<div class="homepage-inner">
     <!-- BACKGROUNDS -->
     <div class="panel-bg welcome-bg-panel"></div>
     <div id="welcome-panel-container"></div>
     <div class="panel-bg homepage-bg-panel"></div>
     
-  <div id="fortune-panel-container"></div>
-
-
-  </div>
+    <div id="fortune-panel-container"></div>
+    
+    <!-- 🌙 CALENDAR (add this line!) -->
+    <div id="calendar-container"></div>
+    
+        <!-- 🌙 VISITOR COUNTER -->
+    <div id="visitor-counter-container"></div>
 </div>
+  </div>
+
 
 
   <div id="category-view">
@@ -143,6 +149,7 @@ const isDev = true;
   <script src="js/view-switcher.js" defer></script>
   <script src="js/site.js" defer></script>
   <script src="js/mini-player.js" defer></script>
+    <script src="js/visitor-counter.js" defer></script>
   <script src="js/fortune.js" defer></script>
 
 
@@ -163,6 +170,10 @@ window.addEventListener("load", () => {
   }, 2000);
 });
 </script>
+
+
+<script data-goatcounter="https://theatelierofself.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
