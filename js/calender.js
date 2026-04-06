@@ -13,7 +13,7 @@
   // 🎨 MONTH IMAGES - your hand-drawn backgrounds!
   const MONTH_IMAGES = {
     0: "media/basemedia/homepagedecor/calender/january.png",
-    1: null,
+    1: "media/basemedia/homepagedecor/calender/february.png",
     2: null,
     3: null,
     4: null,
