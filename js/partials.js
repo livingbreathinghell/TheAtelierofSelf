@@ -188,6 +188,13 @@ if (typeof window.loadPostsFromJSON === "function") {
   document.body.classList.add("posts-ready");
   
   await safeInit("Fortune", window.initFortune, fortunePanel);
+  
+  // ⏳ WAIT FOR FORTUNE VIDEO
+if (window.fortuneReadyPromise) {
+  console.log("⏳ waiting for fortune video...");
+  await window.fortuneReadyPromise;
+  console.log("✅ fortune ready");
+}
 
   // Post-JS repaint
   forceRepaint();
