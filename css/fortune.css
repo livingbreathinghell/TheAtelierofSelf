@@ -7,7 +7,7 @@
 
 #fortune-panel-container {
   position: absolute;
-  top: 490px;  /* Below welcome panel - adjust if needed */
+  top: 540px;  /* Below welcome panel - adjust if needed */
   left: 50px;
   z-index: 10;
   pointer-events: auto;
