@@ -1,3 +1,4 @@
+
 // ===============================
 // 🌙 VISITOR COUNTER (GoatCounter)
 // ===============================
@@ -5,32 +6,21 @@
 (function() {
 
   const GOATCOUNTER_SITE = "theatelierofself";
+  const PAGE_PATH = "TheAtelierofSelf"; // 👈 matches your GoatCounter path!
 
   async function fetchStats() {
     try {
-      // Try fetching the homepage count (path = /)
-      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/%2F.json`);
+      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/${PAGE_PATH}.json`);
       
-      console.log("📊 Counter response status:", res.status);
-      
-      if (!res.ok) {
-        // If homepage doesn't work, try without path
-        const res2 = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/.json`);
-        if (!res2.ok) throw new Error("API not available");
-        const data2 = await res2.json();
-        console.log("📊 Counter data:", data2);
-        return { total: data2.count || "~", unique: data2.count_unique || "~" };
-      }
+      if (!res.ok) throw new Error("API not available");
       
       const data = await res.json();
-      console.log("📊 Counter data:", data);
       
       return {
         total: data.count || "~",
         unique: data.count_unique || "~"
       };
     } catch (err) {
-      console.warn("❌ Counter fetch failed:", err);
       return { total: "~", unique: "~" };
     }
   }
@@ -72,8 +62,6 @@
         <span style="opacity: 0.7;">✦ ${stats.unique} unique visitors</span>
       </div>
     `;
-
-    console.log("✅ Visitor counter rendered");
   }
 
   if (document.readyState === "loading") {
