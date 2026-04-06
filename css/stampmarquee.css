@@ -1,0 +1,45 @@
+#stamp-marquee {
+  position: absolute;
+
+  top: 880px;
+  left: 235px;
+
+  width: 72%;        /* 👈 smaller overall width */
+  transform: scale(0.9); /* 👈 optional: shrinks EVERYTHING inside */
+
+  overflow: hidden;
+
+  z-index: 2;
+  pointer-events: none;
+
+mask-image: linear-gradient(
+  to right,
+  transparent 0%,
+  black 15%,
+  black 85%,
+  transparent 100%
+);
+}
+
+.stamp-row {
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.stamp-track {
+  display: flex;
+  gap: 10px;
+
+  width: max-content;
+
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.stamp-track img {
+  height: 70px;
+  width: 100px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
