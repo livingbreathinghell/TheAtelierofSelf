@@ -20,10 +20,45 @@ width: 771px;
 height: 350px;
 }
 
-.welcome-bg-panel,
+.welcome-bg-panel {
+  position: absolute;
+  z-index: 2; /* 👈 ABOVE */
+}
+
 .homepage-bg-panel {
   position: absolute;
-  z-index: 1;
+  z-index: 1; /* below welcome */
+
+  top: 470px;
+  left: 24px;
+  width: 230px;
+  height: 600px;
+
+  overflow: hidden;
+}
+
+.homepage-bg-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  opacity: 0.5;
+  border-radius: inherit;
+
+  background-image:
+    radial-gradient(1px 1px, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px, rgba(255,255,255,0.9) 50%, transparent 50%);
+
+  background-size: 60px 60px, 120px 120px, 90px 90px;
+  background-position: 0 0, 30px 60px, 60px 30px;
+  background-repeat: repeat;
+
+  animation:
+    stars-drift 30s linear infinite,
+    stars-twinkle 5s ease-in-out infinite alternate;
 }
 
 #homepage {
@@ -31,27 +66,28 @@ height: 350px;
   isolation: isolate;
 }
 
-.homepage-bg-panel {
-top: 470px;
-left: 24px;
-width: 230px;
-
-height: 600px; /* 👈 fixed shorter height */
-
-overflow: hidden; /* 👈 prevents stretching */
-}
-
 .homepage-inner {
   position: relative;
-  z-index: 1;
-  transform: none; /* 👈 THIS is the real fix */
+  z-index: 1; /* 👈 stays above stars */
+  transform: none;
 }
 
-
-/* STAR STYLING */
+/* STAR TITLE STYLING */
 #homepage-title .star {
   margin-right: 0em;
   opacity: 0.7;
+}
+
+/* 🌌 ANIMATIONS */
+@keyframes stars-drift {
+  from { background-position-y: 0; }
+  to   { background-position-y: -300px; }
+}
+
+@keyframes stars-twinkle {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.5; }
 }
 
 /* ===============================
