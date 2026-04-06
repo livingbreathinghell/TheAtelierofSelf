@@ -161,6 +161,54 @@ const fortunePanel = await loadHTML("fortune-panel-container", "html/coding-html
 
   const rotating = await loadHTML("rotating-playlists-container", "html/coding-html/homepage/rotating-playlists.html");
   
+  // ✨ Stamp Marquee
+const stampMarquee = await loadHTML(
+  "stamp-marquee-container",
+  "html/coding-html/homepage/stamp-marquee.html"
+);
+
+if (stampMarquee) {
+  const inner = stampMarquee.querySelector("#stamp-marquee");
+
+  await waitForImages(inner);
+  await waitForPaint(200);
+
+  inner.classList.add("ready"); // 👈 THIS WAS MISSING
+}
+
+initStampMarquee();
+
+
+function initStampMarquee() {
+  const tracks = document.querySelectorAll(".stamp-track");
+
+  tracks.forEach((track, index) => {
+    const speed = index === 0 ? 0.3 : -0.3;
+
+    let x = 0;
+
+    // 👇 LOCK WIDTH ONCE (no mid-animation recalcs)
+    const totalWidth = track.scrollWidth / 2;
+
+    function animate() {
+      x += speed;
+
+      // 👇 SMOOTH LOOP (no snapping)
+      if (x <= -totalWidth) x += totalWidth;
+      if (x >= 0) x -= totalWidth;
+
+      track.style.transform = `translate3d(${x}px, 0, 0)`;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+}
+
+
+
+  
   await loadHTML("footer-container", "html/coding-html/footer.html");
 
 // Load posts
