@@ -1,0 +1,107 @@
+.visitor-box {
+  position: relative;
+  margin-left: 0px;
+  background: rgba(200, 200, 200, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 6px 10px;
+  width: fit-content;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+
+  animation: flicker 5s infinite, glowPulse 8s ease-in-out infinite;
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.10),
+    inset 0 0 6px rgba(255,255,255,0.08);
+}
+
+.visitor-text {
+  font-family: monospace;
+  font-size: 0.75rem; /* 👈 bigger */
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 3;
+  
+  text-shadow: 
+  0 0 4px rgba(255,255,255,0.6),
+  0 0 8px rgba(255,255,255,0.3);
+}
+
+.visitor-label {
+  opacity: 0.5;
+  margin-left: 6px;
+}
+
+.visitor-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+/* try going up one level */
+background: url("../media/basemedia/homepagedecor/viewercounter.gif") center/cover no-repeat;
+opacity: 0.1; /* 👈 visible test */
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05) 0px,
+    rgba(255,255,255,0.05) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+
+  animation: scanlineMove 6s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes scanlineMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100px;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px rgba(255,255,255,0.15),
+      inset 0 0 6px rgba(255,255,255,0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 10px rgba(255,255,255,0.30),
+      inset 0 0 10px rgba(255,255,255,0.12);
+  }
+}
+
+
+/* 🌙 HOMEPAGE DIVIDERS */
+.homepage-divider {
+  position: absolute;
+  left: 24px;
+  width: 230px;
+  height: 1.5px;
+
+  background: rgba(255, 255, 255, 0.30); /* 👈 matches your borders */
+  opacity: 0.8;
+}
+
+/* 👇 position each one EXACTLY where you want */
+.divider-fortune {
+  top: 530px; /* tweak if needed */
+}
+
+.divider-visitor {
+  top: 870px; /* tweak if needed */
+}
