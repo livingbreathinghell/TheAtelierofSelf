@@ -25,7 +25,7 @@
 
     container.style.cssText = `
       position: absolute;
-      top: 490px;
+      top: 495px;
       left: 40px;
       z-index: 5;
     `;
@@ -44,15 +44,29 @@
     const views = await fetchStats();
 
 container.innerHTML = `
-  <div class="visitor-box">
-    <div class="visitor-overlay"></div>
-    <div class="visitor-text">
-      [ ${views} ] <span class="visitor-label">total visitors</span>
+  <div class="visitor-container">
+
+    <img src="media/basemedia/homepagedecor/cattyping.gif" class="visitor-cat">
+
+    <div class="visitor-wrapper">
+
+      <div class="visitor-title">stats:</div>
+
+      <div class="visitor-box">
+        <div class="visitor-overlay"></div>
+
+        <div class="visitor-text">
+          [ ${views} ] <span class="visitor-label">total visitors</span>
+        </div>
+
+        <div class="scanlines"></div>
+      </div>
+
     </div>
-    <div class="scanlines"></div>
+
   </div>
 `;
-  }
+}
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", renderCounter);
