@@ -29,7 +29,7 @@
   // 🎨 NAVIGATION BUTTONS
   const NAV_IMAGES = {
     prev: "media/basemedia/homepagedecor/calender/calenderprevious.png",
-    next: null
+    next: "media/basemedia/homepagedecor/calender/calendernext.png"
   };
 
   let currentDate = new Date();
@@ -124,7 +124,7 @@
           top: 5%;
           left: 50%;
           transform: translateX(-50%);
-          width: 80%;
+          width: 70%;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -132,7 +132,7 @@
           <button id="cal-prev" style="
             background: none;
             border: none;
-            padding: 2px;
+            padding: 0px;
             cursor: pointer;
           ">${prevBtnContent}</button>
           
@@ -146,7 +146,7 @@
           <button id="cal-next" style="
             background: none;
             border: none;
-            padding: 2px;
+            padding: 0px;
             cursor: pointer;
           ">${nextBtnContent}</button>
         </div>
@@ -157,16 +157,16 @@
         <!-- DAY GRID - SEPARATE, position independently! -->
         <div style="
           position: absolute;
-          top: 55%;
-          left: 45%;
+          top: 56%;
+          left: 50%;
           transform: translate(-50%, -48%);
-          width: 55%;
+          width: 60.5%;
         ">
           <div style="
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            column-gap: 9px;
-            row-gap: 6px;
+            column-gap: 8px;
+            row-gap: 5.5px;
           ">
             ${daysHTML}
           </div>
