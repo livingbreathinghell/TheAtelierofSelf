@@ -1,4 +1,3 @@
-
 // ===============================
 // 🌙 VISITOR COUNTER (GoatCounter)
 // ===============================
@@ -13,9 +12,12 @@
       const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/${PAGE_PATH}.json`);
       if (!res.ok) throw new Error("API not available");
       const data = await res.json();
-      return data.count || "~";
+      return {
+        visitors: data.count_unique || data.count || "~",
+        pageviews: data.count || "~"
+      };
     } catch (err) {
-      return "~";
+      return { visitors: "~", pageviews: "~" };
     }
   }
 
@@ -41,32 +43,44 @@
       </div>
     `;
 
-    const views = await fetchStats();
+    const stats = await fetchStats();
 
-container.innerHTML = `
-  <div class="visitor-container">
+    container.innerHTML = `
+      <div class="visitor-container">
 
-    <img src="media/basemedia/homepagedecor/cattyping.gif" class="visitor-cat">
+        <img src="media/basemedia/homepagedecor/cattyping.gif" class="visitor-cat">
 
-    <div class="visitor-wrapper">
+        <div class="visitor-wrapper">
 
-      <div class="visitor-title">stats:</div>
+          <div class="visitor-title">stats:</div>
 
-      <div class="visitor-box">
-        <div class="visitor-overlay"></div>
+          <!-- VISITORS -->
+          <div class="visitor-box">
+            <div class="visitor-overlay"></div>
 
-        <div class="visitor-text">
-          [ ${views} ] <span class="visitor-label">total visitors</span>
+            <div class="visitor-text">
+              [ ${stats.visitors} ] <span class="visitor-label">total visitors</span>
+            </div>
+
+            <div class="scanlines"></div>
+          </div>
+
+          <!-- PAGEVIEWS -->
+          <div class="visitor-box pageview-box">
+            <div class="visitor-overlay"></div>
+
+            <div class="visitor-text">
+              [ ${stats.pageviews} ] <span class="visitor-label">page views</span>
+            </div>
+
+            <div class="scanlines"></div>
+          </div>
+
         </div>
 
-        <div class="scanlines"></div>
       </div>
-
-    </div>
-
-  </div>
-`;
-}
+    `;
+  }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", renderCounter);
