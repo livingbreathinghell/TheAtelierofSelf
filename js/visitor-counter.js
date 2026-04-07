@@ -1,22 +1,35 @@
+
 // ===============================
-// 🌙 VISITOR COUNTER (GoatCounter)
+// 🌙 VISITOR COUNTER (GoatCounter API)
 // ===============================
 
 (function() {
 
   const GOATCOUNTER_SITE = "theatelierofself";
-  const PAGE_PATH = "TheAtelierofSelf";
+  const API_TOKEN = "18ge04hv2pfqxcicdn9336pa81lyob8y41019m161hnab9meomx";
 
   async function fetchStats() {
     try {
-      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/${PAGE_PATH}.json`);
-      if (!res.ok) throw new Error("API not available");
+      // Fetch pageviews from full API
+      const res = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/api/v0/stats/total`, {
+        headers: {
+          'Authorization': `Bearer ${API_TOKEN}`
+        }
+      });
+      
+      if (!res.ok) throw new Error("API error");
       const data = await res.json();
+      
+      // Also fetch the simple counter for unique visitors
+      const counterRes = await fetch(`https://${GOATCOUNTER_SITE}.goatcounter.com/counter/TheAtelierofSelf.json`);
+      const counterData = await counterRes.json();
+      
       return {
-        visitors: data.count_unique || data.count || "~",
-        pageviews: data.count || "~"
+        visitors: counterData.count_unique || counterData.count || "~",
+        pageviews: data.total || "~"
       };
     } catch (err) {
+      console.warn("Stats fetch error:", err);
       return { visitors: "~", pageviews: "~" };
     }
   }
