@@ -152,3 +152,9 @@ opacity: 0.1; /* 👈 visible test */
 .divider-visitor {
   top: 870px; /* tweak if needed */
 }
+
+.pageview-box {
+  margin-top: 6px; /* spacing between the two boxes */
+}
+
+
