@@ -14,8 +14,8 @@
   const MONTH_IMAGES = {
     0: "media/basemedia/homepagedecor/calender/january.png",
     1: "media/basemedia/homepagedecor/calender/february.png",
-    2: null,
-    3: null,
+    2: "media/basemedia/homepagedecor/calender/march.png",
+    3: "media/basemedia/homepagedecor/calender/april.png",
     4: null,
     5: null,
     6: null,
