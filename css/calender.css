@@ -7,7 +7,7 @@
   position: absolute;
   top: 520px;
   left: 40px;
-  width: 320px;
+  width: 350px;
   z-index: 5;
 }
 
@@ -169,4 +169,108 @@
 .calendar-day.empty {
   opacity: 0;
   pointer-events: none;
+}
+
+/* ==========================================================
+   CALENDAR NOTE POPUP
+========================================================== */
+
+.calendar-note-popup {
+  position: absolute;
+  left: 240px; /* pops out to the right of calendar */
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 180px;
+  min-height: 80px;
+  
+  background: rgba(12, 13, 18, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  border-radius: 6px;
+  
+  padding: 12px;
+  z-index: 100;
+  
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.calendar-note-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Close button */
+.calendar-note-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  
+  transition: color 0.2s ease;
+}
+
+.calendar-note-close:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Date header */
+.calendar-note-date {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  color: #F9E5B8;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* Note content */
+.calendar-note-content {
+  font-size: 0.75rem;
+  color: #e6e6f0;
+  line-height: 1.5;
+}
+
+.calendar-note-content .note-title {
+  display: block;
+  color: #F9E5B8;
+  font-size: 0.7rem;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.calendar-note-content p {
+  margin: 0 0 6px 0;
+  opacity: 0.8;
+}
+
+/* Empty state */
+.calendar-note-empty {
+  font-size: 0.7rem;
+  opacity: 0.4;
+  font-style: italic;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Day with notes indicator */
+.calendar-day-has-note {
+  position: relative;
+}
+
+.calendar-day-has-note::after {
+  content: '✦';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.4rem;
+  color: #F9E5B8;
+  opacity: 0.7;
 }
