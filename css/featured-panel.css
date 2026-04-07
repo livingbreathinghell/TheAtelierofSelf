@@ -1,0 +1,41 @@
+/* ===============================
+FEATURED PANEL CONTAINER
+=============================== */
+#featured-panel-container {
+  position: absolute;
+
+  /* 👇 POSITION CONTROLS */
+  top: 470px;
+  left: 270px;
+
+  width: 530px;
+  height: 400px;
+
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* ===============================
+FEATURED PANEL BACKGROUND
+=============================== */
+.featured-bg-panel {
+  position: absolute;
+
+  /* 👇 MATCH POSITION */
+  top: 470px;
+  left: 270px;
+
+  width: 530px;
+  height: 400px;
+
+  z-index: 0;
+
+  border-radius: 6px;
+
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 0 20px rgba(0,0,0,0.3);
+}
