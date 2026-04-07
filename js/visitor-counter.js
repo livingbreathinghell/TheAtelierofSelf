@@ -56,7 +56,7 @@ container.innerHTML = `
         <div class="visitor-overlay"></div>
 
         <div class="visitor-text">
-          [ ${views} ] <span class="visitor-label">visitors</span>
+          [ ${views} ] <span class="visitor-label">total visits</span>
         </div>
 
         <div class="scanlines"></div>
