@@ -1,0 +1,548 @@
+
+<div id="gallery-panel">
+
+  <!-- BACK BUTTON -->
+  <button id="gallery-back" onclick="returnToHomepage()">← back</button>
+
+  <!-- GALLERY TITLE -->
+  <div id="gallery-title">gallery</div>
+
+  <!-- ═══════════════════════════════════════
+       ALBUMS SECTION
+  ═══════════════════════════════════════ -->
+  <div id="albums-section">
+    <div class="section-label">albums</div>
+    
+    <div id="albums-grid">
+
+      <!-- ALBUM 1 -->
+      <div class="album-card" data-album="art">
+        <div class="album-cover">
+          <img src="media/postmedia/viewsection/gallery/artcover.jpg" alt="art">
+        </div>
+        <div class="album-name">art</div>
+      </div>
+
+      <!-- ALBUM 2 -->
+      <div class="album-card" data-album="photography">
+        <div class="album-cover">
+          <img src="media/postmedia/viewsection/gallery/photographycover.jpg" alt="art">
+        </div>
+        <div class="album-name">photography</div>
+      </div>
+
+      <!-- ALBUM 3 -->
+      <div class="album-card" data-album="stamps">
+        <div class="album-cover">
+          <img src="media/postmedia/viewsection/gallery/stampscover.jpg" alt="photography">
+        </div>
+        <div class="album-name">stamps</div>
+      </div>
+      <!-- ALBUM 3 -->
+      <div class="album-card" data-album="gifs">
+        <div class="album-cover">
+          <img src="media/postmedia/viewsection/gallery/stampscover.jpg" alt="gifs">
+        </div>
+        <div class="album-name">gifs</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✨ DIVIDER -->
+  <div class="gallery-divider"></div>
+
+  <!-- ═══════════════════════════════════════
+       ALBUM VIEW (hidden by default)
+  ═══════════════════════════════════════ -->
+  <div id="album-view" style="display: none;">
+    <button id="album-back" onclick="closeAlbum()">← back to gallery</button>
+    <div id="album-title"></div>
+    <div id="album-images" class="masonry-grid"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ALL IMAGES SECTION (pinterest masonry)
+  ═══════════════════════════════════════ -->
+  <div id="all-images-section">
+    <div class="section-label">all images</div>
+    
+    <div id="gallery-masonry" class="masonry-grid">
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/manon-pinkyup.jpg" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/manon-pinkyup-teacupheader.jpg" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/catdance.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysdiningtree.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysentre.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysshrimp.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysdecor.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysgator.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/whiteysriver.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/nomnomnom.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/goodluckcatSWING.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/photography/goodluckcat.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/drowninpaperwork.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/april.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/march.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/deathnote-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/DELETE-stamp.gif" alt="">
+      </div>
+
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/flutterbateman-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/fuckcensorship-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/gorillaz-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/iloveeatingmeat-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/itsokpluto-STAMP.png" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/karkatbucket-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/music-STAMP.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/NONO-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/pikachu-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/radio-stamp.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/RISEOFTHEDEAD-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/seeyouspacecowboy-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/totoro-STAMP.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/stamps/yay-stamp.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/cattyping.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/viewcounter.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/calendernext.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/calenderprevious.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/february.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/calender/january.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/audio/covers/postcovers/MyOrdinaryLife-TheLivingTombstone.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/content/godslilcosmicjoke.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/godslillamb.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/devilangel.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/thefoolsarchetype.jpg" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/the0banner.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/Taillefer.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/stick-travel.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/risingsun.jpg" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/flowerboy.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/clownfirequote.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/childlikewhimsy.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/checkers.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/cardgame.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/arrows.jpg" alt="">
+      </div>
+
+     <div class="gallery-item">
+        <img src="media/audio/covers/postcovers/totoro-uncleoutrage.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/fortunebear-header.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/fortunebear-drawing.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/misc/thefoolbanner.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/tarot/cards/major/TheFool.jpg" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-writer.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/mercuryimpcloseup.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-sailor.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-merchant.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-financebro.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-engineer.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/concepts/genesis/mercury/mercuryimp-base.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/WaxingGibbous.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/waxingcrescent.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/waninggibbous.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/waningcrescent.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/fullmoon.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/thirdquarter.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/firstquarter.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/newmoon.png" alt="">
+      </div>
+
+     <div class="gallery-item">
+        <img src="media/audio/covers/postcovers/windows95-uncleoutrage.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/fishman.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/Fishmansfish.jpg" alt="">
+      </div>
+
+     <div class="gallery-item">
+        <img src="media/audio/covers/postcovers/thesailorsong-toybox.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/sailordemons.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/art/drawings/sailors.png" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/dreamanything.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/torture.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/touchme.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/shutthefuckup.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/house.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/triplicity.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/bound.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/decans.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/detriment.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/fall.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/exaltation.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/domicile.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/dignitybanner.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/dignityheader.gif" alt="">
+      </div>
+  
+        <div class="gallery-item">
+        <img src="media/postmedia/2026/music/headers/blew.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/moonheaderpanel.gif" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/moonpphoto.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/astrology/planets/moon.gif" alt="">
+      </div>
+      
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/sexcrimes.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/amiyoursenpai.jpg" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="loading.gif" alt="">
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/welcomepaneloverlay.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/welcomepanel.gif" alt="">
+      </div>
+
+      <!-- IMAGE 2 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/wire2.png" alt="">
+      </div>
+
+      <!-- IMAGE 3 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/wire3.png" alt="">
+      </div>
+
+      <!-- IMAGE 4 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/darkwire1.png" alt="">
+      </div>
+
+      <!-- IMAGE 5 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/darkwire2.png" alt="">
+      </div>
+
+      <!-- IMAGE 6 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/homepagedecor/darkwire3.png" alt="">
+      </div>
+
+      <div class="gallery-item">
+        <img src="media/postmedia/2026/journal/headers/ARMY.mp4" alt="">
+      </div>
+
+      <!-- IMAGE 1 -->
+      <div class="gallery-item">
+        <img src="media/basemedia/globaldecor/deviantart_stamp.png" alt="">
+      </div>
+
+      <!-- ADD MORE IMAGES HERE! just copy the gallery-item div ^^ -->
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════
+     GALLERY LIGHTBOX
+═══════════════════════════════════════ -->
+<div id="gallery-lightbox">
+  <button id="lightbox-close">&times;</button>
+  <button id="lightbox-prev">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next">&#8250;</button>
+</div>
