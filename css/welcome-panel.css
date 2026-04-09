@@ -353,7 +353,20 @@ display: block;
 
 } /* 👈 YOU WERE MISSING THIS */
 
+.title-cat-right {
+  position: absolute;
 
+  top: -2px;      /* adjust up/down */
+  right: -43px;   /* pushes it to the right of text */
+
+  width: 30px;
+  height: auto;
+
+  opacity: 0.85;
+
+  transform: translate(0px, 0px);
+  pointer-events: none;
+}
 
 
 
