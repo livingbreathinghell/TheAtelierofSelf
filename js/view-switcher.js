@@ -26,17 +26,28 @@ try {
 
   const html = await res.text();
 
-homepageInner.style.display = "none";
-dynamicContainer.innerHTML = html;
-dynamicContainer.style.display = "block";
+  homepageInner.style.display = "none";
+  dynamicContainer.innerHTML = html;
+  dynamicContainer.style.display = "block";
 
-// 🌌 wait for DOM to render injected HTML
-await new Promise(requestAnimationFrame);
+  // 🌌 wait for DOM to render injected HTML
+  await new Promise(requestAnimationFrame);
 
-  // 🌌 NEW: set category state
+
+  // ✅ INIT SLIDESHOWS HERE
+  if (typeof initSlideshows === "function") {
+    initSlideshows();
+  }
+
+  // ✅ INIT GALLERY
+  if (typeof initGallery === "function" && viewName === "gallery") {
+    initGallery();
+  }
+
+  // 🌌 set category state
   document.body.setAttribute("data-category", viewName);
 
-  // 🌌 NEW: load custom category content (like music player)
+  // 🌌 load custom category content
   if (typeof loadCategoryCustom === "function") {
     await loadCategoryCustom(viewName);
   }
