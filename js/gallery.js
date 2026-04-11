@@ -12,6 +12,8 @@ function initGallery() {
     art: {
       name: "art",
         images: [
+      "media/postmedia/2026/art/drawings/IHAVENONAME-drawing.png",
+       "media/postmedia/2026/art/drawings/IHAVENONAMEheader-drawing.png",
        "media/postmedia/2026/art/drawings/manon-pinkyup.jpg",
        "media/postmedia/2026/art/drawings/manon-pinkyup-teacupheader.jpg",
         "media/basemedia/homepagedecor/calender/april.png",
