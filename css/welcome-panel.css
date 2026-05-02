@@ -6,10 +6,10 @@ WELCOME PANEL CONTAINER
   position: absolute;
   top: 90px;
   left: 40px;
-width: 720px;
-height: 150px;
-z-index: 1;
-pointer-events: auto;
+  width: 720px;
+  height: 150px;
+  z-index: 3;
+  pointer-events: auto;
 }
 
 /* WELCOME / STATUS PANEL */
@@ -29,10 +29,10 @@ height: 350px;
   position: absolute;
   z-index: 1; /* below welcome */
 
-  top: 470px;
+  top: 500px;
   left: 24px;
   width: 230px;
-  height: 610px;
+  height: 850px;
 
   overflow: hidden;
 }
@@ -155,8 +155,8 @@ opacity: 0.8;
 /* image container */
 #welcome-image {
 position: absolute;
-top: 30px;
-left: 30px;
+top: 20px;
+left: 33px;
 width: 150px;
 height: 150px;
 border: 1px solid rgba(255,255,255,0.45);
@@ -177,7 +177,7 @@ STATUS LINE
 =============================== */
 #welcome-status {
 position: absolute;
-top: 190px;
+top: 150px;
 left: 52px;
 font-family: monospace;
 font-size: 10px;
@@ -191,7 +191,7 @@ align-items: baseline;
 #welcome-status::after {
 content: "";
 position: absolute;
-top: 16px;
+top: 5px;
 left: -5px;
 width: 120px;
 height: 1px;
@@ -208,8 +208,8 @@ STATS BOX
 =============================== */
 #welcome-stats {
 position: absolute;
-top: 215px;
-left: 55px;
+top: 210px;
+left: 45px;
 display: flex;
 flex-direction: column;
 gap: 6px;
@@ -245,12 +245,20 @@ width: 380px;
 }
 
 #welcome-title {
-position: absolute;
-top: -23px;
-left: -70px;
-font-size: 26px;
-opacity: 0.8;
+  position: absolute;
+  top: -25px;
+  left: -15;
+  width: 200px;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
+
+
 
 .welcome-paragraph {
 position: absolute;
@@ -261,29 +269,46 @@ font-size: var(--fs, 15px);
 line-height: var(--lh, 1.5);
 }
 
+
 #welcome-text-1 {
-top: 30px;
-left: -80px;
---fs: 13px;
---lh: 1.40;
+  top: -75px;
+  left: -330px;
+  width: 500px;   /* 👈 full width across the top */
+  --fs: 13px;
+  --lh: 1.40;
 }
 
 #welcome-text-2 {
-top: 100px;
-left: -80px;
-width: 480px;
---fs: 13px;
---lh: 1.40;
+  top: -28px;
+  left: 20px;
+  width: 410px;   /* 👈 stops before the popup */
+  --fs: 14px;
+  --lh: 1.50;
 }
 
 #welcome-text-3 {
-top: 190px;
-left: 0px;
-width: 490px;
---fs: 15px;
---lh: 1.40;
+  top: 30px;
+  left: -80px;
+  width: 500px;
+  --fs: 15px;
+  --lh: 1.60;
 }
 
+#welcome-text-4 {
+  top: 60px;
+  left: -80px;
+  width: 260px;
+  --fs: 15px;
+  --lh: 1.60;
+}
+
+#welcome-text-5 {
+  top: 220px;
+  left: -80px;
+  width: 260px;
+  --fs: 15px;
+  --lh: 1.60;
+}
 /* ===============================
 FLOATING IMAGES
 =============================== */
@@ -299,22 +324,180 @@ object-fit: cover;
 display: block;
 }
 
+
+
+/* 📱 portrait */
+@media (max-width: 480px) {
+
+  #homepage {
+    display: flex;
+    justify-content: center;
+  }
+
+  .homepage-inner {
+    transform: scale(0.5);
+    transform-origin: top left;
+    width: 770px;
+  }
+
+} /* 👈 YOU WERE MISSING THIS */
+
+.title-cat-right {
+  position: absolute;
+
+  top: -27px;      /* adjust up/down */
+  right: 50px;   /* pushes it to the right of text */
+
+  width: 27px;
+  height: auto;
+
+  opacity: 0.85;
+
+  transform: translate(0px, 0px);
+  pointer-events: none;
+}
+
+/* ====== LED STATES ====== */
+.playlist-leds span.active {
+  background: rgba(255,214,167,0.95);
+  animation: led-flicker 1.8s infinite steps(2);
+}
+
+/* ===============================
+   POPUP BOX (site-style)
+=============================== */
+#welcome-popup {
+  position: absolute;
+  top: 70px;
+  left: 190px;    /* 👈 a smidge more right */
+  width: 215px;
+  height: 200px;
+  z-index: 10;
+
+  background: rgba(12, 13, 18, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+#welcome-popup-titlebar {
+  background: rgba(18, 19, 32, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0 8px;
+  height: 30px;          /* 👈 chunky bar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+#welcome-popup-label {
+  font-size: 0.62rem;
+  color: #F9E5B8;
+  letter-spacing: 0.07em;
+  text-transform: lowercase;
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(249, 229, 184, 0.4);
+}
+
+#welcome-popup-controls {
+  display: flex;
+  gap: 4px;
+}
+
+#welcome-popup-controls span {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+#welcome-popup-controls span:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #F9E5B8;
+}
+
+#welcome-popup-content {
+  width: 100%;
+  height: calc(100% - 30px);
+  background: #000;
+  overflow: hidden;
+}
+
+#welcome-popup-content video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000; /* keeps letterbox bars black */
+}
+
+/* 📲 tablet / laptop landscape */
+@media (orientation: landscape) and (min-width: 768px) {
+
+  .homepage-inner {
+    position: relative;
+
+    left: 47%;
+    transform: translateX(-45%) scale(0.9); /* 👈 was 0.9 → slightly bigger */
+
+    transform-origin: top left;
+    width: 770px;
+  }
+
+}
+
+
+/* ===============================
+   IMAGE ABOVE NAV LINKS (in column)
+=============================== */
+#welcome-column-img {
+  position: absolute;
+  top: 425px;       /* sits just above the links at 1020 */
+  left: -325px;     /* aligns with column, nudge L/R as needed */
+  width: 180px;
+  height: 130px;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0.85;
+  z-index: 5;
+}
+
+#welcome-column-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ===============================
    WELCOME LINK BAR (FINAL TWEAK)
 =============================== */
 #welcome-links {
   position: absolute;
-  top: 255px;     /* moved lower again */
-  left: -20px;    
+  top: 575px;     /* moved lower again */
+  left: -320px;    
   width: 480px;
 
   display: flex;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
 
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.60rem;
+  font-weight: 470;
 }
 
 /* links */
@@ -337,53 +520,408 @@ display: block;
   opacity: 0.8;
 }
 
-/* 📱 portrait */
-@media (max-width: 480px) {
-
-  #homepage {
-    display: flex;
-    justify-content: center;
-  }
-
-  .homepage-inner {
-    transform: scale(0.5);
-    transform-origin: top left;
-    width: 770px;
-  }
-
-} /* 👈 YOU WERE MISSING THIS */
-
-.title-cat-right {
+/* 🌙 HOMEPAGE DIVIDERS */
+.homepage-divider {
   position: absolute;
+  left: 24px;
+  width: 230px;
+  height: 1.5px;
 
-  top: -2px;      /* adjust up/down */
-  right: -43px;   /* pushes it to the right of text */
+  background: rgba(255, 255, 255, 0.30); /* 👈 matches your borders */
+  opacity: 0.8;
+}
 
-  width: 30px;
-  height: auto;
+.divider-visitor {
+  top: 730px; /* tweak if needed */
+}
 
-  opacity: 0.85;
+/* 👇 position each one EXACTLY where you want */
+.divider-fortune {
+  top: 1030px; /* tweak if needed */
+}
 
-  transform: translate(0px, 0px);
+
+
+/* ===============================
+   ✨ CUSTOM ADJUSTABLE DIVIDER
+   (white horizontal line — under featured panel)
+=============================== */
+.custom-divider.divider-featured {
+  position: absolute;
+  top: 915px;        /* 👈 vertical position — slide up/down */
+  left: 310px;         /* 👈 left edge — usually matches your panels */
+  width: 450px;       /* 👈 length of the line */
+  height: 1.5px;        /* 👈 thickness — try 2px for chunkier */
+  background: rgba(255, 255, 255, 0.25);  /* 👈 color + opacity */
+  border-radius: 1px;
+  z-index: 2;
   pointer-events: none;
 }
 
+/* ===============================
+   🔖 WELCOME STAMP
+=============================== */
+#welcome-stamp {
+  position: absolute;
+  top: -25px;    /* 👈 move up/down */
+  left: 243px;    /* 👈 move left/right */
+  width: 75px;   /* 👈 resize here */
+  z-index: 6;
+  pointer-events: none;
+  animation: stamp-float 3.5s ease-in-out infinite;
+}
 
+#welcome-stamp img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.7;
+}
 
-/* 📲 tablet / laptop landscape */
-@media (orientation: landscape) and (min-width: 768px) {
+/* ===============================
+   SYMBOL LINE (behind stamp)
+=============================== */
+#welcome-symbols {
+  position: absolute;
+  top: -20px;      /* nudge up/down to overlap your stamp */
+  left: 320px;     /* starts at the right column — adjust freely */
+  width: 350px;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: #f5ecd8;
+  opacity: 0.7;
+  z-index: 5;
+  pointer-events: none;
+  line-height: 1.8;
+  word-spacing: 0.1em;
+}
+/* ===============================
+   SMALL DECORATIVE SQUARES
+=============================== */
+.welcome-sq {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 4px;
+  background: rgba(14, 14, 22, 0.6);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
 
-  .homepage-inner {
-    position: relative;
+.welcome-sq img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    left: 47%;
-    transform: translateX(-45%) scale(0.9); /* 👈 was 0.9 → slightly bigger */
+.welcome-sq {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 4px;
+  background: rgba(14, 14, 22, 0.6);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
 
-    transform-origin: top left;
-    width: 770px;
-  }
-
+.welcome-sq img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 
+
+
+
+
+
+
+
+
+/* ===============================
+   🎵 WINAMP-STYLE PLAYER (welcome column)
+=============================== */
+
+#welcome-playlist {
+  position: absolute;
+  top: 630px;
+  left: -340px;
+  width: 210px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* === SHELL === */
+#welcome-playlist .hub-playlist {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  background: #1c1c2a;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+/* === TITLE BAR === */
+#welcome-playlist .hub-playlist-header {
+  display: none;
+}
+
+.winamp-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7px;
+  height: 22px;
+background: #1c1c2a;
+border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: 'Courier New', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.winamp-titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.winamp-icon {
+  font-size: 0.65rem;
+  color: #b0a0c8;
+  opacity: 0.9;
+}
+
+.winamp-name {
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  color: #cec0e0;
+  text-shadow: 0 0 6px rgba(160, 130, 200, 0.35);
+}
+
+.winamp-titlebar-right {
+  display: flex;
+  gap: 2px;
+}
+
+.winamp-titlebar-right span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+    background: #252535;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(200, 200, 220, 0.5);
+  font-size: 0.42rem;
+  cursor: pointer;
+  border-radius: 1px;
+}
+
+.winamp-titlebar-right span:hover {
+background: #32324a;
+  color: #fff;
+}
+
+/* === VIDEO AREA === */
+#welcome-playlist .hub-playlist-main {
+  flex-direction: column;
+  padding: 5px 5px 0 5px;
+  gap: 0;
+  background: #1c1c2a;
+}
+
+#welcome-playlist .hub-playlist-video {
+  width: 100%;
+  position: relative;
+}
+
+#welcome-playlist .hub-playlist-video iframe {
+  height: 110px;
+  border-radius: 2px;
+}
+
+#welcome-playlist .video-thumbnail-overlay {
+  height: 110px;
+  border-radius: 2px;
+}
+
+/* === LCD DISPLAY (scrolling title + LEDs) === */
+.winamp-display {
+  margin: 0 5px;
+  background: #050508;
+  border: 1px solid #000;
+  border-top: none;
+  padding: 5px 7px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.winamp-display-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.winamp-marquee-wrap {
+  overflow: hidden;
+  flex: 1;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.winamp-marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.58rem;
+  color: #F9E5B8;
+  text-shadow: 0 0 6px rgba(249, 229, 184, 0.55);
+  letter-spacing: 0.05em;
+  animation: winamp-scroll 18s linear infinite;
+}
+
+@keyframes winamp-scroll {
+  0%   { transform: translateX(110%); }
+  100% { transform: translateX(-110%); }
+}
+
+.winamp-display-leds {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.wled {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: rgba(249, 229, 184, 0.12);
+  border-radius: 1px;
+  animation: led-wave 1.5s ease-in-out infinite;
+}
+
+.wled:nth-child(1) { animation-delay: 0s; }
+.wled:nth-child(2) { animation-delay: 0.2s; }
+.wled:nth-child(3) { animation-delay: 0.4s; }
+.wled:nth-child(4) { animation-delay: 0.6s; }
+.wled:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes led-wave {
+  0%, 100% { background: rgba(249, 229, 184, 0.12); box-shadow: none; }
+  50% { background: rgba(249, 229, 184, 0.95); box-shadow: 0 0 5px rgba(249, 229, 184, 0.65); }
+}
+
+/* === TRANSPORT BUTTONS === */
+.winamp-transport {
+  display: flex;
+  gap: 2px;
+  padding: 5px 5px 6px 5px;
+  background: #1c1c2a;
+}
+
+.wbtn {
+  flex: 1;
+  height: 22px;
+  background: linear-gradient(180deg, #28283e 0%, #1a1a2c 100%);
+  color: rgba(200, 215, 240, 0.85);
+  border: 1px solid #090910;
+  border-top-color: rgba(80, 90, 130, 0.55);
+  border-left-color: rgba(80, 90, 130, 0.35);
+  border-radius: 2px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.52rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    1px 1px 0 rgba(0, 0, 0, 0.6);
+  transition: background 0.1s, transform 0.05s;
+}
+
+.wbtn:hover {
+  background: linear-gradient(180deg, #363654 0%, #242440 100%);
+  color: #fff;
+}
+
+.wbtn:active {
+  transform: translateY(1px);
+  background: linear-gradient(180deg, #141420 0%, #28283e 100%);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.7),
+    inset 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wbtn-play {
+  flex: 1.4;
+  color: #b8d890;
+  text-shadow: 0 0 5px rgba(160, 220, 100, 0.35);
+}
+
+.wbtn-shuffle {
+  flex: 1.6;
+  color: #90b8f0;
+  font-size: 0.48rem;
+  text-shadow: 0 0 5px rgba(100, 160, 255, 0.3);
+}
+
+/* Hide old controls + leds */
+#welcome-playlist .hub-playlist-controls { display: none; }
+#welcome-playlist .hub-playlist-leds    { display: none; }
+
+/* === QUEUE === */
+#welcome-playlist .hub-playlist-queue {
+  display: block;
+  width: 100%;
+  max-height: 130px;
+  box-sizing: border-box;
+  background: #111119;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid #000;
+  border-radius: 0 0 3px 3px;
+  padding: 6px 8px;
+  overflow-y: auto;
+  font-size: 0.58rem;
+  font-family: 'Courier New', monospace;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 214, 167, 0.3) transparent;
+}
+
+#welcome-playlist .hub-playlist-queue::-webkit-scrollbar { width: 3px; }
+#welcome-playlist .hub-playlist-queue::-webkit-scrollbar-thumb {
+  background: rgba(255, 214, 167, 0.35);
+  border-radius: 2px;
+}
+
+/* === HIDE PLAYLISTS TITLE === */
+#welcome-playlist #playlist-title {
+  display: none;
+}
+
+/* === SHRINK ROTATING PLAYLISTS === */
+#welcome-playlist .hub-rotating {
+  margin-top: 6px;
+}
+
+#welcome-playlist .hub-rotating #rotating-playlists {
+  --visible-width: 210px;
+  width: 210px;
+  max-width: 210px;
+  --playlist-scale: 0.65;
+}
+
+#welcome-playlist .hub-rotating .playlist-item {
+  font-size: 0.6rem;
+  gap: 6px;
+}
+
+#welcome-playlist .hub-rotating .playlist-item img {
+  width: 26px;
+  height: 26px;
+}
 
