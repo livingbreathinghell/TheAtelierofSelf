@@ -1,0 +1,76 @@
+/* ===============================
+   TRANSITS PAGE
+=============================== */
+
+.transits-view {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 10px 30px 40px 30px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #e6e6f0;
+}
+
+.transits-back-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  text-transform: lowercase;
+  display: inline-block;
+}
+
+.transits-back-btn:hover {
+  border-color: rgba(255,255,255,0.5);
+}
+
+.transits-title {
+  font-family: monospace;
+  font-size: 2rem;
+  color: #ffffff;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  margin: 0 0 8px 0;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.5),
+    0 0 12px rgba(200,220,255,0.3);
+}
+
+.transits-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin: 0 0 16px 0;
+}
+
+.transits-divider {
+  height: 1.5px;
+  background: rgba(255,255,255,0.3);
+  margin: 2px 0;
+}
+
+.transits-divider.divider-header {
+  margin: 0 0 8px 0; /* sits under the subtitle */
+}
+
+.transits-section-header.collapsible-header {
+  cursor: pointer;
+  padding: 14px 4px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+.transits-section-body {
+  padding: 10px 4px 20px 4px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  line-height: 1.7;
+}
