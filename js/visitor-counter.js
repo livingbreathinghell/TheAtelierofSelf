@@ -25,15 +25,15 @@
 
     container.style.cssText = `
       position: absolute;
-      top: 495px;
-      left: 40px;
+      top: 285px;
+      left: 65px;
       z-index: 5;
     `;
 
     container.innerHTML = `
       <div style="
         font-family: monospace;
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         color: #ffffff;
         opacity: 0.9;
       ">
@@ -46,11 +46,7 @@
 container.innerHTML = `
   <div class="visitor-container">
 
-    <img src="media/basemedia/homepagedecor/cattyping.gif" class="visitor-cat">
-
     <div class="visitor-wrapper">
-
-      <div class="visitor-title">stats:</div>
 
       <div class="visitor-box">
         <div class="visitor-overlay"></div>
