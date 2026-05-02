@@ -1,0 +1,38 @@
+<!-- =====================
+     YOUTUBE PLAYLIST PLAYER (Standalone)
+====================== -->
+<div class="playlist-container" id="playlist-player">
+
+  <div class="playlist-top-header">✦ now playing</div>
+
+  <div class="playlist-main">
+
+    <!-- VIDEO + CONTROLS -->
+    <div class="playlist-video-wrapper">
+      <iframe
+        id="yt-iframe"
+        src="https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1&rel=0&modestbranding=1"
+        width="100%"
+        height="70"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="border-radius:8px; border:none; background:#000; display:block;"
+        title="now playing"
+      ></iframe>
+
+      <div class="playlist-controls">
+        <button id="yt-prev">◂</button>
+        <button id="yt-play-pause">▶</button>
+        <button id="yt-next">▸</button>
+      </div>
+
+      <div class="playlist-leds">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- TRACK QUEUE -->
+    <div class="playlist-queue" id="yt-queue"></div>
+
+  </div>
+</div>
