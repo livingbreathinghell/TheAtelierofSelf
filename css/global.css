@@ -22,7 +22,15 @@ body {
 
 
 
+/* POST CONTENT DIVIDER */
 
+.post-divider {
+  width: 90%;                 /* longer than before */
+  height: 1px;
+  background: rgba(255,255,255,0.18); /* slightly lower opacity */
+  margin: 18px auto;          /* keeps it centered */
+  border-radius: 1px;
+}
 
 
 
@@ -329,6 +337,13 @@ a {
   display: none;
 }
 
+
+
+
+
+
+
+
 /* ==========================================================
    IMAGE LIGHTBOX
 ========================================================== */
@@ -349,31 +364,6 @@ a {
   border-radius: 14px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.7);
 }
-
-
-/* ==========================================================
-   📱 MOBILE ADJUSTMENTS
-========================================================== */
-@media (max-width: 768px) {
-
-  /* INLINE IMAGES — FIX SIZE */
-  .post-right .post-image.inline {
-    max-width: 90px !important;
-  }
-
-  .post-right .post-image.inline img {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-}  position: absolute;
-  background-color: rgba(12, 13, 18, 0.55);
-  border-radius: 6px;
-  border: 2px solid rgba(255, 255, 255, 0.20);
-  z-index: 0;
-  pointer-events: none;
-}
-
 
 /* ==========================================================
    FLOATING / MOVABLE IMAGES
@@ -390,265 +380,415 @@ a {
 }
 
 
-/* ==========================
-   POST CREDITS (TINY FAINT)
-========================== */
-
-.post-credits {
-  margin-top: 0px;
-  font-size: 0.6rem;
-  opacity: 0.35;
-  color: rgba(255,255,255,0.5);
-  font-style: italic;
-}
-
 /* ==========================================================
-   TEXT STYLES
-========================================================== */
-.small-light-text {
-  font-size: 0.95rem;
-  opacity: 0.75;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-style: italic;
-  color: #e6e6f0;
-  text-align: center;
-  line-height: 1.4;
-  margin: 8px 0;
-  transition: opacity 0.25s ease;
-}
-
-.highlight-line {
-  color: #FFE2BD;
- 
-}
-
-
-/* ==========================================================
-   TEXT STYLES
-========================================================== */
-.small-light-text {
-  font-size: 0.95rem;
-  opacity: 0.75;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-style: italic;
-  color: #e6e6f0;
-  text-align: left;
-  line-height: 1.4;
-
-  margin: 30px 0 8px 0;  /* 👈 increase this number */
-
-  transition: opacity 0.25s ease;
-}
-
-/* ==========================================================
-   POST STYLES
+   LIGHTBOX SYSTEM (BACKDROP + CONTENT)
 ========================================================== */
 
-.post {
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.post:last-child {
-  border-bottom: none;
-}
-
-
-.post-right .post-image {
-  margin: 16px auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 0;
-}
-
-.post-right .post-image img {
-  max-width: 80%;
-  height: auto;
-  display: block;
-  vertical-align: bottom;
-}
-
-.post-right .post-image figcaption,
-.post-right .post-image .post-credit {
-  margin-top: 6px;
-  font-size: 0.7rem;
-  font-style: italic;
-  opacity: 0.55;
-  text-align: center;
-}
-
-/* INLINE IMAGE OVERRIDES */
-.post-right .post-image.inline {
-  display: block !important;
-  margin: 4px 0 8px 14px !important;
-  max-width: 160px !important;
-  float: right;
-  line-height: 0;
-  align-items: unset !important;
-}
-
-.post-right .post-image.inline-left {
-  float: left;
-  margin: 4px 14px 8px 0 !important;
-}
-
-.post-right .post-image.inline img {
-  width: 100% !important;
-  max-width: 200px !important;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
-
-.post-right .post-image.inline figcaption {
-  margin-top: 4px;
-  font-size: 0.65rem;
-  line-height: 1.2;
-  opacity: 0.5;
-  text-align: left;
-}
-
-.post-right .text-wrap {
-  display: block;
-  overflow: hidden;
-}
-
-
-.post-image.expandable {
-  cursor: zoom-in;
-  transition: transform 0.25s ease;
-}
-
-.post-image.expandable.expanded {
+/* Backdrop - covers everything */
+#expand-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  background: rgba(0,0,0,0.75);
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  float: none !important;
-  margin: 0 !important;
-  max-width: none !important;
-  object-fit: contain; /* ensures it scales proportionally */
-  cursor: zoom-out; /* show user they can click to close */
-}
-
-/* POST AUDIO */
-.post-audio {
-  margin-top: 12px;
-  padding: 6px 8px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-}
-
-.post-audio audio {
-  width: 100%;
-  height: 28px;
-  opacity: 0.85;
-  filter: grayscale(1) contrast(1.05);
-}
-/* ==========================================================
-   RECENT POSTS DIVIDER
-========================================================== */
-#recent-divider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 30px 0;
-  font-family: "Merriweather", "Cambria", "Palatino Linotype", "Book Antiqua", serif;
-  font-size: 1.25rem;
-  color: rgba(230,230,240,0.5);
-  position: relative;
-  text-align: center;
-}
-
-#recent-divider-container::after {
-  content: '';
-  display: block;
-  width: 65%;
-  max-width: 250px;
-  height: 2px;
-  background: #fff;
-  margin-top: 8px;
-  opacity: 0.15;
-  border-radius: 1px;
-}
-
-/* ==========================================================
-   SEARCH INPUT
-========================================================== */
-.search-container { width: 100%; min-width: 0; }
-
-#search-input {
-  width: 100%;
-  padding: 0.35rem 0.5rem;
-  border-radius: 5px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 0.9rem;
-  box-sizing: border-box;
-}
-
-#search-input:focus {
-  outline: none;
-  border-color: #FFD6A7;
-}
-
-/* ==========================================================
-   ZODIAC / COLLAPSIBLE PANELS
-========================================================== */
-.zodiac-section.perma-open > .collapsible-panel.main-panel {
-  display: block !important;
-  max-height: none !important;
-  height: auto !important;
-  overflow: visible !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.zodiac-section.perma-open > .collapsible-header {
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  opacity: 0.85;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 99998;
 }
 
-.zodiac-section.perma-open > .collapsible-header .arrow {
+#expand-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Lightbox container */
+#expand-lightbox {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 99999;
+}
+
+#expand-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Content container - base */
+#expand-content {
+  max-width: 80vw;
+  max-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Default: centered image only (no text) */
+#expand-content.centered {
+  flex-direction: column;
+}
+
+#expand-content.centered #expand-img {
+  max-width: 70vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+#expand-content.centered #expand-text {
   display: none;
 }
 
+
 /* ==========================================================
-   IMAGE LIGHTBOX
+   WITH TEXT: DREAMY STAR FIELD ✨
+   (Header above image on left, text closer to image)
 ========================================================== */
-.image-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
+#expand-content.with-text {
+  position: relative;
+  width: 540px;
+  max-width: 88vw;
+  height: 840px;
+  max-height: 85vh;
+  background: linear-gradient(145deg, 
+    rgba(2, 3, 6, 0.55) 0%, 
+    rgba(1, 2, 5, 0.52) 50%, 
+    rgba(2, 3, 6, 0.55) 100%);
+  border-radius: 25px;
+  padding: 16px 24px 100px 16px;
+  color: #e6e6f0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-y: auto;           
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  display: block;
+  
+  -webkit-mask-image: linear-gradient(to bottom, 
+    black 0%, 
+    black 80%, 
+    transparent 95%
+  );
+  mask-image: linear-gradient(to bottom, 
+    black 0%, 
+    black 80%, 
+    transparent 95%
+  );
+  
+  scrollbar-width: 16px;
+  scrollbar-color: rgba(255,255,255,0.5) rgba(0,0,0,0.3);
 }
 
-.image-lightbox img {
-  max-width: 92vw;
-  max-height: 92vh;
-  border-radius: 14px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+/* ✨ STARRY BACKGROUND */
+#expand-content.with-text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  border-radius: 25px;
+  background-image:
+    radial-gradient(1px 1px, rgba(255,255,255,0.95) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1px 1px, rgba(255,255,255,0.9) 50%, transparent 50%);
+  background-size: 50px 50px, 100px 100px, 75px 75px;
+  background-position: 0 0, 25px 50px, 50px 25px;
+  background-repeat: repeat;
+  animation: stars-drift 40s linear infinite, stars-twinkle 4s ease-in-out infinite alternate;
+}
+
+/* 🖼️ IMAGE - Reduced right margin to bring text closer! */
+#expand-content.with-text #expand-img {
+  position: relative;
+  z-index: 1;
+  float: left;
+  width: 275px;
+  max-width: 55%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  margin: 55px 10px 16px 0;    /* 👈 Right margin 15px (was 30px) - closer text! */
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  border: none;
+  background: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* 📝 TEXT */
+#expand-content.with-text #expand-text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-style: italic;
+  color: rgba(230, 230, 240, 0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* 🏷️ HEADER - Positioned above image on the left! BIGGER */
+#expand-text .lb-header:first-child {
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  width: 275px;
+  margin: 0;
+  z-index: 2;
+  font-family: Georgia, serif;
+  font-size: 1.5rem;           /* 👈 BIGGER - was 1.15rem */
+  font-weight: normal;
+  font-style: italic;
+  color: #FFE2BD;
+  padding-bottom: 8px;         /* 👈 Slightly more padding */
+  border-bottom: 1px solid rgba(255, 226, 189, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* 📝 FIRST PARAGRAPH - Push down to align with image top! */
+#expand-text .lb-paragraph:first-of-type {
+  margin-top: 50px;            /* 👈 Starts at same height as image (45px) */
+}
+
+/* Add extra bottom padding to last element */
+#expand-text .lb-paragraph:last-child {
+  margin-bottom: 40px;
+}
+
+/* ==========================================================
+   BIG SCROLLBAR - Easy to grab! ✨
+========================================================== */
+
+#expand-content.with-text::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+#expand-content.with-text::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.3);
+  margin: 8px 4px;
+  border-radius: 8px;
+}
+
+#expand-content.with-text::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.5);
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  min-height: 60px;
+}
+
+#expand-content.with-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+#expand-content.with-text::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ==========================================================
+   TEXT STYLING (Headers, Italics, Highlights, Dividers)
+========================================================== */
+
+/* 📝 PARAGRAPHS */
+#expand-text .lb-paragraph {
+  margin: 0 0 12px 0;
+  font-size: 0.9rem;
+}
+
+/* ✨ ITALICS */
+#expand-text em {
+  font-style: italic;
+  color: rgba(230, 230, 240, 0.85);
+}
+
+/* 🌟 HIGHLIGHTS */
+#expand-text .highlight-line {
+  color: #FFE2BD;
+  background: rgba(255, 226, 189, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* ➗ DIVIDER - Tight spacing, sits right above image */
+#expand-text .lb-divider {
+  width: 85%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 12px auto 8px auto;
+  border-radius: 1px;
+  position: relative;
+  clear: left;
+}
+
+/* Star divider ✦ */
+#expand-text .lb-divider.stars::before {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(16, 17, 24, 0.9);
+  padding: 0 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+}
+
+/* Dotted divider */
+#expand-text .lb-divider.dotted {
+  background: transparent;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  height: 0;
+}
+
+/* Double line divider */
+#expand-text .lb-divider.double {
+  height: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+}
+
+
+
+/* ==========================================================
+   IMAGE POSITION VARIATIONS
+========================================================== */
+
+/* Image on right */
+#expand-content.with-text.image-right #expand-img {
+  float: right;
+  margin: 0 0 16px 20px;
+}
+
+/* Image centered (no wrap) */
+#expand-content.with-text.image-center #expand-img {
+  float: none;
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 200px;
+}
+
+/* Text only (no image) */
+#expand-content.text-only {
+  width: 480px;
+  height: auto;
+  max-height: 85vh;
+}
+
+#expand-content.text-only #expand-img {
+  display: none;
+}
+
+#expand-content.text-only #expand-text {
+  padding: 20px;
+}
+
+/* ==========================================================
+   CONTROLS (Close + Arrows)
+========================================================== */
+
+#expand-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+  z-index: 10;
+}
+
+#expand-close:hover {
+  color: #fff;
+}
+
+#expand-prev,
+#expand-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#expand-prev { left: 24px; }
+#expand-next { right: 24px; }
+
+#expand-prev:hover,
+#expand-next:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+
+/* ==========================================================
+   Z-INDEX FIXES
+========================================================== */
+
+body.lightbox-active #category-view,
+body.lightbox-active #homepage,
+body.lightbox-active #posts-container,
+body.lightbox-active .post,
+body.lightbox-active .journal-post,
+body.lightbox-active .post-right,
+body.lightbox-active .post-left {
+  z-index: 1 !important;
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes stars-drift {
+  from { background-position: 0 0, 25px 50px, 50px 25px; }
+  to { background-position: 0 -300px, 25px -250px, 50px -275px; }
+}
+
+@keyframes stars-twinkle {
+  0% { opacity: 0.15; }
+  50% { opacity: 0.22; }
+  100% { opacity: 0.18; }
 }
 
 
 /* ==========================================================
    📱 MOBILE ADJUSTMENTS
 ========================================================== */
-
 @media (max-width: 768px) {
-
   .post-right .post-image.inline {
     max-width: 90px !important;
   }
@@ -658,11 +798,54 @@ a {
     width: 100% !important;
   }
 
-.post-credits,
-.post-credits p {
-  font-size: 0.4rem !important;
-  opacity: 0.5;
-  line-height: 1.0;
+  .post-credits,
+  .post-credits p {
+    font-size: 0.4rem !important;
+    opacity: 0.5;
+    line-height: 1.0;
+  }
+
+  #expand-content.with-text {
+    width: 90vw;
+    height: auto;            /* Auto height on mobile */
+    max-height: 75vh;
+    padding: 16px 16px 0 16px;
+  }
+
+  #expand-content.with-text #expand-img {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 16px auto;
+    max-height: 200px;
+  }
+
+  #expand-content.with-text::after {
+    border-radius: 0 0 20px 20px;
+  }
+  
+  #expand-prev,
+  #expand-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  #expand-prev { left: 12px; }
+  #expand-next { right: 12px; }
 }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
