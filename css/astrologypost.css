@@ -422,15 +422,7 @@
   line-height: 1.2;     /* tighter for compact layout */
 }
 
-/* POST CONTENT DIVIDER */
 
-.post-divider {
-  width: 90%;                 /* longer than before */
-  height: 1px;
-  background: rgba(255,255,255,0.18); /* slightly lower opacity */
-  margin: 18px auto;          /* keeps it centered */
-  border-radius: 1px;
-}
 .card-grid {
   display: flex;
   flex-wrap: wrap;           
