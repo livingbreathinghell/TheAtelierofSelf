@@ -392,6 +392,14 @@ overflow: visible; /* make sure the video isn’t clipped */
   right: 10px;
 }
 
+.post-full-image video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Matches your container rounding */
+}
+
+
 /* ================================
    MERCURY IMPS SECTION
 ================================= */
@@ -497,6 +505,16 @@ overflow: visible; /* make sure the video isn’t clipped */
   transition: transform 0.25s ease;
   position: relative;
   transform: none;
+}
+
+/* ==========================================================
+   LIGHTBOX ACTIVE STATE - FORCE POSTS BEHIND
+========================================================== */
+body.lightbox-active .post-right,
+body.lightbox-active .journal-post .post-right,
+body.lightbox-active .imp-card,
+body.lightbox-active .imp-section.imp-bg {
+  z-index: 0 !important;
 }
 
 @media (max-width: 480px) {
