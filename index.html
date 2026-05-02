@@ -36,6 +36,8 @@ body.posts-ready .recent-divider {
   visibility: visible;
   transition: opacity 0.4s ease;
 }
+
+
 </style>
 
 
@@ -54,8 +56,8 @@ const isDev = true;
       "fortune.css",
       "journalpost.css",
       "astrologypost.css",
-      "editposts.css",
       "playlist.css",
+      "editposts.css",
       "minigame.css",
       "rotating-playlists.css",
       "view.css",
@@ -64,7 +66,9 @@ const isDev = true;
       "visitor-counter.css",
      "stampmarquee.css",
       "journal-welcome-panel.css",
-     "gallery.css"
+     "gallery.css",
+     "content-hub.css",
+    "transits.css"
     ];
 
     cssFiles.forEach(file => {
@@ -90,9 +94,17 @@ const isDev = true;
     .perma-open .collapsible-panel {
       display: block !important;
     }
+
+  #playlist-panel-container {
+    position: absolute !important;
+    top: 880px !important;
+    left: 280px !important;
+    z-index: 999 !important;
+  }
+
   </style>
 </head>
-<body>
+<body class="is-loading">
 
 
 
@@ -112,37 +124,54 @@ const isDev = true;
   <div id="dynamic-view-container" style="display: none;"></div>
 
 <div class="homepage-inner">
+  
+  <div class="custom-divider divider-featured"></div>
+  
   <!-- BACKGROUNDS -->
   <div class="panel-bg welcome-bg-panel"></div>
   <div id="welcome-panel-container"></div>
-  <div class="panel-bg homepage-bg-panel"></div>
-  
-  <div id="fortune-panel-container"></div>
-  
+<div class="panel-bg homepage-bg-panel">
+
+  <div class="fortune-decor"></div> <!-- 👈 YOUR DECOR LIVES HERE -->
+
+</div>  
+
   <!-- ✨ DIVIDER AFTER FORTUNE -->
   <div class="homepage-divider divider-fortune"></div>
 
+
   <!-- 🌙 CALENDAR -->
-  <div id="calendar-container"></div>
-  
+<div id="calendar-container"></div>  
+
   <!-- 🌙 VISITOR COUNTER -->
   <div id="visitor-counter-container"></div>
 
   <!-- ✨ DIVIDER AFTER VISITOR -->
   <div class="homepage-divider divider-visitor"></div>
   
+  <div class="homepage-divider divider-calendar"></div>
+  
   <!-- 🌙 FEATURED PANEL -->
+  
+<!-- LEFT PANEL -->
+<div class="panel-bg featured-bg-panel-left"></div>
+<div id="featured-panel-container-left"></div>
+
+<!-- RIGHT PANEL -->
 <div class="panel-bg featured-bg-panel"></div>
 <div id="featured-panel-container"></div>
 
-<div id="stamp-marquee-container"></div>
 
-</div>
+<!-- 🌟 CONTENT HUB PANEL (guestbook + playlist) -->
+<div class="panel-bg content-hub-bg-panel"></div>
+<div id="content-hub-container"></div>
+
+</div> <!-- end homepage-inner -->
   </div>
 
 
 
-  <div id="category-view">
+<div id="category-view" style="display: none;">
 
     <div id="category-custom-container"></div>
 
@@ -154,41 +183,44 @@ const isDev = true;
 
   </div>
 
- 
 
+<!-- EXPANDABLE LIGHTBOX -->
+<!-- EXPANDABLE LIGHTBOX -->
+<div id="expand-backdrop"></div>
+<div id="expand-lightbox">
+  <button id="expand-close">&times;</button>
+  <button id="expand-prev">&#8249;</button>
+  <div id="expand-content">
+    <img id="expand-img" src="" alt="">
+    <div id="expand-text"></div>
+  </div>
+  <button id="expand-next">&#8250;</button>
+</div>
+
+ 
+  <script src="js/lightbox.js" defer></script>
   <script src="js/posts.js"></script>
   <script src="js/partials.js" defer></script>
   <script src="js/calender.js" defer></script>
   <script src="js/editable.js" defer></script>
   <script src="js/hashtags.js" defer></script>
-  <script src="js/playlist.js" defer></script>
   <script src="js/view-switcher.js" defer></script>
   <script src="js/site.js" defer></script>
   <script src="js/mini-player.js" defer></script>
     <script src="js/visitor-counter.js" defer></script>
   <script src="js/fortune.js" defer></script>
+  <script src="js/playlist.js" defer></script>
   <script src="js/slideshow.js"></script>
 <script src="js/gallery.js" defer></script>
+<script src="js/guestbook.js" defer></script>
+<script src="js/featured-panel.js" defer></script>
 
-<script>
-window.addEventListener("load", () => {
-  const loadingScreen = document.getElementById("loading-screen");
 
-  setTimeout(() => {
-    loadingScreen.classList.add("fade-out");
-
-    setTimeout(() => {
-      loadingScreen.remove();
-      document.body.classList.add("loaded");
-    }, 600);
-
-  }, 2000);
-});
-</script>
 
 
 <script data-goatcounter="https://theatelierofself.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
 
 </body>
 </html>
