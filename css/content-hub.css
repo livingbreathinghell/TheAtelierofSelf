@@ -1,0 +1,550 @@
+/* ===============================
+   CONTENT HUB - BACKGROUND PANEL
+=============================== */
+.content-hub-bg-panel {
+  position: absolute;
+  z-index: 2;
+  
+  top: 930px;
+  left: 270px;
+  width: 530px;
+height: 460px;  
+  background: rgba(12, 13, 18, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  border-radius: 6px;
+}
+
+/* ===============================
+   CONTENT HUB - CONTAINER
+=============================== */
+#content-hub-container {
+  position: absolute;
+  top: 930px;
+  left: 285px;
+  width: 500px;
+  height: 460px;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* ===============================
+   CONTENT HUB - MAIN PANEL
+=============================== */
+.content-hub-panel {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   🎵 PLAYLIST (inside hub)
+=============================== */
+.hub-playlist {
+  width: 270px;
+  background: rgba(42, 42, 53, 0.96);
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  font-family: 'Orbitron', monospace;
+}
+
+/* HEADER */
+.hub-playlist-header {
+  padding: 8px 12px;
+  background: rgba(24, 24, 34, 0.95);
+  color: #fff;
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+/* MAIN CONTENT */
+.hub-playlist-main {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.hub-playlist-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+
+.hub-playlist-video iframe {
+  width: 100%;
+  height: 95px;
+  border: none;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* CONTROLS */
+.hub-playlist-controls {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.hub-playlist-controls button {
+  width: 28px;
+  height: 24px;
+  background: rgba(24, 24, 34, 0.95);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.hub-playlist-controls button:hover {
+  background: rgba(60, 60, 80, 0.95);
+  transform: scale(1.05);
+}
+
+/* LEDS */
+.hub-playlist-leds {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.hub-playlist-leds span {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 214, 167, 0.25);
+}
+
+.hub-playlist-leds span.active {
+  background: rgba(255, 214, 167, 0.95);
+  animation: led-flicker 1.8s infinite steps(2);
+}
+
+@keyframes led-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* QUEUE */
+.hub-playlist-queue {
+  width: 85px;
+  max-height: 140px;
+  overflow-y: auto;
+  background: rgba(24, 24, 34, 0.95);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 214, 167, 0.3) transparent;
+}
+
+.hub-playlist-queue::-webkit-scrollbar {
+  width: 3px;
+}
+
+.hub-playlist-queue::-webkit-scrollbar-thumb {
+  background: rgba(255, 214, 167, 0.35);
+  border-radius: 2px;
+}
+
+.queue-item {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.queue-item:hover {
+  opacity: 1;
+}
+
+.queue-item.active {
+  color: #FFD6A7;
+  opacity: 1;
+}
+
+
+/* ===============================
+   📝 TO DO (inside hub)
+=============================== */
+
+/* Make the hub lay out todo + playlist side by side */
+.content-hub-panel {
+  display: flex;
+  gap: 23px;
+  align-items: flex-start;
+}
+
+.hub-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 170px;
+}
+
+/* "to do:" label above the panel */
+.hub-todo-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  color: #e6e6f0;
+  opacity: 0.75;
+  letter-spacing: 0.05em;
+  padding-left: 4px;
+}
+
+.hub-todo-panel {
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  padding: 14px 14px 14px 16px;
+  min-height: 280px;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0.89;
+}
+
+/* ✨ Starry animation inside the panel */
+.hub-todo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  border-radius: inherit;
+
+  background-image:
+    radial-gradient(1px 1px, rgba(255,255,255,0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px, rgba(255,255,255,0.9) 50%, transparent 50%);
+
+  background-size: 60px 60px, 120px 120px, 90px 90px;
+  background-position: 0 0, 30px 60px, 60px 30px;
+  background-repeat: repeat;
+
+  animation:
+    stars-drift 30s linear infinite,
+    stars-twinkle 5s ease-in-out infinite alternate;
+}
+
+/* The bullet list inside — italic Orbitron, sits above the stars */
+.hub-todo-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Orbitron', monospace;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: #e6e6f0;
+  line-height: 1.7;
+}
+
+.hub-todo-list li {
+  position: relative;
+  padding-left: 14px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+/* Cute soft bullets that match your accent color */
+.hub-todo-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 214, 167, 0.7);
+  font-style: normal;
+}
+
+/* ===============================
+   🌀 ROTATING PLAYLISTS (inside hub)
+=============================== */
+
+/* Stack now-playing + rotating playlists vertically */
+.hub-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 270px;
+}
+
+.hub-rotating {
+  width: 100%;
+}
+
+/* "playlists" title — centered, bigger, with more breathing room */
+.hub-rotating #playlist-title {
+  position: static;
+  transform: none;
+  --title-scale: 1;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.10em;
+  font-style: italic;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  pointer-events: auto;
+  opacity: 0.8;
+}
+
+/* Rotating strip — undo the absolute positioning + shrink to fit */
+.hub-rotating #rotating-playlists {
+  position: static;
+  transform: none;
+  --playlist-scale: .7;
+  --visible-width: 260px;
+  width: 260px;
+  max-width: 260px;
+}
+
+/* Smaller items so they fit nicely under the now-playing panel */
+.hub-rotating .playlist-item {
+  font-size: 0.72rem;
+  gap: 8px;
+}
+
+.hub-rotating .playlist-item img {
+  width: 34px;
+  height: 34px;
+}
+
+/* ===============================
+   📐 HUB LAYOUT (column stack)
+=============================== */
+
+/* The hub itself stacks vertically: top row → divider → guestbook */
+.content-hub-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Top row holds to-do beside the right column */
+.hub-top-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ===============================
+   ✨ DIVIDER
+=============================== */
+.hub-divider {
+  width: 95%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 18px auto;
+  border: none;
+  border-radius: 1px;
+}
+
+/* ===============================
+   📐 HUB FILL — make panel use full height
+=============================== */
+.content-hub-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ===============================
+   📖 GUESTBOOK (inside hub)
+=============================== */
+.hub-guestbook {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+/* "guestbook:" label */
+.hub-guestbook-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  color: #f5ecd8;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  padding-left: 4px;
+}
+
+/* 📌 PINNED MESSAGE — chunky personal note from you */
+.guestbook-pinned {
+  background: rgba(245, 236, 216, 0.06);
+  border: 1px solid rgba(245, 236, 216, 0.22);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #f5ecd8;
+  opacity: 0.88;
+}
+
+.guestbook-pinned .entry-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.guestbook-pinned .entry-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.guestbook-pinned .entry-date {
+  margin-left: auto;
+}
+
+.pinned-badge {
+  font-size: 0.6rem;
+  color: #F9E5B8;
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+  font-style: normal;
+  font-family: monospace;
+  flex-shrink: 0;
+}
+
+.guestbook-pinned .entry-message {
+  font-size: 1.1rem;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+/* 📜 VISITOR ENTRIES PANEL — darker, blank by default */
+.hub-guestbook-panel {
+  background: rgba(0, 0, 0, 0.40);
+  border: 1px solid rgba(245, 236, 216, 0.12);
+  border-radius: 6px;
+  padding: 10px 16px;
+  flex: 1;
+  min-height: 80px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 236, 216, 0.25) transparent;
+}
+
+.hub-guestbook-panel::-webkit-scrollbar { width: 4px; }
+.hub-guestbook-panel::-webkit-scrollbar-thumb {
+  background: rgba(245, 236, 216, 0.25);
+  border-radius: 2px;
+}
+
+/* Each visitor entry */
+.guestbook-entry {
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(245, 236, 216, 0.10);
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #f5ecd8;
+}
+
+.guestbook-entry:last-child { border-bottom: none; }
+
+.guestbook-entry .entry-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.7rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.entry-name { opacity: 0.9; }
+.entry-date { opacity: 0.5; }
+
+.guestbook-entry .entry-message {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  opacity: 0.85;
+  word-wrap: break-word;
+}
+
+/* ✍️ INPUT FORM — name + submit on top row, message below */
+.guestbook-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 10px;
+  background: rgba(245, 236, 216, 0.04);
+  border: 1px solid rgba(245, 236, 216, 0.18);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(245, 236, 216, 0.18);
+  color: #f5ecd8;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 0.85rem;
+  padding: 5px 4px;
+  outline: none;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+  border-bottom-color: rgba(245, 236, 216, 0.45);
+}
+
+.guestbook-form input::placeholder,
+.guestbook-form textarea::placeholder {
+  color: rgba(245, 236, 216, 0.4);
+  font-style: italic;
+}
+
+#guestbook-message {
+  grid-column: 1 / 3;
+  min-height: 42px;
+  border-bottom: none;
+}
+
+#guestbook-submit {
+  width: 36px;
+  height: 32px;
+  background: rgba(245, 236, 216, 0.10);
+  border: 1px solid rgba(245, 236, 216, 0.25);
+  border-radius: 4px;
+  color: #f5ecd8;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  align-self: center;
+}
+
+#guestbook-submit:hover {
+  background: rgba(245, 236, 216, 0.20);
+  transform: scale(1.05);
+}
+
+
