@@ -15,7 +15,8 @@
     1: "media/basemedia/homepagedecor/calender/february.png",
     2: "media/basemedia/homepagedecor/calender/march.png",
     3: "media/basemedia/homepagedecor/calender/april.png",
-    4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null, 11: null
+    4: "media/basemedia/homepagedecor/calender/may.png",
+    5: null, 6: null, 7: null, 8: null, 9: null, 10: null, 11: null
   };
 
   const NAV_IMAGES = {
@@ -110,7 +111,7 @@
     popup.innerHTML = `
       <button class="calendar-note-close" style="
         position: absolute;
-        top: 6px;
+        top: 5px;
         right: 8px;
         background: none;
         border: none;
@@ -173,7 +174,7 @@
     // 🎯 IMPORTANT: position relative so popup positions correctly!
     container.style.cssText = `
       position: absolute;
-      top: 880px;
+      top: 1050px;
       left: 25px;
       width: 230px;
       z-index: 5;
@@ -243,6 +244,7 @@ text-shadow:
     container.innerHTML = `
       <div style="position: relative; width: 100%;">
         
+ 
         <!-- MONTH IMAGE -->
         <div style="
           width: 100%;
@@ -308,9 +310,35 @@ text-shadow:
 
         </div>
 
+        <!-- 🌙 CALENDAR NAV LINKS -->
+        <nav id="calendar-links" style="
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+          gap: 4px;
+          flex-wrap: wrap;
+          font-size: 0.55rem;
+          font-weight: 470;
+        ">
+          <a href="#" data-view="transits" style="
+            color: #F9E5B8;
+            text-decoration: none;
+            border: none;
+            border-bottom: none;
+            margin: 0 3px;
+          ">transits<span style="margin-left:6px; opacity:0.6;"> |</span></a>
+          <a href="#" data-view="all-notes" style="
+            color: #F9E5B8;
+            text-decoration: none;
+            border: none;
+            border-bottom: none;
+            margin: 0 3px;
+          ">all notes</a>
+        </nav>
+
         <!-- 🌙 NOTE HINT -->
         <div style="
-          margin-top: 8px;
+          margin-top: 10px;
           text-align: center;
           font-size: 8px;
           letter-spacing: 0.08em;
