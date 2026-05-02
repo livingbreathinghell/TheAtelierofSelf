@@ -1,41 +1,257 @@
 /* ===============================
-FEATURED PANEL CONTAINER
+   FEATURED PANEL (RIGHT) — CONTAINER
 =============================== */
+.featured-bg-panel {
+  display: none;
+}
+
 #featured-panel-container {
   position: absolute;
-
-  /* 👇 POSITION CONTROLS */
-  top: 470px;
+  top: 500px;     /* tab now sits right at wire level */
   left: 270px;
-
   width: 530px;
   height: 400px;
-
-  z-index: 1;
+  z-index: 3;
   pointer-events: auto;
 }
 
 /* ===============================
-FEATURED PANEL BACKGROUND
+   WRAPPER
 =============================== */
-.featured-bg-panel {
-  position: absolute;
+.featured-panel-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* 👇 MATCH POSITION */
-  top: 470px;
-  left: 270px;
-
-  width: 530px;
-  height: 400px;
-
-  z-index: 0;
-
+/* ===============================
+   PANEL BODY — full panel, playlist-style
+=============================== */
+.featured-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(12, 13, 18, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   border-radius: 6px;
-
-  background: rgba(20, 20, 30, 0.6);
-  backdrop-filter: blur(6px);
-
+  overflow: hidden;
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.08),
-    0 0 20px rgba(0,0,0,0.3);
+    0 6px 28px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ===============================
+   HEADER ROW — inside panel, no divider
+=============================== */
+.featured-header-row {
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 14px;
+  gap: 10px;
+}
+
+/* "featured content" label — subtle, left side */
+.featured-label-zone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.featured-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.68rem;
+  font-style: italic;
+  color: #e6e6f0;
+  opacity: 0.32;
+  letter-spacing: 0.08em;
+}
+
+/* Pill tab — right side, shows current slide name */
+.featured-tab {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 20px;
+  padding: 3px 14px;
+  display: flex;
+  align-items: center;
+  max-width: 260px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.featured-tab-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  font-style: italic;
+  color: #f5ecd8;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===============================
+   CAROUSEL — inset padding creates inner-border feel
+=============================== */
+.featured-carousel-area {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;        /* sides inset from panel edge */
+}
+
+.featured-carousel-track {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  border-radius: 4px;    /* slightly rounded image corners */
+}
+
+.featured-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.featured-slide.active {
+  opacity: 1;
+}
+
+/* DOTS */
+.featured-dots-row {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  padding: 8px 0 6px;
+  flex-shrink: 0;
+}
+
+.featured-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 236, 216, 0.3);
+  background: rgba(245, 236, 216, 0.12);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  padding: 0;
+}
+
+.featured-dot.active {
+  background: rgba(245, 236, 216, 0.82);
+  transform: scale(1.25);
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+.featured-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 8px 16px;
+  flex-shrink: 0;
+}
+
+.featured-enter-link {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  color: #f5ecd8;
+  text-decoration: none;
+  opacity: 0.6;
+  flex: 1;
+  transition: opacity 0.2s, letter-spacing 0.35s;
+}
+
+.featured-enter-link:hover {
+  opacity: 1;
+  letter-spacing: 0.26em;
+}
+
+/* REACTIONS */
+.featured-reactions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.reaction-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 34px;
+}
+
+.reaction-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.05em;
+  color: #f5ecd8;
+  opacity: 0.4;
+}
+
+.reaction-btn {
+  background: rgba(245, 236, 216, 0.06);
+  border: 1px solid rgba(245, 236, 216, 0.16);
+  border-radius: 4px;
+  color: #f5ecd8;
+  font-size: 0.75rem;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.reaction-btn:hover {
+  background: rgba(245, 236, 216, 0.14);
+  transform: scale(1.1);
+}
+
+.reaction-btn.active.like-btn {
+  background: rgba(255, 200, 140, 0.22);
+  border-color: rgba(255, 200, 140, 0.45);
+  color: #ffd6a7;
+}
+
+.reaction-btn.active.dislike-btn {
+  background: rgba(160, 180, 255, 0.18);
+  border-color: rgba(160, 180, 255, 0.38);
+  color: #b8c8ff;
+}
+
+.reaction-count {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.62rem;
+  color: #f5ecd8;
+  opacity: 0.55;
+}
+
+.reaction-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.09);
+  margin: 0 2px;
 }
