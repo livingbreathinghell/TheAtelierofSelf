@@ -3,11 +3,13 @@
    HAND-DRAWN CALENDAR
 ========================================================== */
 
+
+
 #calendar-container {
   position: absolute;
-  top: 520px;
+  top: 307px;
   left: 40px;
-  width: 350px;
+  width: 380px;
   z-index: 5;
 }
 
@@ -273,4 +275,38 @@
   font-size: 0.4rem;
   color: #F9E5B8;
   opacity: 0.7;
+}
+
+/* ===============================
+   🌙 CALENDAR NAV LINKS
+   (matches #welcome-links style — smaller)
+=============================== */
+#calendar-links {
+  margin-top: 10px;        /* 👈 space between calendar & links */
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  font-size: 0.55rem;      /* 👈 smaller than welcome-links */
+  font-weight: 470;
+}
+
+#calendar-links a {
+  color: #F9E5B8 !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  margin: 0 3px;
+}
+
+#calendar-links a:not(:last-child)::after {
+  content: " |";
+  margin-left: 6px;
+  opacity: 0.6;
+}
+
+#calendar-links a:hover {
+  text-decoration: none !important;
+  opacity: 0.8;
 }
