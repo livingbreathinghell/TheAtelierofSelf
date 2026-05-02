@@ -5,13 +5,11 @@
 <div id="welcome-panel">
 
   <!-- LEFT COLUMN -->
-  <!-- LEFT COLUMN -->
 <div id="welcome-left">
 
-  <!-- subtle background overlay -->
   <div class="welcome-left-bg"
        style="
-         top: -38px;
+         top: -40px;
          left: -25px;
          width: 250px;
          height: 350px;
@@ -29,156 +27,214 @@
         ">
     ✮
   </span>
-
-  <div id="welcome-label">
-    <em>⤷゛</em>
+  <div id="welcome-title">⤷ ゛welcome ˎˊ˗</div>
+    <img src="media/basemedia/homepagedecor/catdance.gif" class="title-cat-right" />
   </div>
 
   <div id="welcome-image">
     <img src="media/basemedia/homepagedecor/welcomepanel.gif" alt="welcome" />
   </div>
-  
-  <div id="welcome-status">
-  <span class="status-label">status:</span>
-  <span class="status-text">building</span>
-</div>
-  
 
   <div id="welcome-stats">
     <div class="welcome-stat">
-      <span class="stat-number" id="stat-posts">21</span>
+      <span class="stat-number" id="stat-posts">[ 21 ]</span>
       <span class="stat-label">posts</span>
     </div>
-
     <div class="welcome-stat">
-      <span class="stat-number" id="stat-days">91</span>
+      <span class="stat-number" id="stat-days">[ 91 ]</span>
       <span class="stat-label">days live</span>
     </div>
   </div>
-
 </div>
 
-<div class="divider divider-vertical" 
+<!-- SYMBOL LINE — sits behind the stamp, direct child of #welcome-panel -->
+<div id="welcome-symbols"> 𖦏 </div>
+
+<!-- 🔖 STAMP — adjust top/left to move it -->
+<div id="welcome-stamp">
+  <img src="media/basemedia/homepagedecor/hellstamp.png" alt="stamp">
+</div>
+
+<div class="divider divider-vertical"
      style="top:-30px; left:235px; height:350px;"></div>
 
- <!-- RIGHT COLUMN -->
+<!-- RIGHT COLUMN -->
 <div id="welcome-right">
 
-<div id="welcome-title">
-  hello web travler
-  <img src="media/basemedia/homepagedecor/catdance.gif" class="title-cat-right" />
+<!-- Y2K POPUP -->
+<div id="welcome-popup">
+  <div id="welcome-popup-titlebar">
+    <span id="welcome-popup-label">1m 0n cr4ck ? x_X</span>
+    <div id="welcome-popup-controls">
+      <span>_</span>
+      <span>□</span>
+      <span>✕</span>
+    </div>
+  </div>
+  <div id="welcome-popup-content">
+    <video autoplay loop muted playsinline>
+      <source src="media/basemedia/homepagedecor/Imoncrack.mp4" type="video/mp4">
+    </video>
+  </div>
 </div>
 
   <div class="welcome-paragraph" id="welcome-text-1">
-    nothing can properly contain and express my brain for what its worth.. so i made the site.
+wow .. u actually stumbled across this .. ur so niche and cool
   </div>
 
   <div class="welcome-paragraph" id="welcome-text-2">
- this is my personal project to explore creativity, identity, and self expression. i keep my art, writing, music, astrology notes, and much more here.
+        nothing can properly contain and express my brain for what its worth.. so i made the site. 
   </div>
-
-  <div class="welcome-paragraph" id="welcome-text-3">
-major work in progress!!  </div>
   
+    <div class="welcome-paragraph" id="welcome-text-3">
+this is my personal project to explore my hobbies, 
+</div>
+
+    <div class="welcome-paragraph" id="welcome-text-4">
+creativity, identity, and self expression authentically.. everchanging, evergrowing, a complete BRAIN DUMP,,!!??
+</div>
+
+    <div class="welcome-paragraph" id="welcome-text-5">
+major work in progress ...
+</div>
+
+<div id="welcome-column-img">
+  <img src="media/basemedia/homepagedecor/viewimage.png" alt="">
+</div>
+
 <nav id="welcome-links">
   <a href="#" data-view="about">about me</a>
-<a href="#" data-view="gallery">gallery</a>
-
+  <a href="#" data-view="gallery">gallery</a>
   <a href="#" data-view="bucketlist">bucketlist</a>
-  <a href="favorites.html">favorites</a>
-  <a href="moodboard.html">moodboard</a>
 </nav>
 
+
+
+<div id="welcome-playlist">
+  <div class="hub-playlist">
+
+    <!-- WINAMP TITLE BAR -->
+    <div class="winamp-titlebar">
+      <div class="winamp-titlebar-left">
+        <span class="winamp-icon">✦</span>
+        <span class="winamp-name">atelier</span>
+      </div>
+      <div class="winamp-titlebar-right">
+        <span>_</span><span>□</span><span>✕</span>
+      </div>
+    </div>
+
+    <!-- VIDEO / THUMBNAIL -->
+    <div class="hub-playlist-main">
+      <div class="hub-playlist-video">
+        <div class="video-thumbnail-overlay" id="video-overlay">
+          <img id="video-thumb" src="" alt="thumbnail">
+          <div class="overlay-play-icon">▶</div>
+        </div>
+        <iframe id="yt-iframe" src="about:blank"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- LCD DISPLAY: scrolling title + LEDs -->
+    <div class="winamp-display">
+      <div class="winamp-display-inner">
+        <div class="winamp-marquee-wrap">
+          <span class="winamp-marquee-text" id="yt-title">♪ select a track ───────────</span>
+        </div>
+        <div class="winamp-display-leds">
+          <span class="wled"></span>
+          <span class="wled"></span>
+          <span class="wled"></span>
+          <span class="wled"></span>
+          <span class="wled"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WINAMP TRANSPORT BUTTONS -->
+    <div class="winamp-transport">
+      <button class="wbtn" id="yt-prev" title="Previous">|◄</button>
+      <button class="wbtn wbtn-play" id="yt-play-pause" title="Play / Pause">►</button>
+      <button class="wbtn" id="yt-next" title="Next">►|</button>
+      <button class="wbtn wbtn-shuffle" id="yt-shuffle" title="Shuffle">⇄ shf</button>
+    </div>
+
+    <!-- QUEUE — connected below -->
+    <div class="hub-playlist-queue" id="yt-queue"></div>
+
+  </div>
+
+  <!-- ROTATING PLAYLISTS -->
+  <div class="hub-rotating">
+    <div id="playlist-title">
+      <span>playlists</span>
+      <div class="playlist-divider"></div>
+    </div>
+    <div id="rotating-playlists">
+      <div class="playlist-track">
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/impulse.jpg"><span>impulse</span></a>
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/genesis.jpg"><span>genesis</span></a>
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/gimmelobotomy.png"><span>gimmelobotomy</span></a>
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/impulse.jpg"><span>impulse</span></a>
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/genesis.jpg"><span>genesis</span></a>
+        <a class="playlist-item" href="#"><img src="media/audio/covers/playlists/gimmelobotomy.png"><span>gimmelobotomy</span></a>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
+</div><!-- end #welcome-panel -->
 
 
 <!-- FLOATING / MOVABLE IMAGES -->
 <div id="floating-images">
-
-<div class="float-img"
-     style="
-       top:320px;
-       left:650px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.8;
-     "
-     id="float-img-2">
-  <img src="media/basemedia/homepagedecor/wire2.png" alt="Floating Image 2">
-</div>
-
-<div class="float-img"
-     style="
-       top:320px;
-       left:670px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.8;
-     "
-     id="float-img-3">
-  <img src="media/basemedia/homepagedecor/wire3.png" alt="Floating Image 3">
-</div>
-
-<div class="float-img"
-     style="
-       top:320px;
-       left:620px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.4;
-     "
-     id="float-img-3">
-  <img src="media/basemedia/homepagedecor/darkwire2.png" alt="Floating Image 3">
-</div>
-
-<div class="float-img"
-     style="
-       top:320px;
-       left:590px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.4;
-     "
-     id="float-img-3">
-  <img src="media/basemedia/homepagedecor/darkwire3.png" alt="Floating Image 3">
+  
+  <!-- SMALL SQUARES — adjust top/left as needed -->
+<div class="float-img welcome-sq"
+     id="welcome-sq-1"
+     style="top: 275px; left: 710px; width: 60px; height: 60px; opacity: 0.85; z-index: 20;">
+  <img src="media/basemedia/homepagedecor/deathnoteicon.png" alt="">
 </div>
 
 
+  
 
-<div class="float-img"
-     style="
-       top:320px;
-       left:560px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.5;
-     "
-     id="float-img-3">
-  <img src="media/basemedia/homepagedecor/darkwire1.png" alt="Floating Image 3">
-</div>
+  <div class="float-img"
+       style="top:304px;left:25px;width:80px;height:125px;transform:scale(.70);opacity:0.8;"
+       id="float-img-2">
+    <img src="media/basemedia/homepagedecor/wire2.png" alt="Floating Image 2">
+  </div>
 
-<div class="float-img"
-     style="
-       top:320px;
-       left:580px;
-       width:135px;
-       height:63px;
-       transform: scale(.88);
-       opacity: 0.6;
-     "
-     id="float-img-2">
-  <img src="media/basemedia/homepagedecor/wire2.png" alt="Floating Image 2">
-</div>
+  <div class="float-img"
+       style="top:304px;left:60px;width:80px;height:125px;transform:scale(.70);opacity:0.8;"
+       id="float-img-3">
+    <img src="media/basemedia/homepagedecor/darkwire2.png" alt="Floating Image 3">
+  </div>
+
+  <div class="float-img"
+       style="top:304px;left:0px;width:80px;height:125px;transform:scale(.70);opacity:0.5;"
+       id="float-img-3">
+    <img src="media/basemedia/homepagedecor/darkwire1.png" alt="Floating Image 3">
+  </div>
+
+
 
 </div>
