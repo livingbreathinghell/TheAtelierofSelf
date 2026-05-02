@@ -1,75 +1,176 @@
-/* =========================
-   PLAYLIST PLAYER INIT (Async-Safe)
-========================= */
-function initPlaylist(root = null) {
-  root = root || document;
+/* ============================
+   YOUTUBE PLAYLIST PLAYER
+   For Content Hub
+============================ */
 
-  const playerRoot = root.querySelector("#playlist-player");
-  if (!playerRoot) return;
+const YT_TRACKS = [
+  { title: "alchemy ✦", videoId: "QN0LJt2qZHQ" },
+  // Add more tracks here!
+];
 
-  const audio = playerRoot.querySelector("#playlist-audio");
-  const playPauseBtn = playerRoot.querySelector("#play-pause");
+let activeIndex = 0;
+let playing = false;
+let shuffleOn = false;
 
-  if (!audio || !playPauseBtn) return;
+function initHubPlaylist() {
+  const iframe = document.getElementById("yt-iframe");
+  const queue = document.getElementById("yt-queue");
+  const playBtn = document.getElementById("yt-play-pause");
+  const prevBtn = document.getElementById("yt-prev");
+  const nextBtn = document.getElementById("yt-next");
+  const shuffleBtn = document.getElementById("yt-shuffle");
+  const leds = document.querySelectorAll(".wled");
+  const overlay = document.getElementById("video-overlay");
+  const thumb = document.getElementById("video-thumb");
+  const titleEl = document.getElementById("yt-title");
 
-  if (!playPauseBtn.dataset.bound) {
-    playPauseBtn.dataset.bound = "true";
+  if (!iframe || !queue || !playBtn) {
+    console.log("⏳ Playlist elements not found yet");
+    return;
+  }
 
-    playPauseBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        // 👇 Stop all mini players first!
-        document.querySelectorAll(".post-left-audio").forEach(box => {
-          const miniAudio = box.querySelector(".post-audio");
-          const miniBtn = box.querySelector(".play-pause-btn");
-          const miniImg = box.querySelector("img");
-          if (miniAudio) miniAudio.pause();
-          if (miniBtn) miniBtn.textContent = "▶";
-          if (miniImg) miniImg.classList.remove("spinning");
-        });
+  console.log("✅ Playlist initialized!");
 
-        audio.play();
-        playPauseBtn.textContent = "‖";
-      } else {
-        audio.pause();
-        playPauseBtn.textContent = "▶";
-      }
+  function getEmbedUrl(videoId, autoplay) {
+    return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1`;
+  }
+
+  function updateThumbnail(videoId) {
+    if (thumb) {
+      thumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    }
+  }
+
+  function updateTitle(index) {
+    if (titleEl) {
+      titleEl.textContent = "♪  " + YT_TRACKS[index].title + "  ───────────";
+    }
+  }
+
+  function updateLeds() {
+    leds.forEach((led, i) => {
+      led.classList.toggle("active", playing && i <= activeIndex % leds.length);
     });
   }
 
-  if (!audio.src) audio.src = "media/audio/tornado.mp3";
-}
-/* =========================
-   Async-safe auto-init
-========================= */
-async function waitForPlaylist(timeout = 2000) {
-  return new Promise(resolve => {
-    const el = document.getElementById("playlist-container");
-    if (el) return resolve(el);
-
-    const observer = new MutationObserver((mutations, obs) => {
-      const container = document.getElementById("playlist-container");
-      if (container) {
-        obs.disconnect();
-        resolve(container);
-      }
+  function renderQueue() {
+    queue.innerHTML = "";
+    YT_TRACKS.forEach((track, i) => {
+      const div = document.createElement("div");
+      div.className = "queue-item" + (i === activeIndex ? " active" : "");
+      div.textContent = (i === activeIndex ? "▶ " : "") + track.title;
+      div.addEventListener("click", () => switchTo(i, true));
+      queue.appendChild(div);
     });
+  }
 
-    observer.observe(document.body, { childList: true, subtree: true });
+  function switchTo(index, autoplay) {
+    activeIndex = index;
+    playing = !!autoplay;
+    iframe.src = getEmbedUrl(YT_TRACKS[index].videoId, autoplay);
+    updateThumbnail(YT_TRACKS[index].videoId);
+    updateTitle(index);
+    playBtn.textContent = playing ? "‖" : "▶";
 
-    setTimeout(() => {
-      observer.disconnect();
-      resolve(null);
-    }, timeout);
+    if (overlay) {
+      if (playing) {
+        overlay.classList.add("hidden");
+      } else {
+        overlay.classList.remove("hidden");
+      }
+    }
+
+    updateLeds();
+    renderQueue();
+  }
+
+  function sendCommand(func) {
+    try {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: func, args: [] }), "*"
+      );
+    } catch (e) {}
+  }
+
+  function getNextIndex() {
+    if (shuffleOn && YT_TRACKS.length > 1) {
+      let next;
+      do { next = Math.floor(Math.random() * YT_TRACKS.length); } while (next === activeIndex);
+      return next;
+    }
+    return (activeIndex + 1) % YT_TRACKS.length;
+  }
+
+  // Overlay click - start playing
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      playing = true;
+      playBtn.textContent = "‖";
+      iframe.src = getEmbedUrl(YT_TRACKS[activeIndex].videoId, true);
+      updateTitle(activeIndex);
+      updateLeds();
+    });
+  }
+
+  // Play/Pause
+  playBtn.addEventListener("click", () => {
+    if (!playing) {
+      playing = true;
+      playBtn.textContent = "‖";
+      if (overlay) overlay.classList.add("hidden");
+      sendCommand("playVideo");
+    } else {
+      playing = false;
+      playBtn.textContent = "▶";
+      sendCommand("pauseVideo");
+    }
+    updateLeds();
   });
+
+  // Previous
+  prevBtn.addEventListener("click", () => {
+    switchTo((activeIndex - 1 + YT_TRACKS.length) % YT_TRACKS.length, playing);
+  });
+
+  // Next
+  nextBtn.addEventListener("click", () => {
+    switchTo(getNextIndex(), playing);
+  });
+
+  // Shuffle toggle
+  if (shuffleBtn) {
+    shuffleBtn.addEventListener("click", () => {
+      shuffleOn = !shuffleOn;
+      shuffleBtn.style.color      = shuffleOn ? "#F9E5B8" : "";
+      shuffleBtn.style.textShadow = shuffleOn ? "0 0 7px rgba(249,229,184,0.8)" : "";
+      shuffleBtn.style.background = shuffleOn
+        ? "linear-gradient(180deg, #2e2820 0%, #1e1c14 100%)"
+        : "";
+    });
+  }
+
+  // 🎵 AUTO-LOAD first track
+  iframe.src = getEmbedUrl(YT_TRACKS[0].videoId, false);
+  updateThumbnail(YT_TRACKS[0].videoId);
+  updateTitle(0);
+
+  renderQueue();
+  updateLeds();
 }
 
-// Auto-init safely after partials load
-document.addEventListener("DOMContentLoaded", async () => {
-  const container = await waitForPlaylist();
-  if (container) initPlaylist(container);
-});
+// Wait for elements to load, then init
+function waitAndInitPlaylist() {
+  const checkInterval = setInterval(() => {
+    const queue = document.getElementById("yt-queue");
+    if (queue) {
+      clearInterval(checkInterval);
+      initHubPlaylist();
+    }
+  }, 200);
 
-// Expose globally for partial loader integration
-window.initPlaylist = initPlaylist;
+  setTimeout(() => clearInterval(checkInterval), 10000);
+}
 
-
+document.addEventListener("DOMContentLoaded", waitAndInitPlaylist);
+window.initHubPlaylist = initHubPlaylist;
