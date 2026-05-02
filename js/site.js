@@ -319,12 +319,43 @@ function initLightbox() {
 // 🚀 INIT EVERYTHING
 // -------------------------
 
+// -------------------------
+// 🚀 INIT EVERYTHING
+// -------------------------
+
 document.addEventListener("DOMContentLoaded", () => {
   initHeader();
   initCollapsibles();
   initZodiacPanels();
   initLightbox();
+
+  const loadingScreen = document.getElementById("loading-screen");
+
+  if (loadingScreen) {
+    // Wait 1.5 seconds (matches the animation-delay above)
+    setTimeout(() => {
+      loadingScreen.style.opacity = "0";
+
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+
+        // Disable the homepage fade transition so it appears instantly
+        const noFade = document.createElement("style");
+        noFade.textContent = `
+          body > *:not(#loading-screen) {
+            transition: none !important;
+          }
+        `;
+        document.head.appendChild(noFade);
+
+        // Unlock the scroll AND trigger the homepage to show
+        document.body.classList.remove("is-loading");
+        document.body.classList.add("loaded");
+      }, 500);
+    }, 1500);
+  }
 });
+
 
 // -------------------------
 // EXPOSE FUNCTIONS GLOBALLY
