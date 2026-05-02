@@ -6,11 +6,11 @@ window.initFeaturedPanel = function () {
 
   const items = [
     { name: "The Fool - Deepdive",    url: "#", img: "media/basemedia/homepagedecor/featuredcontent/thefool-preview.png", gradient: null },
-    { name: "bass cover — kyoto",     url: "#", img: null, gradient: "linear-gradient(135deg, #1a0c10 0%, #2a1018 100%)" },
-    { name: "tarot — the moon",       url: "#", img: null, gradient: "linear-gradient(135deg, #08101e 0%, #0e1830 100%)" },
-    { name: "art — starfield sketch", url: "#", img: null, gradient: "linear-gradient(135deg, #0c1a10 0%, #122018 100%)" },
-    { name: "journal — may 1st",      url: "#", img: null, gradient: "linear-gradient(135deg, #1a180c 0%, #22200e 100%)" },
-    { name: "playlist — 2am vibes",   url: "#", img: null, gradient: "linear-gradient(135deg, #180c1e 0%, #22122a 100%)" },
+    { name: "???",     url: "#", img: null, gradient: "linear-gradient(135deg, #1a0c10 0%, #2a1018 100%)" },
+    { name: "???",       url: "#", img: null, gradient: "linear-gradient(135deg, #08101e 0%, #0e1830 100%)" },
+    { name: "???", url: "#", img: null, gradient: "linear-gradient(135deg, #0c1a10 0%, #122018 100%)" },
+    { name: "???",      url: "#", img: null, gradient: "linear-gradient(135deg, #1a180c 0%, #22200e 100%)" },
+    { name: "???",   url: "#", img: null, gradient: "linear-gradient(135deg, #180c1e 0%, #22122a 100%)" },
   ];
 
   const track        = document.getElementById("featured-carousel-track");
