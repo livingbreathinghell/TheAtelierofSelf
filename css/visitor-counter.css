@@ -1,6 +1,9 @@
 .visitor-wrapper {
   position: relative;
 }
+#visitor-counter-container {
+  transform: translateY(-15px);
+}
 
 .visitor-title {
   position: absolute;
@@ -37,21 +40,13 @@
   gap: 1px;
 }
 
-.visitor-cat {
-  width: 20px;
-  height: auto;
-  opacity: 0.8; /* 👈 visible test */
-
-  transform: translate(-6px, 0px); /* 👈 move left */
-}
-
 .visitor-box {
   position: relative;
   margin-left: 2px;
   background: rgba(200, 200, 200, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
-  padding: 5px 10px;
+  padding: 3px 10px;
   width: fit-content;
   overflow: hidden;
   backdrop-filter: blur(4px);
@@ -65,7 +60,7 @@
 
 .visitor-text {
   font-family: monospace;
-  font-size: 0.7rem; /* 👈 bigger */
+  font-size: 0.65rem; /* 👈 bigger */
   color: #ffffff;
   letter-spacing: 1px;
   position: relative;
@@ -133,22 +128,3 @@ opacity: 0.1; /* 👈 visible test */
 }
 
 
-/* 🌙 HOMEPAGE DIVIDERS */
-.homepage-divider {
-  position: absolute;
-  left: 24px;
-  width: 230px;
-  height: 1.5px;
-
-  background: rgba(255, 255, 255, 0.30); /* 👈 matches your borders */
-  opacity: 0.8;
-}
-
-/* 👇 position each one EXACTLY where you want */
-.divider-fortune {
-  top: 530px; /* tweak if needed */
-}
-
-.divider-visitor {
-  top: 870px; /* tweak if needed */
-}
