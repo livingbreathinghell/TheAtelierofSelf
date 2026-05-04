@@ -174,7 +174,7 @@
     // 🎯 IMPORTANT: position relative so popup positions correctly!
     container.style.cssText = `
       position: absolute;
-      top: 1050px;
+      top: 1245px;
       left: 25px;
       width: 230px;
       z-index: 5;
@@ -292,7 +292,7 @@ text-shadow:
 <!-- DAY GRID -->
         <div style="
           position: absolute;
-          top: 56%;
+          top: 50%;
           left: 50%;
           transform: translate(-50%, -48%);
           width: 60.5%;
