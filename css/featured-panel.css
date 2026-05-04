@@ -1,13 +1,11 @@
 /* ===============================
-   FEATURED PANEL (RIGHT) — CONTAINER
+   FEATURED PANEL — CONTAINER
 =============================== */
-.featured-bg-panel {
-  display: none;
-}
+.featured-bg-panel { display: none; }
 
 #featured-panel-container {
   position: absolute;
-  top: 500px;     /* tab now sits right at wire level */
+  top: 650px;
   left: 270px;
   width: 530px;
   height: 400px;
@@ -15,9 +13,6 @@
   pointer-events: auto;
 }
 
-/* ===============================
-   WRAPPER
-=============================== */
 .featured-panel-wrapper {
   width: 100%;
   height: 100%;
@@ -26,84 +21,121 @@
 }
 
 /* ===============================
-   PANEL BODY — full panel, playlist-style
+   PANEL BODY — Y2K bevel frame
 =============================== */
 .featured-body {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: rgba(12, 13, 18, 0.92);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
+  background: #0d0d1a;
+  border-radius: 3px;
   overflow: hidden;
+
+  border-top:    1px solid rgba(255, 255, 255, 0.22);
+  border-left:   1px solid rgba(255, 255, 255, 0.06);  /* barely visible */
+  border-right:  1px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+
   box-shadow:
-    0 6px 28px rgba(0, 0, 0, 0.6),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 0 0 1px rgba(0, 0, 0, 0.95),
+    0 0 0 4px #0d0d1a,
+    0 0 0 4px rgba(255, 255, 255, 0.18),
+    0 0 0 5px rgba(0, 0, 0, 0.75);
 }
 
 /* ===============================
-   HEADER ROW — inside panel, no divider
+   HEADER — Winamp titlebar
 =============================== */
 .featured-header-row {
-  height: 36px;
+  height: 22px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  padding: 0 10px 0 14px;
+  padding: 0 7px;
   gap: 10px;
+  background: linear-gradient(180deg, #2e2e48 0%, #1c1c2a 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  user-select: none;
 }
 
-/* "featured content" label — subtle, left side */
 .featured-label-zone {
   flex: 1;
   display: flex;
   align-items: center;
+  gap: 6px;
+}
+
+.featured-label-zone::before {
+  content: "✦";
+  font-size: 0.5rem;
+  color: #cec0e0;
+  opacity: 0.7;
 }
 
 .featured-label {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.68rem;
-  font-style: italic;
-  color: #e6e6f0;
-  opacity: 0.32;
-  letter-spacing: 0.08em;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.52rem;
+  font-style: normal;
+  color: #cec0e0;
+  opacity: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(160, 130, 200, 0.5);
 }
 
-/* Pill tab — right side, shows current slide name */
+/* boxy Y2K tab instead of pill */
 .featured-tab {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 20px;
-  padding: 3px 14px;
+  background: linear-gradient(180deg, #303048 0%, #1e1e30 100%);
+  border-top:    1px solid rgba(255, 255, 255, 0.18);
+  border-left:   1px solid rgba(255, 255, 255, 0.10);
+  border-right:  1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 1px;
+  padding: 2px 10px;
   display: flex;
   align-items: center;
   max-width: 260px;
-  flex-shrink: 1;
-  min-width: 0;
 }
 
 .featured-tab-name {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.65rem;
-  font-style: italic;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.52rem;
   color: #f5ecd8;
-  letter-spacing: 0.06em;
-  opacity: 0.85;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: uppercase;
 }
 
 /* ===============================
-   CAROUSEL — inset padding creates inner-border feel
+   CAROUSEL AREA
 =============================== */
 .featured-carousel-area {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 0 8px;        /* sides inset from panel edge */
+  padding: 8px;
+  background: #0d0d1a;
+  position: relative;
+}
+
+/* inset sunken border around carousel */
+.featured-carousel-area::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-top:    1px solid rgba(0, 0, 0, 0.9);
+  border-left:   1px solid rgba(0, 0, 0, 0.9);
+  border-right:  1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 2px;
 }
 
 .featured-carousel-track {
@@ -111,114 +143,144 @@
   position: relative;
   overflow: hidden;
   min-height: 220px;
-  border-radius: 4px;    /* slightly rounded image corners */
+  border-radius: 2px;
+  background: #080810;
+  isolation: isolate;
+}
+
+/* scanline overlay on the image */
+.featured-carousel-track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 3px
+  );
 }
 
 .featured-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   opacity: 0;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.5s ease;
 }
 
-.featured-slide.active {
-  opacity: 1;
-}
+.featured-slide.active { opacity: 1; }
 
-/* DOTS */
+/* DOTS → square LED bars */
 .featured-dots-row {
   display: flex;
-  gap: 9px;
+  gap: 5px;
   justify-content: center;
-  padding: 8px 0 6px;
+  padding: 7px 0 5px;
   flex-shrink: 0;
 }
 
 .featured-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  border: 1px solid rgba(245, 236, 216, 0.3);
-  background: rgba(245, 236, 216, 0.12);
+  width: 10px;
+  height: 4px;
+  border-radius: 1px;
+  border: 1px solid rgba(180, 160, 220, 0.2);
+  background: rgba(180, 160, 220, 0.07);
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
   padding: 0;
 }
 
 .featured-dot.active {
-  background: rgba(245, 236, 216, 0.82);
-  transform: scale(1.25);
+  background: rgba(200, 180, 255, 0.75);
+  border-color: rgba(200, 180, 255, 0.9);
+  box-shadow: 0 0 6px rgba(180, 160, 255, 0.6);
 }
 
 /* ===============================
-   FOOTER
+   FOOTER — status bar
 =============================== */
 .featured-footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 8px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  padding: 7px 12px;
   flex-shrink: 0;
+  background: linear-gradient(180deg, #131320 0%, #0d0d1a 100%);
 }
 
 .featured-enter-link {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.05rem;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.72rem;
   font-style: italic;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: #f5ecd8;
   text-decoration: none;
-  opacity: 0.6;
+  opacity: 0.55;
   flex: 1;
-  transition: opacity 0.2s, letter-spacing 0.35s;
+  transition: opacity 0.2s, letter-spacing 0.3s, text-shadow 0.2s;
 }
+
+.featured-enter-link::before { content: "[ "; opacity: 0.5; }
+.featured-enter-link::after  { content: " ]"; opacity: 0.5; }
 
 .featured-enter-link:hover {
   opacity: 1;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.30em;
+  text-shadow: 0 0 8px rgba(200, 180, 255, 0.5);
 }
 
-/* REACTIONS */
+/* ===============================
+   REACTIONS — bevel buttons
+=============================== */
 .featured-reactions {
   display: flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  padding: 5px 10px;
-  background: rgba(0, 0, 0, 0.3);
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top:    1px solid rgba(0, 0, 0, 0.8);
+  border-left:   1px solid rgba(0, 0, 0, 0.8);
+  border-right:  1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 2px;
+  padding: 4px 8px;
 }
 
 .reaction-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  min-width: 34px;
+  gap: 2px;
+  min-width: 32px;
 }
 
 .reaction-label {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.05em;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
   color: #f5ecd8;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 .reaction-btn {
-  background: rgba(245, 236, 216, 0.06);
-  border: 1px solid rgba(245, 236, 216, 0.16);
-  border-radius: 4px;
+  background: linear-gradient(180deg, #252538 0%, #18182a 100%);
+  border-top:    1px solid rgba(255, 255, 255, 0.18);
+  border-left:   1px solid rgba(255, 255, 255, 0.10);
+  border-right:  1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
   color: #f5ecd8;
-  font-size: 0.75rem;
-  width: 28px;
-  height: 22px;
+  font-size: 0.65rem;
+  width: 26px;
+  height: 20px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.1s, box-shadow 0.1s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,32 +288,41 @@
 }
 
 .reaction-btn:hover {
-  background: rgba(245, 236, 216, 0.14);
-  transform: scale(1.1);
+  background: linear-gradient(180deg, #333350 0%, #242438 100%);
+}
+
+.reaction-btn:active {
+  background: linear-gradient(180deg, #18182a 0%, #252538 100%);
+  border-top:    1px solid rgba(0, 0, 0, 0.5);
+  border-left:   1px solid rgba(0, 0, 0, 0.5);
+  border-right:  1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .reaction-btn.active.like-btn {
-  background: rgba(255, 200, 140, 0.22);
-  border-color: rgba(255, 200, 140, 0.45);
   color: #ffd6a7;
+  box-shadow: 0 0 6px rgba(255, 200, 140, 0.35);
 }
 
 .reaction-btn.active.dislike-btn {
-  background: rgba(160, 180, 255, 0.18);
-  border-color: rgba(160, 180, 255, 0.38);
   color: #b8c8ff;
+  box-shadow: 0 0 6px rgba(160, 180, 255, 0.35);
 }
 
 .reaction-count {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.62rem;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 0.55rem;
   color: #f5ecd8;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 .reaction-divider {
   width: 1px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.09);
-  margin: 0 2px;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(255,255,255,0.10) 30%,
+    rgba(255,255,255,0.10) 70%,
+    transparent);
+  margin: 0 3px;
 }
