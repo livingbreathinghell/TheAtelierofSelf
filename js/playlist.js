@@ -4,7 +4,9 @@
 ============================ */
 
 const YT_TRACKS = [
-  { title: "alchemy ✦", videoId: "QN0LJt2qZHQ" },
+  { title: "Sailin' Da South - DJ Screw ✦", videoId: "ibJpn-RDg8U" },
+  { title: "Alchemy - Uncle Outrage ✦", videoId: "QN0LJt2qZHQ" },
+  { title: "Revolution - Aimee Allen ✦", videoId: "2tvyVq5Hvq4" },
   // Add more tracks here!
 ];
 
