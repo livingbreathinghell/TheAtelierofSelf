@@ -14,25 +14,84 @@ WELCOME PANEL CONTAINER
 
 /* WELCOME / STATUS PANEL */
 .welcome-bg-panel {
-top: 60px;
-left: 24px;
-width: 771px;
-height: 350px;
+  position: absolute;
+  z-index: 4;
+  top: 60px;
+  left: 24px;
+  width: 771px;
+  height: 350px;
+  border-radius: 3px;
+
+  /* strong bevel */
+  border-top:    2px solid rgba(255, 255, 255, 0.55);
+  border-left:   2px solid rgba(255, 255, 255, 0.35);
+  border-right:  2px solid rgba(0, 0, 0, 0.85);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.85);
+
+  box-shadow:
+    /* inner highlight ring */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    /* tight black gap */
+    0 0 0 1px rgba(0, 0, 0, 0.95),
+    /* thick frame — lightened with white overlay */
+    0 0 0 10px #0d0d1a,
+    /* outer definition line */
+    0 0 0 11px rgba(255, 255, 255, 0.18),
+    /* outer containment ring */
+    0 0 0 13px rgba(0, 0, 0, 0.75);
 }
 
-.welcome-bg-panel {
+/* ===============================
+   FRAME OVERLAY (clipped to panel)
+=============================== */
+.welcome-frame-overlay {
   position: absolute;
-  z-index: 2; /* 👈 ABOVE */
+  z-index: 5;           /* sits just above the panel (z-index: 4) */
+  top: -30px;
+  left: 235px;
+  width: 525px;
+  height: 350px;
+  border-radius: 3px;
+  overflow: hidden;     /* this is what clips it to the panel shape */
+  pointer-events: none;
+}
+
+.welcome-frame-overlay img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 0.06;
+  filter: blur(2px) contrast(1.5) brightness(1) saturate(0.7);
+}
+
+.welcome-panel-tab {
+  position: absolute;
+  top: -60px;
+  left: 5px;
+  width: 500px;
+  height: 30px;
+  z-index: 0;
+  background: #0d0d1a;
+  border-radius: 3px 3px 0 0;
+
+  /* NO border-top/left/right — just the faint outer ring */
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.95),
+    0 0 0 2px rgba(255, 255, 255, 0.18);
 }
 
 .homepage-bg-panel {
   position: absolute;
   z-index: 1; /* below welcome */
 
-  top: 500px;
+  top: 635px;
   left: 24px;
   width: 230px;
-  height: 850px;
+  height: 910px;
 
   overflow: hidden;
 }
@@ -271,11 +330,11 @@ line-height: var(--lh, 1.5);
 
 
 #welcome-text-1 {
-  top: -75px;
+  top: -80px;
   left: -330px;
   width: 500px;   /* 👈 full width across the top */
-  --fs: 13px;
-  --lh: 1.40;
+  --fs: 12px;
+  --lh: 1.15;
 }
 
 #welcome-text-2 {
@@ -366,84 +425,212 @@ display: block;
 /* ===============================
    POPUP BOX (site-style)
 =============================== */
+/* ===============================
+   POPUP BOX — Y2K MEDIA PLAYER
+=============================== */
 #welcome-popup {
   position: absolute;
   top: 70px;
-  left: 190px;    /* 👈 a smidge more right */
+  left: 190px;
   width: 215px;
   height: 200px;
   z-index: 10;
 
-  background: rgba(12, 13, 18, 0.92);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
+  background: #1c1c2a;
+  border-top:    1px solid rgba(255, 255, 255, 0.22);
+  border-left:   1px solid rgba(255, 255, 255, 0.14);
+  border-right:  1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
   overflow: hidden;
   box-shadow:
-    0 6px 24px rgba(0, 0, 0, 0.55),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    2px 2px 0 rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  font-family: 'Courier New', monospace;
 }
 
+/* gradient titlebar like classic winamp */
 #welcome-popup-titlebar {
-  background: rgba(18, 19, 32, 0.98);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0 8px;
-  height: 30px;          /* 👈 chunky bar */
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 7px;
+  height: 22px;
+  background: linear-gradient(180deg, #2e2e48 0%, #1c1c2a 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   user-select: none;
+  flex-shrink: 0;
 }
 
 #welcome-popup-label {
-  font-size: 0.62rem;
-  color: #F9E5B8;
-  letter-spacing: 0.07em;
-  text-transform: lowercase;
-  opacity: 0.9;
-  text-shadow: 0 0 6px rgba(249, 229, 184, 0.4);
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  color: #cec0e0;
+  text-shadow: 0 0 6px rgba(160, 130, 200, 0.5);
+  font-size: 0.52rem;
+  opacity: 1;
 }
 
 #welcome-popup-controls {
   display: flex;
-  gap: 4px;
+  gap: 2px;
 }
 
 #welcome-popup-controls span {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.45);
-  width: 15px;
-  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 2px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg, #303048 0%, #1e1e30 100%);
+  border-top:   1px solid rgba(255, 255, 255, 0.18);
+  border-left:  1px solid rgba(255, 255, 255, 0.10);
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom:1px solid rgba(0, 0, 0, 0.4);
+  color: rgba(200, 200, 220, 0.6);
+  font-size: 0.42rem;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  border-radius: 1px;
+  transition: all 0.1s ease;
 }
 
 #welcome-popup-controls span:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #F9E5B8;
+  background: linear-gradient(180deg, #44446a 0%, #2c2c4a 100%);
+  color: #fff;
 }
 
+/* video area — film strips + scanlines */
 #welcome-popup-content {
   width: 100%;
-  height: calc(100% - 30px);
-  background: #000;
+  height: calc(100% - 40px);
+  position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  padding: 5px 12px;
+  background: #1c1c2a;
+}
+
+  /* base + film strip holes on sides via background layers */
+  background-color: #1c1c2a;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 4px,
+      rgba(0, 0, 0, 0.88) 4px, rgba(0, 0, 0, 0.88) 10px,
+      transparent 10px, transparent 14px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 4px,
+      rgba(0, 0, 0, 0.88) 4px, rgba(0, 0, 0, 0.88) 10px,
+      transparent 10px, transparent 14px
+    );
+  background-size: 12px 14px, 12px 14px;
+  background-position: left center, right center;
+  background-repeat: repeat-y, repeat-y;
+}
+
+/* scanline overlay over the video */
+#welcome-popup-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+}
+
+/* subtle moving scan bar */
+#welcome-popup-content::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 25%;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(200, 180, 255, 0.03),
+    transparent
+  );
+  animation: scan-pass 6s linear infinite;
 }
 
 #welcome-popup-content video {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
-  background: #000; /* keeps letterbox bars black */
+  object-fit: cover;
+  background: #000;
+  border-radius: 1px;
 }
 
+/* decorative status bar */
+#welcome-popup-statusbar {
+  height: 18px;
+  background: linear-gradient(180deg, #111119 0%, #0d0d15 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  gap: 3px;
+}
+
+.popup-led {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 80, 80, 0.85);
+  box-shadow: 0 0 3px rgba(255, 80, 80, 0.5);
+  animation: rec-blink 1.2s ease-in-out infinite;
+}
+
+.popup-led:nth-child(2) {
+  background: rgba(255, 180, 0, 0.7);
+  box-shadow: 0 0 3px rgba(255, 180, 0, 0.4);
+  animation-delay: 0.4s;
+}
+
+.popup-led:nth-child(3) {
+  background: rgba(80, 255, 120, 0.7);
+  box-shadow: 0 0 3px rgba(80, 255, 120, 0.4);
+  animation-delay: 0.8s;
+}
+
+.popup-rec {
+  font-family: 'Courier New', monospace;
+  font-size: 0.44rem;
+  color: rgba(255, 80, 80, 0.9);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 4px rgba(255, 80, 80, 0.5);
+  margin-left: 3px;
+  animation: rec-blink 1.2s ease-in-out infinite;
+}
+
+.popup-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.44rem;
+  color: rgba(249, 229, 184, 0.5);
+  letter-spacing: 0.1em;
+  margin-left: auto;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
 /* 📲 tablet / laptop landscape */
 @media (orientation: landscape) and (min-width: 768px) {
 
@@ -465,7 +652,7 @@ display: block;
 =============================== */
 #welcome-column-img {
   position: absolute;
-  top: 425px;       /* sits just above the links at 1020 */
+  top: 560px;       /* sits just above the links at 1020 */
   left: -325px;     /* aligns with column, nudge L/R as needed */
   width: 180px;
   height: 130px;
@@ -487,7 +674,7 @@ display: block;
 =============================== */
 #welcome-links {
   position: absolute;
-  top: 575px;     /* moved lower again */
+  top: 710px;     /* moved lower again */
   left: -320px;    
   width: 480px;
 
@@ -532,12 +719,12 @@ display: block;
 }
 
 .divider-visitor {
-  top: 730px; /* tweak if needed */
+  top: 865px; /* tweak if needed */
 }
 
 /* 👇 position each one EXACTLY where you want */
 .divider-fortune {
-  top: 1030px; /* tweak if needed */
+  top: 1215px; /* tweak if needed */
 }
 
 
@@ -548,7 +735,7 @@ display: block;
 =============================== */
 .custom-divider.divider-featured {
   position: absolute;
-  top: 915px;        /* 👈 vertical position — slide up/down */
+  top: 1085px;        /* 👈 vertical position — slide up/down */
   left: 310px;         /* 👈 left edge — usually matches your panels */
   width: 450px;       /* 👈 length of the line */
   height: 1.5px;        /* 👈 thickness — try 2px for chunkier */
@@ -583,7 +770,7 @@ display: block;
 =============================== */
 #welcome-symbols {
   position: absolute;
-  top: -20px;      /* nudge up/down to overlap your stamp */
+  top: -15px;      /* nudge up/down to overlap your stamp */
   left: 320px;     /* starts at the right column — adjust freely */
   width: 350px;
   font-size: 2rem;
@@ -643,7 +830,7 @@ display: block;
 
 #welcome-playlist {
   position: absolute;
-  top: 630px;
+  top: 765px;
   left: -340px;
   width: 210px;
   z-index: 5;
@@ -925,3 +1112,73 @@ background: #32324a;
   height: 26px;
 }
 
+#content-hub-header {
+  position: absolute;
+
+  --hub-top:   505px;
+  --hub-left:  25px;
+  --hub-width: 750px;
+  --hub-height: 120px;
+
+  top:    var(--hub-top);
+  left:   var(--hub-left);
+  width:  var(--hub-width);
+  height: var(--hub-height);
+
+  z-index: 3;
+  background: #0d0d1a;
+  border-radius: 3px;
+  overflow: hidden;
+
+  /* reduced border */
+  border-top:    1px solid rgba(255, 255, 255, 0.22);
+  border-left:   1px solid rgba(255, 255, 255, 0.08);
+  border-right:  1px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 0 0 1px rgba(0, 0, 0, 0.95),
+    0 0 0 3px #0d0d1a,
+    0 0 0 4px rgba(255, 255, 255, 0.18),
+    0 0 0 5px rgba(0, 0, 0, 0.75);
+
+  /* center everything */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  gap: 8px;
+}
+
+.content-hub-header-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.content-hub-header-overlay img {
+  position: absolute;
+  width: 160%;        /* bigger than the panel */
+  height: 200%;
+  top: -100%;          /* re-center after scaling up */
+  left: -50%;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 0.06;
+  filter: blur(2px) contrast(1.5) brightness(1) saturate(0.7);
+}
+
+.content-hub-header-label {
+  position: relative;
+  z-index: 1;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 3.0rem;         /* much bigger */
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #cec0e0;
+  text-shadow: 0 0 12px rgba(160, 130, 200, 0.5);
+  opacity: 0.85;
+}
